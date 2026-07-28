@@ -144,25 +144,32 @@ function closePanel(id)
     $('.panel.open').last().addClass('active');
 }
 
+function getSortedBlockWraps()
+{
+    return $('#blocks_wrapper').children('.block-wrap').get().sort(function (a, b) {
+        return (parseInt($(a).attr('data-order'), 10) || 0) - (parseInt($(b).attr('data-order'), 10) || 0);
+    });
+}
+
+function setBlockWrapOrder($el, order)
+{
+    $el.attr('data-order', order).css('order', order);
+}
+
 function updateBlockUpAndDown()
 {
     let $wrapper = $('#blocks_wrapper');
-    let maxOrder = 1;
-    $wrapper.find('.block-wrap').each(function() {
-        let order = parseInt($(this).attr('data-order'));
-        if (order > maxOrder) {
-            maxOrder = order;
-        }
-        $(this).removeClass('block-wrap-first block-wrap-last');
-    });
-    $wrapper.find('.block-wrap').each(function(){
-        let order = parseInt($(this).attr('data-order'));
-        if (order === 1) {
-            $(this).addClass('block-wrap-first');
-        } else if (order === maxOrder) {
-            $(this).addClass('block-wrap-last');
-        }
-    });
+    let wraps = getSortedBlockWraps();
+
+    $wrapper.children('.block-wrap').removeClass('block-wrap-first block-wrap-last');
+
+    if (!wraps.length) {
+        return;
+    }
+
+    // First/last by visual sort position (works with gaps/duplicates in data-order)
+    $(wraps[0]).addClass('block-wrap-first');
+    $(wraps[wraps.length - 1]).addClass('block-wrap-last');
 }
 
 function downloadVirtualFile(filename, text)

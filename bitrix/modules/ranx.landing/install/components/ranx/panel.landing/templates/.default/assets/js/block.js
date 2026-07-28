@@ -165,17 +165,19 @@ $(document).ready(function(){
 
         let scrollTop = $(document).scrollTop();
         let $blockWrap = $(this).closest('.block-wrap');
-        let blockOrder = parseInt($blockWrap.attr('data-order'));
-        let nextBlockOrder = blockOrder + 1;
+        let wraps = getSortedBlockWraps();
+        let idx = wraps.indexOf($blockWrap[0]);
+        let $nextBlockWrap = idx >= 0 && idx < wraps.length - 1 ? $(wraps[idx + 1]) : $();
 
-        let $nextBlockWrap = $blockWrap.siblings('.block-wrap[data-order="'+nextBlockOrder+'"]');
-
-        if (!$nextBlockWrap.data('id')) {
+        if (!$nextBlockWrap.length || !$nextBlockWrap.attr('data-id')) {
             return;
         }
 
-        $blockWrap.attr('data-order', nextBlockOrder);
-        $nextBlockWrap.attr('data-order', blockOrder);
+        let blockOrder = parseInt($blockWrap.attr('data-order'), 10) || 0;
+        let nextBlockOrder = parseInt($nextBlockWrap.attr('data-order'), 10) || 0;
+
+        setBlockWrapOrder($blockWrap, nextBlockOrder);
+        setBlockWrapOrder($nextBlockWrap, blockOrder);
 
         let $block = $blockWrap.find('.block');
         let $nextBlock = $nextBlockWrap.find('.block');
@@ -192,21 +194,19 @@ $(document).ready(function(){
 
         let scrollTop = $(document).scrollTop();
         let $blockWrap = $(this).closest('.block-wrap');
-        let blockOrder = parseInt($blockWrap.attr('data-order'));
-        let prevBlockOrder = blockOrder - 1;
+        let wraps = getSortedBlockWraps();
+        let idx = wraps.indexOf($blockWrap[0]);
+        let $prevBlockWrap = idx > 0 ? $(wraps[idx - 1]) : $();
 
-        if (prevBlockOrder <= 0) {
+        if (!$prevBlockWrap.length || !$prevBlockWrap.attr('data-id')) {
             return;
         }
 
-        let $prevBlockWrap = $blockWrap.siblings('.block-wrap[data-order="'+prevBlockOrder+'"]');
+        let blockOrder = parseInt($blockWrap.attr('data-order'), 10) || 0;
+        let prevBlockOrder = parseInt($prevBlockWrap.attr('data-order'), 10) || 0;
 
-        if (!$prevBlockWrap.data('id')) {
-            return;
-        }
-
-        $blockWrap.attr('data-order', prevBlockOrder);
-        $prevBlockWrap.attr('data-order', blockOrder);
+        setBlockWrapOrder($blockWrap, prevBlockOrder);
+        setBlockWrapOrder($prevBlockWrap, blockOrder);
 
         let $block = $blockWrap.find('.block');
         let $prevBlock = $prevBlockWrap.find('.block');

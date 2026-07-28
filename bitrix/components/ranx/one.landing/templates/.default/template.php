@@ -17,7 +17,7 @@ if (empty($arResult['LANDING'])) {
 
 PanelManager::show($arParams['MODE'], $arResult['SECTION']['TYPE']);
 
-$blocksOrderCount = (Config::isEditMode()) ? $arResult['MAX_SORT'] + 100 : $arResult['MAX_SORT'];
+$blocksOrderCount = (Config::isEditMode()) ? max((int)$arResult['MAX_SORT'] + 200, 300) : (int)$arResult['MAX_SORT'];
 
 $blockGroups = Config::getBlockGroupNames($arResult['SECTION']['TYPE'], $arParams['MODE']);
 ?>

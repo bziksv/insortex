@@ -216,17 +216,21 @@ class Block
             return $a['SORT'] > $b['SORT'] ? 1 : -1;
         });
 
-        // autofix sort
+        // autofix sort (must update $allBlocks by reference — otherwise HTML keeps gaps/duplicates
+        // and move up/down breaks because it looks for order±1 neighbors)
         if (Config::isEditMode()) {
             $sort = 1;
-            foreach ($allBlocks as $block) {
-                if ($block['SORT'] != $sort) {
+            foreach ($allBlocks as &$block) {
+                if ((int)$block['SORT'] !== $sort) {
                     $block['SORT'] = $sort;
-                    $block['IBLOCK_SECTION_ID'] ? BlockGroup::setSort($block['IBLOCK_SECTION_ID'], $sort) : self::setSort($block['ID'], $sort);
+                    !empty($block['IBLOCK_SECTION_ID'])
+                        ? BlockGroup::setSort($block['IBLOCK_SECTION_ID'], $sort)
+                        : self::setSort($block['ID'], $sort);
                 }
 
                 $sort++;
             }
+            unset($block);
         }
 
         return $allBlocks;
@@ -410,7 +414,7 @@ class Block
         return false;
     }
 
-    private static function getCurrentSort($id)
+    public static function getCurrentSort($id)
     {
         $arElement = \CIBlockElement::GetList([], ['ID' => $id], false, false, ['SORT', 'IBLOCK_SECTION_ID'])->Fetch();
 

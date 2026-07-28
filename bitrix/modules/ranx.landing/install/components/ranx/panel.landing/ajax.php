@@ -188,16 +188,20 @@ class RanxPanelLandingAjaxController extends Controller
             Landing::checkDemoAccess($landingId);
         }
 
+        // Explicit SORT swap (inc/dec breaks when orders are not consecutive)
+        $sortA = $groupId > 0 ? BlockGroup::getCurrentSort($groupId) : Block::getCurrentSort($id);
+        $sortB = $nextGroupId > 0 ? BlockGroup::getCurrentSort($nextGroupId) : Block::getCurrentSort($nextId);
+
         if ($groupId > 0) {
-            BlockGroup::incSort($groupId);
+            BlockGroup::setSort($groupId, $sortB);
         } else {
-            Block::incSort($id);
+            Block::setSort($id, $sortB);
         }
 
         if ($nextGroupId > 0) {
-            BlockGroup::decSort($nextGroupId);
+            BlockGroup::setSort($nextGroupId, $sortA);
         } else {
-            Block::decSort($nextId);
+            Block::setSort($nextId, $sortA);
         }
 
         return true;
@@ -219,16 +223,19 @@ class RanxPanelLandingAjaxController extends Controller
             Landing::checkDemoAccess($landingId);
         }
 
+        $sortA = $groupId > 0 ? BlockGroup::getCurrentSort($groupId) : Block::getCurrentSort($id);
+        $sortB = $prevGroupId > 0 ? BlockGroup::getCurrentSort($prevGroupId) : Block::getCurrentSort($prevId);
+
         if ($groupId > 0) {
-            BlockGroup::decSort($groupId);
+            BlockGroup::setSort($groupId, $sortB);
         } else {
-            Block::decSort($id);
+            Block::setSort($id, $sortB);
         }
 
         if ($prevGroupId > 0) {
-            BlockGroup::incSort($prevGroupId);
+            BlockGroup::setSort($prevGroupId, $sortA);
         } else {
-            Block::incSort($prevId);
+            Block::setSort($prevId, $sortA);
         }
 
         return true;
