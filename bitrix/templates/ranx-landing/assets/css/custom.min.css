@@ -17,16 +17,19 @@ font-size: 45px; !important
   max-width: 100%;
 }
 
-/* block2-7: photo tizers — stack on mobile, don’t clip images */
+/* block2-7: keep photo tizers compact (better quality than full-bleed) */
 .block2-7 .tizer-img {
-  max-width: 100%;
+  width: 140px;
+  max-width: 140px;
   height: auto;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 @media (max-width: 767px) {
   .block2-7 .tizer {
     flex-direction: column;
-    align-items: stretch;
+    align-items: flex-start;
   }
 
   .block2-7 .svg-icon,
@@ -35,9 +38,9 @@ font-size: 45px; !important
     float: none;
     display: block;
     margin-right: 0;
-    margin-bottom: 16px;
-    max-width: 100%;
-    width: 100%;
+    margin-bottom: 12px;
+    width: 120px;
+    max-width: 120px;
     height: auto;
   }
 }
