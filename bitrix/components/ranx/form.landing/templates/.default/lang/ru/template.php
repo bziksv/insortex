@@ -8,7 +8,8 @@ $MESS['RX_FORM_LANDING_CUSTOM_FILE_INPUT_TEXT'] = 'Прикрепить файл
 $MESS['RX_FORM_LANDING_AGREEMENT_ID_FIELD_LABEL'] = 'Согласен на обработку <a target="_blank" href="/upload/personal-data-insortex.pdf">персональных данных</a>';
 $MESS['RX_FORM_LANDING_BLOCK_SUCCESS_TITLE'] = 'Спасибо';
 $MESS['RX_FORM_LANDING_BLOCK_SUCCESS_TEXT'] = 'Ваше сообщение отправлено';
-$MESS['RX_FORM_LANDING_BLOCK_SUCCESS_TEXT_ONECLICK'] = 'Ваш заказ оформлен. Наш менеджер свяжется с вами для уточнения деталей.';
+$MESS['RX_FORM_LANDING_BLOCK_SUCCESS_TEXT_ONECLICK'] = 'Заявка на консультацию отправлена. Наш менеджер свяжется с вами.';
+$MESS['RX_FORM_LANDING_REQUEST_PRODUCT_LABEL'] = 'Вы запрашиваете консультацию по:';
 $MESS['RX_FORM_LANDING_BLOCK_SUCCESS_BTN'] = 'Новое сообщение';
 $MESS['RX_FORM_LANDING_BLOCK_ERROR_TITLE'] = 'Ошибка';
 $MESS['RX_FORM_LANDING_BLOCK_ERROR_TEXT'] = 'Что-то пошло не так. Попробуйте еще раз.';

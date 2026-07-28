@@ -12,8 +12,10 @@
 }
 .header-phone {
     margin-left: 51px;
-    flex-wrap: wrap;
-    max-width: 180px;
+    flex-wrap: nowrap;
+    max-width: none;
+    width: auto;
+    align-items: center;
 }
 .header-basket {
     padding-left: 20px;
@@ -22,6 +24,7 @@
     /* margin-right: 11px; */
 }
 .header-phone-callback {
-    padding-left: 19px;
-    padding-top: 3px;
+    padding-left: 0;
+    padding-top: 0;
+    margin-left: 16px;
 }

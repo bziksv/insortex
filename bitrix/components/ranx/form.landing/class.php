@@ -626,12 +626,20 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
     private function formatFieldsOneclick()
     {
         foreach ($this->arResult['FIELDS'] as $code => $field) {
-            if (!in_array($code, ['NAME', 'PHONE', 'EMAIL', 'COMMENT'])) {
+            // Консультация: только ФИО и телефон
+            if (!in_array($code, ['NAME', 'PHONE'], true)) {
                 unset($this->arResult['FIELDS'][$code]);
                 continue;
             }
 
             $this->arResult['FIELDS'][$code]['CODE'] = $code;
+            if ($code === 'NAME') {
+                $this->arResult['FIELDS'][$code]['NAME'] = Loc::getMessage('RX_FORM_LANDING_FULL_NAME_FIELD_TITLE');
+            }
+            if ($code === 'PHONE') {
+                $this->arResult['FIELDS'][$code]['NAME'] = Loc::getMessage('RX_FORM_LANDING_PHONE_FIELD_TITLE');
+            }
+            $this->arResult['FIELDS'][$code]['IS_REQUIRED'] = 'Y';
         }
     }
 

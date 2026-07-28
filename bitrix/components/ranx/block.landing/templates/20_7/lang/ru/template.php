@@ -5,3 +5,4 @@ $MESS['RX_BLOCK_LANDING_20_7_ECONOMY'] = 'Экономия';
 $MESS['RX_BLOCK_LANDING_20_7_ARTICLE'] = 'Арт. #VALUE#';
 $MESS['RX_BLOCK_LANDING_20_7_CHARS_TITLE'] = 'Характеристики';
 $MESS['RX_BLOCK_LANDING_20_7_ONECLICK_BUY'] = 'Заявка в 1 клик';
+$MESS['RX_BLOCK_LANDING_20_7_CONSULT_BTN'] = 'Получить консультацию';

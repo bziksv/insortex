@@ -108,7 +108,19 @@ $useBasket = Config::isOrderEnabled();
                 </div>
 
                 <?if($useBasket):?>
-                    <?= Page::showBasketBtn($arItem['ID']); ?>
+                    <div class="product-buy">
+                        <?if(!empty($arItem['LINK'])):?>
+                            <a class="product-buy-detail btn" <?=$arItem['LINK']['ATTRS']?>>
+                                <?= Loc::getMessage('RX_BLOCK_LANDING_20_5_DETAIL_BTN') ?>
+                            </a>
+                        <?endif?>
+                        <a href="#"
+                           class="product-buy-consult btn btn-primary js-form-modal"
+                           data-form-code="ranx_landing_form_oneclick"
+                           data-product-id="<?= $arItem['ID'] ?>">
+                            <?= Loc::getMessage('RX_BLOCK_LANDING_20_5_CONSULT_BTN') ?>
+                        </a>
+                    </div>
                 <?endif?>
             </div>
         </div>

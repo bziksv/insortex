@@ -380,3 +380,41 @@ textarea.form-control:not(.empty):not(:focus){
 .form-custom-file-wrapper.invalid .form-custom-file-close {
     border-color: #F25353;
 }
+
+.form-request-product {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+    padding: 14px;
+    background: #f8f8f8;
+    border: 1px solid #ececec;
+    border-radius: 4px;
+}
+.form-request-product-img {
+    flex: 0 0 70px;
+    width: 70px;
+    height: 70px;
+}
+.form-request-product-img img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+.form-request-product-label {
+    font-size: 13px;
+    line-height: 17px;
+    color: #999;
+    margin-bottom: 4px;
+}
+.form-request-product-name {
+    font-size: 15px;
+    line-height: 20px;
+    color: #333;
+    font-weight: 600;
+}
+.form-request-product-price {
+    margin-top: 4px;
+    font-size: 14px;
+    color: #666;
+}

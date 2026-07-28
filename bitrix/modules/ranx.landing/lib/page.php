@@ -390,23 +390,14 @@ class Page
 
     public static function showHeaderBasket($classes = '')
     {
-        if (!Config::isOrderEnabled()) {
-            return;
-        }
-
-        include self::getPartPath('header_basket');
+        // Иконка корзины в шапке скрыта по запросу
+        return;
     }
 
     public static function showBasketIcon($classes = '', $showTitle = false)
     {
-        if (!Config::isOrderEnabled()) {
-            return;
-        }
-
-        $basketLink = Config::getOrderPageLink();
-        $itemsCount = Basket::getCount();
-
-        include self::getPartPath('basket_icon');
+        // Иконка корзины в шапке/меню скрыта по запросу
+        return;
     }
 
     public static function showHeaderSearch($classes = '')
@@ -694,12 +685,13 @@ class Page
         self::showBtn([
             'CLASSES' => $classes,
             'BTN_SHOW' => Config::get('PHONE_BTN_SHOW'),
+            'BTN_TYPE' => 'btn-primary',
+            'BTN_SIZE' => 'btn-sm',
             'BTN_TEXT' => Config::get('PHONE_BTN_TEXT'),
             'BTN_LINK_TYPE' => Config::get('PHONE_BTN_LINK_TYPE'),
             'BTN_LINK' => Config::get('PHONE_BTN_LINK'),
             'BTN_GOAL' => Config::get('PHONE_BTN_GOAL'),
             'BTN_CLASS' => Config::get('PHONE_BTN_CLASS'),
-            'INLINE' => true,
         ]);
     }
 

@@ -36,6 +36,20 @@ use Bitrix\Main\Localization\Loc;
 
         <div class="form-block">
 
+            <?if(!empty($arResult['REQUEST_PRODUCT'])):?>
+                <div class="form-request-product">
+                    <?if(!empty($arResult['REQUEST_PRODUCT']['PICTURE'])):?>
+                        <div class="form-request-product-img">
+                            <img src="<?= htmlspecialcharsbx($arResult['REQUEST_PRODUCT']['PICTURE']) ?>" alt="">
+                        </div>
+                    <?endif?>
+                <div class="form-request-product-info">
+                    <div class="form-request-product-label"><?= Loc::getMessage('RX_FORM_LANDING_REQUEST_PRODUCT_LABEL') ?></div>
+                    <div class="form-request-product-name"><?= htmlspecialcharsbx($arResult['REQUEST_PRODUCT']['NAME']) ?></div>
+                </div>
+                </div>
+            <?endif?>
+
             <?foreach($arResult['FIELDS'] as $field):
                 $isRequired = $field['IS_REQUIRED'] == 'Y';
             ?>
