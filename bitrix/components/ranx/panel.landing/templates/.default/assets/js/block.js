@@ -160,16 +160,20 @@ $(document).ready(function(){
 
         RxLandingBlock.hide($block.data('id'), $block.data('group-id'));
     });
-    // Top-level block wraps in #blocks_wrapper (direct children preferred)
+    // Landing blocks by unique data-id. Broken HTML inside a block (unclosed tags)
+    // can nest the next .block-wrap inside the previous one in the browser DOM —
+    // then "top-level only" logic thinks the current block is last and ↓ no-ops.
     function getEditorBlockWraps()
     {
-        let $wraps = $('#blocks_wrapper').children('.block-wrap');
-        if ($wraps.length < 2) {
-            $wraps = $('#blocks_wrapper').find('.block-wrap').filter(function () {
-                return $(this).parents('.block-wrap').length === 0;
-            });
-        }
-        return $wraps;
+        let seen = {};
+        return $('#blocks_wrapper').find('.block-wrap[data-id]').filter(function () {
+            let id = String($(this).attr('data-id') || '');
+            if (!id || seen[id]) {
+                return false;
+            }
+            seen[id] = true;
+            return true;
+        });
     }
 
     function getSortedEditorBlockWraps()
@@ -179,9 +183,27 @@ $(document).ready(function(){
         });
     }
 
+    // Re-parent every landing block as a direct child of #blocks_wrapper in SORT order.
+    // Fixes nesting caused by invalid markup inside block content.
+    function flattenEditorBlockWraps(orderedEls)
+    {
+        let $wrapper = $('#blocks_wrapper');
+        if (!$wrapper.length) {
+            return;
+        }
+
+        let list = orderedEls && orderedEls.length
+            ? orderedEls
+            : getSortedEditorBlockWraps();
+
+        for (let i = 0; i < list.length; i++) {
+            $wrapper.append(list[i]);
+        }
+    }
+
     function renumberEditorBlockWraps()
     {
-        getEditorBlockWraps().each(function (i) {
+        $('#blocks_wrapper').children('.block-wrap[data-id]').each(function (i) {
             let order = i + 1;
             $(this).attr('data-order', order);
             this.style.order = String(order);
@@ -206,14 +228,7 @@ $(document).ready(function(){
 
         let next = idx + direction;
         if (idx < 0 || next < 0 || next >= sorted.length) {
-            // DOM fallback (ignores corrupted data-order)
-            let $dom = getEditorBlockWraps();
-            let domIdx = $dom.index($blockWrap);
-            next = domIdx + direction;
-            if (domIdx < 0 || next < 0 || next >= $dom.length) {
-                return $();
-            }
-            return $dom.eq(next);
+            return $();
         }
 
         return $(sorted[next]);
@@ -221,12 +236,36 @@ $(document).ready(function(){
 
     function applyBlockWrapMove($blockWrap, $other, direction)
     {
-        // Physical DOM move first — visual source of truth in the editor
-        if (direction > 0) {
-            $blockWrap.insertAfter($other);
-        } else {
-            $blockWrap.insertBefore($other);
+        let sorted = getSortedEditorBlockWraps();
+        let id = String($blockWrap.attr('data-id') || '');
+        let otherId = String($other.attr('data-id') || '');
+        let from = -1;
+        let to = -1;
+
+        for (let i = 0; i < sorted.length; i++) {
+            let curId = String($(sorted[i]).attr('data-id') || '');
+            if (curId === id) {
+                from = i;
+            }
+            if (curId === otherId) {
+                to = i;
+            }
         }
+
+        if (from < 0 || to < 0 || from === to) {
+            return;
+        }
+
+        let moved = sorted.splice(from, 1)[0];
+        // After removal, if moving down the target index shifts left by 1
+        let insertAt = to;
+        if (from < to) {
+            insertAt = to; // splice already shifted; insert at old `to` places after previous neighbor
+        }
+        sorted.splice(insertAt, 0, moved);
+
+        // Always re-append in order under #blocks_wrapper (also un-nests broken DOM)
+        flattenEditorBlockWraps(sorted);
         renumberEditorBlockWraps();
     }
 
@@ -241,14 +280,16 @@ $(document).ready(function(){
         $('html, body').stop(true).animate({ scrollTop: offset.top - headerHeight }, 400);
     }
 
-    // Keep data-order aligned with DOM on editor load
+    // Un-nest + align data-order with visual order on editor load
+    flattenEditorBlockWraps();
     renumberEditorBlockWraps();
 
     $(document).on('click', '.js-block-down', function(e){
         e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
 
-        let $blockWrap = $(this).closest('.block-wrap');
+        let $blockWrap = $(this).closest('.block-wrap[data-id]');
         let $nextBlockWrap = findAdjacentBlockWrap($blockWrap, 1);
 
         if (!$nextBlockWrap.length || !$nextBlockWrap.attr('data-id')) {
@@ -267,8 +308,9 @@ $(document).ready(function(){
     $(document).on('click', '.js-block-up', function(e){
         e.preventDefault();
         e.stopPropagation();
+        e.stopImmediatePropagation();
 
-        let $blockWrap = $(this).closest('.block-wrap');
+        let $blockWrap = $(this).closest('.block-wrap[data-id]');
         let $prevBlockWrap = findAdjacentBlockWrap($blockWrap, -1);
 
         if (!$prevBlockWrap.length || !$prevBlockWrap.attr('data-id')) {

@@ -146,9 +146,15 @@ function closePanel(id)
 
 function getTopLevelBlockWraps()
 {
-    // find() — wraps may sit under composite/frame nodes; ignore nested .block-wrap
-    return $('#blocks_wrapper').find('.block-wrap').filter(function () {
-        return $(this).parents('.block-wrap').length === 0;
+    // Unique landing blocks — nested .block-wrap can appear when block HTML is invalid
+    let seen = {};
+    return $('#blocks_wrapper').find('.block-wrap[data-id]').filter(function () {
+        let id = String($(this).attr('data-id') || '');
+        if (!id || seen[id]) {
+            return false;
+        }
+        seen[id] = true;
+        return true;
     });
 }
 
@@ -191,21 +197,10 @@ function updateBlockUpAndDown()
         return;
     }
 
-    // Prefer DOM order of #blocks_wrapper children when building first/last —
-    // flex/data-order alone was marking mid-page blocks as "last" in edit mode.
-    let $domWraps = $('#blocks_wrapper').children('.block-wrap');
-    if ($domWraps.length < 2) {
-        $domWraps = getTopLevelBlockWraps();
+    if (wraps.length) {
+        $(wraps[0]).addClass('block-wrap-first');
+        $(wraps[wraps.length - 1]).addClass('block-wrap-last');
     }
-
-    if ($domWraps.length) {
-        $domWraps.first().addClass('block-wrap-first');
-        $domWraps.last().addClass('block-wrap-last');
-        return;
-    }
-
-    $(wraps[0]).addClass('block-wrap-first');
-    $(wraps[wraps.length - 1]).addClass('block-wrap-last');
 }
 
 function downloadVirtualFile(filename, text)
