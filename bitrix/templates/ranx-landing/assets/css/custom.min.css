@@ -6,21 +6,30 @@ h1 {
 
 /*
   Mobile layout containment
-  - Do NOT put overflow-x on html/body: on Android/iOS that often breaks position:fixed headers
-  - Contain overflow on content wrappers instead
-  - Flex children need min-width:0 or they expand the page (hero slick track)
+  - overflow-x: clip on html/body stops sideways scroll without the old
+    overflow:hidden + transform bugs that yank position:fixed headers off-screen
+  - Also kill 100vw hero halves (scrollbar makes 100vw wider than the screen)
 */
 html {
   max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
   max-width: 100%;
   width: 100%;
-  /* no overflow-x here — it breaks position:fixed on many Android browsers */
+  overflow-x: clip;
+  position: relative;
 }
 
-/* Mobile floating header — fixed to viewport, above content */
+@supports not (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Mobile floating header — fixed to viewport, no transform (transform breaks fixed on some WebViews) */
 @media (max-width: 991px) {
   body.headermobile-is-sticky #headermobile {
     position: fixed !important;
@@ -30,12 +39,16 @@ body {
     width: 100% !important;
     max-width: 100% !important;
     z-index: 10000 !important;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    transform: none !important;
+    -webkit-transform: none !important;
   }
 
   body.headermobile-is-sticky {
     padding-top: 62px !important;
+  }
+
+  #blocks_wrapper {
+    overflow-x: hidden;
   }
 }
 
@@ -46,13 +59,6 @@ body {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  /* overflow-x only on mobile — on desktop it clips landing editor arrows (absolute, right edge) */
-}
-
-@media (max-width: 991px) {
-  #blocks_wrapper {
-    overflow-x: hidden;
-  }
 }
 
 .block-wrap,
@@ -197,9 +203,12 @@ body {
   Also 100vw on .col-flex-rw caused page-wide horizontal scroll.
 */
 @media (max-width: 767px) {
-  .block1-3 .col-flex-rw {
+  .block1-1 .col-flex-rw,
+  .block1-3 .col-flex-rw,
+  .block16-1 .col-flex-rw,
+  .block16-2 .col-flex-rw {
     width: 100% !important;
-    max-width: 100%;
+    max-width: 100% !important;
   }
 
   .block1-3-mobile-type--with_text_block > .toner-block {
