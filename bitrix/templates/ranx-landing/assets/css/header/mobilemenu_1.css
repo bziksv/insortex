@@ -8,10 +8,11 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    left: -100%;
-    -webkit-transition: left .3s ease-in;
-    -moz-transition: left .3s ease-in;
-    transition: left .3s ease-in;
+    left: 0;
+    transform: translateX(-100%);
+    -webkit-transition: transform .3s ease-in;
+    -moz-transition: transform .3s ease-in;
+    transition: transform .3s ease-in;
     z-index: 994;
     overflow-y: auto;
     overflow-x: hidden;
@@ -19,7 +20,7 @@
     background-color: #ffffff;
 }
 #mobilemenu.open {
-    left: 0;
+    transform: translateX(0);
 }
 @media (min-width: 992px) {
     #mobilemenu, 

@@ -4,17 +4,46 @@ h1 {
 font-size: 45px; !important
 }
 
-/* Wide comparison tables must scroll inside the block, not expand the page */
-.table-wrap {
-  width: 100%;
+/* Kill page-level horizontal scroll on mobile */
+html,
+body {
+  overflow-x: hidden;
   max-width: 100%;
-  overflow-x: auto;
+}
+
+#blocks_wrapper,
+.block-wrap,
+.block,
+.maxwidth-theme {
+  max-width: 100%;
+}
+
+.block .row {
+  max-width: 100%;
+}
+
+.block .row > [class*="col-"] {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.block img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Wide comparison tables scroll inside the block, not the page */
+.table-wrap {
+  box-sizing: border-box;
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
 }
 
-.block .row > [class*="col-"]:has(.table-wrap) {
-  min-width: 0;
-  max-width: 100%;
+.custom-table {
+  max-width: none;
 }
 
 /* block2-7: keep photo tizers compact (better quality than full-bleed) */

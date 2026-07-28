@@ -60,6 +60,9 @@
     }
     .block14-1-bg-image img {
         width: 100%;
+        max-width: 100%;
+        height: auto;
+        display: block;
     }
     .block14-1 .block-title {
         padding-left: 0 !important;
