@@ -26,14 +26,32 @@ $(document).ready(function(){
             $(this).prop('disabled', true);
         });
 
+        // keep sessid fresh in both DOM and payload
+        if (typeof BX !== 'undefined' && BX.bitrix_sessid) {
+            var sid = BX.bitrix_sessid();
+            $form.find('input[name="sessid"]').val(sid);
+            data.sessid = sid;
+        }
+
         rxRunComponentAction('form', 'submit', {data: {post: data, settingId: settingId}}).then(function(res){
+            // only explicit false means "saved=no"; numeric id / true are ok
+            if (res.status !== 'success' || res.data === false) {
+                var errText = (res.errors && res.errors[0] && res.errors[0].message) ? res.errors[0].message : '';
+                if (errText) {
+                    $form.find('.form-result-error .form-result-desc').text(errText);
+                }
+                $form.addClass('form-error');
+                endBtnLoad($button);
+                return;
+            }
+
             $form.addClass('form-success');
             $form.removeClass('was-validated')
             $form.trigger('reset');
             initForms();
             endBtnLoad($button);
 
-            if ($form.attr('data-submit-type') === 'payment' && res.data.html) {
+            if ($form.attr('data-submit-type') === 'payment' && res.data && res.data.html) {
                 let $payment = $form.siblings('.invoicebox-payment');
                 if ($payment.length) {
                     $payment.html(res.data.html);
@@ -46,7 +64,7 @@ $(document).ready(function(){
 
         }, function(res){
 
-            let errorByCaptcha = (res.errors[0].message === 'captcha');
+            let errorByCaptcha = res && res.errors && res.errors[0] && res.errors[0].message === 'captcha';
 
             if(captcha)
             {
@@ -56,6 +74,10 @@ $(document).ready(function(){
             }
 
             if(!errorByCaptcha) {
+                var errText = (res && res.errors && res.errors[0] && res.errors[0].message) ? res.errors[0].message : '';
+                if (errText) {
+                    $form.find('.form-result-error .form-result-desc').text(errText);
+                }
                 $form.addClass('form-error');
                 console.log(res);
             }
@@ -121,13 +143,19 @@ $(document).ready(function(){
         }
     });
 
+    // Clear stale success state when modal is closed
+    $(document).on('hidden.bs.modal', '#formModal', function () {
+        $(this).find('.modal-title').empty();
+        $(this).find('.modal-body').empty();
+    });
+
     $(document).on('click', '.js-form-modal', function(e){
         e.preventDefault();
 
         let $this = $(this);
-        let formCode = $(this).data('form-code');
-        let subject = $(this).data('subject') || '';
-        let productId = $(this).data('product-id') || '';
+        let formCode = $(this).data('form-code') || $(this).attr('data-form-code');
+        let subject = $(this).data('subject') || $(this).attr('data-subject') || '';
+        let productId = $(this).attr('data-product-id') || $(this).data('productId') || '';
         let settingId = getSettingId();
 
         startBtnLoad($this);

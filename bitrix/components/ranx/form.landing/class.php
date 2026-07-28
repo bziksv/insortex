@@ -499,13 +499,17 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
             $propStr .= $prop['NAME'] . ': ' . $propVal . "\n";
         }
         $fields['FORM_DATA'] = $propStr;
+        $fields['SERVER_NAME'] = $_SERVER['SERVER_NAME'] ?? 'insortex.ru';
 
-        Mail\Event::sendImmediate([
-            'EVENT_NAME' => 'RANX_LANDING_FORM', 
+        Mail\Event::send([
+            'EVENT_NAME' => 'RANX_LANDING_FORM',
             'LID' => SITE_ID,
             'C_FIELDS' => $fields,
             'DUPLICATE' => 'Y',
         ]);
+        if (class_exists('\CEvent')) {
+            \CEvent::CheckEvents();
+        }
     }
 
     private function checkFormCode($code)
@@ -660,10 +664,19 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
     {
         $this->ajaxActionBefore();
 
-        $formCode = trim($post['FORM_CODE']);
-        $isOneclick = $formCode === Order::FORM_CODE;
+        $formCode = trim((string)($post['FORM_CODE'] ?? ''));
+        // consultation modal: oneclick flag, alias code, or sale_order + PRODUCT_ID
+        $isOneclick = !empty($post['IS_ONECLICK'])
+            || $formCode === 'ranx_landing_form_oneclick'
+            || ($formCode === Order::FORM_CODE && (int)($post['PRODUCT_ID'] ?? 0) > 0);
 
-        if (!$isOneclick && !$this->checkFormCode($formCode) || !bitrix_sessid_post()) {
+        if ($formCode === 'ranx_landing_form_oneclick' || $isOneclick) {
+            $formCode = Order::FORM_CODE;
+            $post['FORM_CODE'] = Order::FORM_CODE;
+            $post['IS_ONECLICK'] = '1';
+        }
+
+        if ((!$isOneclick && !$this->checkFormCode($formCode)) || !bitrix_sessid_post()) {
             throw new Exception(Loc::getMessage('FORM_IS_NOT_FOUND'));
         }
 
@@ -673,7 +686,7 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
             }
 
             if ($agreementId = Config::getAgreementId()) {
-                $source = trim($post['SOURCE']);
+                $source = trim($post['SOURCE'] ?? '');
 
                 if (Config::isWebFormsEnabled() && Loader::includeModule('form')) {
                     $form = \CForm::GetBySID($formCode)->Fetch();

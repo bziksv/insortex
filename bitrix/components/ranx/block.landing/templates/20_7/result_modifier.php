@@ -32,14 +32,6 @@ foreach ($arResult['ITEMS'] as &$arItem) {
     $arCharProps = [];
     $i = 0;
 
-
-?>
-<pre style="    display: none;">
-<?print_r($arResult['CHARS']);?>
-</pre>
-<?
-
-
 $arResult['CHARS_NEW'] = [];
 
 	$arFilter = Array('IBLOCK_ID'=>$arResult["ITEMS"][0]["IBLOCK_ID"], 'ID'=>$arResult["ITEMS"][0]["IBLOCK_SECTION_ID"], 'GLOBAL_ACTIVE'=>'Y');

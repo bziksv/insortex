@@ -499,13 +499,17 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
             $propStr .= $prop['NAME'] . ': ' . $propVal . "\n";
         }
         $fields['FORM_DATA'] = $propStr;
+        $fields['SERVER_NAME'] = $_SERVER['SERVER_NAME'] ?? 'insortex.ru';
 
-        Mail\Event::sendImmediate([
-            'EVENT_NAME' => 'RANX_LANDING_FORM', 
+        Mail\Event::send([
+            'EVENT_NAME' => 'RANX_LANDING_FORM',
             'LID' => SITE_ID,
             'C_FIELDS' => $fields,
             'DUPLICATE' => 'Y',
         ]);
+        if (class_exists('\CEvent')) {
+            \CEvent::CheckEvents();
+        }
     }
 
     private function checkFormCode($code)
@@ -626,12 +630,20 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
     private function formatFieldsOneclick()
     {
         foreach ($this->arResult['FIELDS'] as $code => $field) {
-            if (!in_array($code, ['NAME', 'PHONE', 'EMAIL', 'COMMENT'])) {
+            // Консультация: только ФИО и телефон
+            if (!in_array($code, ['NAME', 'PHONE'], true)) {
                 unset($this->arResult['FIELDS'][$code]);
                 continue;
             }
 
             $this->arResult['FIELDS'][$code]['CODE'] = $code;
+            if ($code === 'NAME') {
+                $this->arResult['FIELDS'][$code]['NAME'] = Loc::getMessage('RX_FORM_LANDING_FULL_NAME_FIELD_TITLE');
+            }
+            if ($code === 'PHONE') {
+                $this->arResult['FIELDS'][$code]['NAME'] = Loc::getMessage('RX_FORM_LANDING_PHONE_FIELD_TITLE');
+            }
+            $this->arResult['FIELDS'][$code]['IS_REQUIRED'] = 'Y';
         }
     }
 
@@ -652,10 +664,19 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
     {
         $this->ajaxActionBefore();
 
-        $formCode = trim($post['FORM_CODE']);
-        $isOneclick = $formCode === Order::FORM_CODE;
+        $formCode = trim((string)($post['FORM_CODE'] ?? ''));
+        // consultation modal: oneclick flag, alias code, or sale_order + PRODUCT_ID
+        $isOneclick = !empty($post['IS_ONECLICK'])
+            || $formCode === 'ranx_landing_form_oneclick'
+            || ($formCode === Order::FORM_CODE && (int)($post['PRODUCT_ID'] ?? 0) > 0);
 
-        if (!$isOneclick && !$this->checkFormCode($formCode) || !bitrix_sessid_post()) {
+        if ($formCode === 'ranx_landing_form_oneclick' || $isOneclick) {
+            $formCode = Order::FORM_CODE;
+            $post['FORM_CODE'] = Order::FORM_CODE;
+            $post['IS_ONECLICK'] = '1';
+        }
+
+        if ((!$isOneclick && !$this->checkFormCode($formCode)) || !bitrix_sessid_post()) {
             throw new Exception(Loc::getMessage('FORM_IS_NOT_FOUND'));
         }
 
@@ -665,7 +686,7 @@ class RanxFormLandingComponent extends CBitrixComponent implements Controllerabl
             }
 
             if ($agreementId = Config::getAgreementId()) {
-                $source = trim($post['SOURCE']);
+                $source = trim($post['SOURCE'] ?? '');
 
                 if (Config::isWebFormsEnabled() && Loader::includeModule('form')) {
                     $form = \CForm::GetBySID($formCode)->Fetch();

@@ -9,17 +9,6 @@ $(document).ready(function(){
         openMobileMenu();
     });
 
-    $('body').rxSwipe({
-        swipeRight: function () {
-            openMobileMenu();
-        },
-        swipeLeft: function () {
-            closeMobileMenu();
-        },
-        threshold: 75,
-        exclude: ['.slick-slider', '.fancybox-container', 'ymaps', '.swipe-ignore'],
-    });
-
     $(document).on('click', function(e){
         if (e.target.id === 'mobilemenu' ||
             $(e.target).closest('#mobilemenu').length ||
