@@ -72,6 +72,14 @@ body {
     min-width: 100%;
     width: 100%;
   }
+
+  /* Less vertical gap between blocks on phones (indent-100+indent-100 was ~100px) */
+  .block.indent-top-50 { padding-top: 16px !important; }
+  .block.indent-bot-50 { padding-bottom: 16px !important; }
+  .block.indent-top-100 { padding-top: 24px !important; }
+  .block.indent-bot-100 { padding-bottom: 24px !important; }
+  .block.indent-top-150 { padding-top: 32px !important; }
+  .block.indent-bot-150 { padding-bottom: 32px !important; }
 }
 
 .block img {

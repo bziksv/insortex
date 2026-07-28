@@ -30,22 +30,22 @@
 /* in mobile divide indent by 2 */
 @media (max-width: 767px) {
     .block.indent-top-50{
-        padding-top: 25px;
+        padding-top: 16px;
     }
     .block.indent-top-100{
-        padding-top: 50px;
+        padding-top: 24px;
     }
     .block.indent-top-150{
-        padding-top: 75px;
+        padding-top: 32px;
     }
     .block.indent-bot-150 {
-        padding-bottom: 75px;
+        padding-bottom: 32px;
     }
     .block.indent-bot-50 {
-        padding-bottom: 25px;
+        padding-bottom: 16px;
     }
     .block.indent-bot-100 {
-        padding-bottom: 50px;
+        padding-bottom: 24px;
     }
 }
 .indent {
