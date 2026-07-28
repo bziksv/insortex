@@ -39,22 +39,16 @@ $MESS['ORDER_FORM_QUESTION_6'] = 'Источник';
 
 // sale_order
 $MESS['SALE_ORDER_EVENT_NAME'] = 'Новый заказ на сайте';
-$MESS['SALE_ORDER_EVENT_DESCRIPTION'] = "#NAME# - Имя\n#PHONE# - Телефон\n#EMAIL# - E-mail\n#COMPANY# - Название компании\n#COMMENT# - Комментарий к заказу\n#DELIVERY# - Способ доставки\n#ADDRESS# - Адрес доставки\n#DELIVERY_SUM# - Стомиость доставки\n#PRODUCTS# - Состав заказа\n#TOTAL# - Итого";
-$MESS['SALE_ORDER_EVENT_MESSAGE_SUBJECT'] = 'Новый заказ на сайте - #SITE_NAME#';
+$MESS['SALE_ORDER_EVENT_DESCRIPTION'] = "#NAME# - Имя\n#PHONE# - Телефон\n#PRODUCT_NAME# - Название товара\n#PRODUCTS# - Состав заказа\n#TOTAL# - Итого\n#ELEMENT_ID# - ID элемента\n#IBLOCK_ID# - ID инфоблока";
+$MESS['SALE_ORDER_EVENT_MESSAGE_SUBJECT'] = 'Заявка с сайта insortex.ru - #PRODUCT_NAME#';
 $MESS['SALE_ORDER_EVENT_MESSAGE_MESSAGE'] = "На сайте #SERVER_NAME# был создан новый заказ.<br><br>
 Имя: #NAME#<br>
 Телефон: #PHONE#<br>
-E-mail: #EMAIL#<br>
-Название компании: #COMPANY#<br>
-Комментарий к заказу: #COMMENT#<br>
-Способ доставки: #DELIVERY#<br>
-Адрес доставки: #ADDRESS#<br>
-Стоимость доставки: #DELIVERY_SUM#<br>
+<br>
 Состав заказа: #PRODUCTS#<br>
 <b>Итого: #TOTAL#</b><br>
 <br>
-Запрос отправлен: #RS_DATE_CREATE#<br>
-Просмотр результата на сайте: <a href='http://#SERVER_NAME#/bitrix/admin/form_result_edit.php?lang=ru&WEB_FORM_ID=#RS_FORM_ID#&RESULT_ID=#RS_RESULT_ID#&WEB_FORM_NAME=#RS_FORM_NAME#' target='_blank'>http://#SERVER_NAME#/bitrix/admin/form_result_edit.php?lang=ru&WEB_FORM_ID=#RS_FORM_ID#&RESULT_ID=#RS_RESULT_ID#&WEB_FORM_NAME=#RS_FORM_NAME#</a>";
+Просмотр результата на сайте: <a href='https://#SERVER_NAME#/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=#IBLOCK_ID#&type=ranx_landing&lang=ru&ID=#ELEMENT_ID#&find_section_section=0&WF=Y' target='_blank'>https://#SERVER_NAME#/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=#IBLOCK_ID#&type=ranx_landing&lang=ru&ID=#ELEMENT_ID#&find_section_section=0&WF=Y</a>";
 $MESS['SALE_ORDER_FORM_NAME'] = 'Заказы';
 $MESS['SALE_ORDER_BUTTON_NAME'] = 'Отправить';
 $MESS['SALE_ORDER_FORM_DESCRIPTION'] = '';

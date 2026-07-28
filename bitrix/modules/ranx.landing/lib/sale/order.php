@@ -32,10 +32,13 @@ class Order
             $name .= ' <' . $data['EMAIL'] . '>';
         }
 
+        $productName = '';
+
         if (!empty($data['IS_ONECLICK'])) {
             $product = Basket::fetchItemData($data['PRODUCT_ID']);
 
-            $products = $product['NAME'] . ' (' . Helper::money($product['PRICE'], '') . ' x 1)' . "\n";
+            $productName = (string)($product['NAME'] ?? '');
+            $products = $productName . ' (' . Helper::money($product['PRICE'], '') . ' x 1)' . "\n";
             $total = $product['PRICE'];
 
             $data['COMMENT'] .= "\n\n" . Loc::getMessage('RX_LANDING_LIB_SALE_ORDER_COMMENT_ONECLICK');
@@ -45,6 +48,10 @@ class Order
                 return false;
             }
 
+            // First line of basket string is usually "Name (price x qty)"
+            $firstLine = trim(explode("\n", $products)[0]);
+            $productName = preg_replace('/\s*\(.*$/', '', $firstLine) ?: $firstLine;
+
             $deliveryName = self::getDeliveryName();
             $deliverySum = self::getDeliverySum();
 
@@ -53,6 +60,7 @@ class Order
 
         return array_merge($data, [
             'ELEMENT_NAME' => $name,
+            'PRODUCT_NAME' => $productName,
             'PRODUCTS' => $products,
             'DELIVERY_NAME' => $deliveryName ?? '',
             'DELIVERY_SUM' => $deliverySum ?? '',
@@ -140,6 +148,7 @@ class Order
 
         $fields['ELEMENT_ID'] = $id;
         $fields['IBLOCK_ID'] = self::getIblockId();
+        $fields['PRODUCT_NAME'] = $data['PRODUCT_NAME'] ?? '';
         $fields['DELIVERY_SUM'] = Helper::money($fields['DELIVERY_SUM']);
         $fields['TOTAL'] = Helper::money($fields['TOTAL']);
 
