@@ -94,6 +94,40 @@ body {
   max-width: 100%;
 }
 
+/*
+  Mobile hero (with_text_block): photo and text are separate.
+  Toner overlay still covered the text zone → dark wash, unreadable copy.
+  Also 100vw on .col-flex-rw caused page-wide horizontal scroll.
+*/
+@media (max-width: 767px) {
+  .block1-3 .col-flex-rw {
+    width: 100% !important;
+    max-width: 100%;
+  }
+
+  .block1-3-mobile-type--with_text_block > .toner-block {
+    display: none !important;
+  }
+
+  .block1-3-mobile-type--with_text_block .block-title {
+    background-color: #ffffff;
+    padding: 24px 0 8px;
+    z-index: 2;
+  }
+
+  .block1-3-mobile-type--with_text_block .block-title .block-title-text,
+  .block1-3-mobile-type--with_text_block .block-title .block-cattitle {
+    color: #222222 !important;
+  }
+
+  .block1-3-mobile-type--with_text_block .block-title .block-subtitle,
+  .block1-3-mobile-type--with_text_block .block-title .block-subtitle p,
+  .block1-3-mobile-type--with_text_block .block-title .block-desc,
+  .block1-3-mobile-type--with_text_block .block-title .block-desc p {
+    color: #555555 !important;
+  }
+}
+
 @media (max-width: 767px) {
   .block .block-title.row {
     flex-direction: column;
