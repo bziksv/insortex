@@ -20,7 +20,7 @@ use \Ranx\Landing\Helpers\FormHelper;
     <?if($arResult['FORM']):?>
     <div class="maxwidth-theme">
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+            <div class="col-12 col-sm-10 col-md-8 col-lg-6">
                 
                 <div class="form-wrap form-btn-center" <?if(FormHelper::isB24Form($arResult['FORM'])):?>style="padding: 0;"<?endif?>>
                     <?$GLOBALS['APPLICATION']->IncludeComponent(

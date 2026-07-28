@@ -42,6 +42,7 @@ body {
 #blocks_wrapper {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   width: 100%;
   max-width: 100%;
   min-width: 0;
@@ -55,6 +56,11 @@ body {
   min-width: 0;
   width: 100%;
   box-sizing: border-box;
+  align-self: stretch;
+}
+
+.block-wrap {
+  flex-direction: column;
 }
 
 .block .row {
@@ -102,6 +108,20 @@ body {
   .block5-indicator {
     left: 0;
   }
+
+  /* Callback form: BS4 has no col-xs-*; force full-width column on phones */
+  .block18-1 .row.justify-content-center > [class*="col-"] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .block18-1 .form-wrap {
+    padding: 24px 16px !important;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 374px) {
@@ -112,6 +132,10 @@ body {
 
   .block5-1-card {
     padding: 18px 12px !important;
+  }
+
+  .block18-1 .form-wrap {
+    padding: 20px 12px !important;
   }
 }
 
