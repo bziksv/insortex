@@ -49,6 +49,13 @@ Config::defineSettingId();
 		}
 		.block .row{margin-left:0!important;margin-right:0!important;max-width:100%;}
 		.slick-list{max-width:100%;overflow:hidden;}
+		/* Full-screen mobile menu above sticky header */
+		#mobilemenu{
+			max-width:none!important;width:100%!important;right:0!important;
+			z-index:10050!important;height:100%!important;height:100dvh!important;
+		}
+		#mobilemenu-overlay{z-index:10040!important;height:100%!important;height:100dvh!important;}
+		body.mobilemenu-open #headermobile{visibility:hidden!important;}
 	}
 	</style>
 </head>

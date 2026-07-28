@@ -74,11 +74,13 @@ $(document).ready(function(){
     function openMobileMenu() {
         $('#mobilemenu').addClass('open');
         $('#mobilemenu-overlay').show();
+        $('body').addClass('mobilemenu-open');
     }
 
     function closeMobileMenu() {
         $('#mobilemenu').removeClass();
         $('#mobilemenu-overlay').hide();
+        $('body').removeClass('mobilemenu-open');
         clearSectionClass();
     }
 
