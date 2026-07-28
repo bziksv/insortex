@@ -1,0 +1,2 @@
+<?php
+$MESS['RX_LANDING_WZ_SERVICES_MAIN_TITLE'] = 'Главная';

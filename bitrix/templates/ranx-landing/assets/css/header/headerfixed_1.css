@@ -1,0 +1,15 @@
+#headerfixed .header-nav,
+#headerfixed .header-v-center {
+    height: 62px;
+}
+#headerfixed .header-burger {
+    margin-right: 40px;
+}
+#headerfixed .header-basket {
+    margin-left: 40px;
+}
+#headerfixed .headerfixed-menu-center {
+    padding-left: 260px;
+    padding-right: 260px;
+    width: 100%;
+}

@@ -1,0 +1,19 @@
+$(document).ready(function() {
+    $('.block21-2 .js-play-video').on('click', function (e) {
+        e.preventDefault();
+
+        let $videoWrapper = $(this).closest('.video-wrapper');
+        let $video = $videoWrapper.find('.video');
+        let videoId = $video.data('video-id');
+        let $iframe = $('<iframe>', {
+            'src': 'https://www.youtube.com/embed/'+videoId+'?autoplay=1',
+            'allow': 'autoplay',
+            'frameborder': '0',
+            'allowfullscreen': ''
+        });
+        $video.append($iframe);
+
+        $(this).addClass('hidden');
+        $video.removeClass('hidden');
+    });
+});

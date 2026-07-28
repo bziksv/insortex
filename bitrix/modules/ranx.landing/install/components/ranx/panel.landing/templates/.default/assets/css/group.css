@@ -1,0 +1,14 @@
+#panelGroup {
+    right: -800px;
+    width: 630px;
+}
+.panel-group-body {
+    padding: 30px;
+}
+
+#panelVariant {
+    width: 550px;
+}
+.panel-variant-body {
+    padding: 30px;
+}

@@ -1,0 +1,63 @@
+<?php
+if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+
+use Bitrix\Main\Localization\Loc;
+
+return [
+    '_INCLUDE' => ['INDENT_ELEMENTS'],
+    '_EXCLUDE' => ['CONTENT_BTN'],
+    'NAME' => Loc::getMessage('RX_BLOCK_4_6_NAME'),
+    'INDENT_TOP_DEFAULT' => 100,
+    'INDENT_BOT_DEFAULT' => 100,
+    'ELEMENTS_FIELDS' => [
+        'PROPERTY_CATTITLE',
+        'NAME',
+        'PREVIEW_PICTURE',
+        'PREVIEW_TEXT',
+        '_PRICE',
+        'PROPERTY_CHARS',
+        '_POPUP',
+        '_BTN',
+    ],
+    'POPUP_ELEMENTS_FIELDS' => [
+        'DETAIL_PICTURE',
+        'PROPERTY_POPUP_NOTE',
+        'DETAIL_TEXT',
+        'PROPERTY_POPUP_BTN_TEXT',
+    ],
+    'DEMO' => [
+        'BLOCK' => [
+            'NAME' => Loc::getMessage('RX_BLOCK_4_6_DEMO_BLOCK_NAME'),
+            'PROPERTY_VALUES' => [
+                'SUBTITLE' => Loc::getMessage('RX_BLOCK_4_6_DEMO_BLOCK_SUBTITLE'),
+            ],
+        ],
+        'ELEMENTS' => [
+            [
+                'NAME' => Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_NAME'),
+                'PREVIEW_PICTURE' => '1.png',
+                'DETAIL_PICTURE' => '1.png',
+                'PREVIEW_TEXT' => Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_PREVIEW_TEXT'),
+                'PREVIEW_TEXT_TYPE' => 'html',
+                'DETAIL_TEXT' => Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_DETAIL_TEXT'),
+                'PROPERTY_VALUES' => [
+                    'PRICE' => '20000',
+                    'OLD_PRICE' => '25000',
+                    'CHARS' => [
+                        Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_CHARS'),
+                    ],
+                    'CATTITLE' => Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_CATTITLE'),
+                    'POPUP_NOTE' => Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_POPUP_NOTE'),
+                    'POPUP_SHOW' => 'Y',
+                    'POPUP_BTN_TEXT' => Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_POPUP_BTN_TEXT'),
+                    'BTN_SHOW' => 'Y',
+                    'BTN_TYPE' => 'btn-primary',
+                    'BTN_SIZE' => 'btn-lg',
+                    'BTN_TEXT' => Loc::getMessage('RX_BLOCK_4_6_DEMO_ELEMENT_BTN_TEXT'),
+                    'BTN_LINK' => 'ranx_landing_form_order',
+                    'BTN_LINK_TYPE' => 'form',
+                ],
+            ],
+        ],
+    ],
+];

@@ -1,0 +1,50 @@
+.block10-2-gallery {
+    max-width: 100%;
+}
+
+.block10-2-item-card {
+    outline: none;
+    margin-bottom: 20px;
+    
+}
+.block10-2-gallery a img{
+    outline: none;
+    min-height: 100%;
+    min-width: 100%;
+}
+.block10-2-gallery a{
+    outline: none;
+    display: block;
+    height: 291px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.block10-2-gallery--4 a {
+    height: 215px;
+}
+.block10-2 .dark-hover {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    transition: 0.3s;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    opacity: 0;
+}
+.block10-2 .dark-hover:hover {    
+    opacity: 1;
+    transition: 0.3s;
+}
+@media (max-width: 767px) {
+    .block10-2-gallery a{
+        height: 300px;
+        width: 100%;
+    }
+    .block10-2-gallery a img{
+        width: 100%;
+        min-width: unset;
+    }
+}

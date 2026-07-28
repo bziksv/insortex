@@ -1,0 +1,4 @@
+<?php
+$MESS['RX_PAGE_PARTS_HEADER_CITY_CONFIRM_TEXT'] = 'Ваш город<br><span>#CITY#?</span>';
+$MESS['RX_PAGE_PARTS_HEADER_CITY_CONFIRM_YES'] = 'Да';
+$MESS['RX_PAGE_PARTS_HEADER_CITY_CONFIRM_EDIT'] = 'Изменить';

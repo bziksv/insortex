@@ -1,0 +1,244 @@
+.block4-6 .service-block {
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+    border-bottom: 1px solid #ECECEC;
+}
+.block4-6 .service-block:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+}
+.block4-6.content-picture-left .service-block {
+    flex-direction: row-reverse;
+}
+.block4-6 .service-info {
+    padding-right: 70px;
+}
+.block4-6.content-picture-left .service-info {
+    padding-left: 70px;
+}
+.block4-6 .service-block:last-child {
+    margin-bottom: 0;
+}
+.block4-6 .service-top-text {
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #999;
+    margin-bottom: 14px;
+}
+.block4-6 .service-title {
+    font-size: 38px;
+    font-weight: 600;
+    line-height: 45px;
+    margin-bottom: 20px;
+}
+.block4-6 .service-desc {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.block4-6 .service-prices .service-price {
+    font-weight: bold;
+    font-size: 20px;
+    display: inline-block;
+    margin-right: 7px;
+}
+.block4-6 .service-prices .service-old-price {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: #999;
+    display: inline-block;
+}
+.block4-6 .service-btn {
+    margin-top: 30px;
+}
+.block4-6 .service-img {
+    text-align: right;
+}
+.block4-6 .service-img img {
+    max-width: 100%;
+}
+@media (max-width: 768px) {
+    .block4-6 .service-title {
+        font-size: 25px;
+        line-height: normal;
+    }
+    .block4-6 .service-block {
+        flex-direction: column-reverse;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+    .block4-6 .service-img {
+        text-align: left;
+        margin-bottom: 20px;
+    }
+}
+
+/* modal style */
+.modal4_6 {
+    margin: -10px 10px 0;
+}
+
+.modal4_6-title {
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 47px;
+    color: #333333;
+    margin-bottom: 40px;
+}
+
+.modal4_6-picture {
+    margin-bottom: 50px;
+}
+
+.modal4_6-picture img {
+    width: 100%;
+    height: auto;
+}
+
+.modal4_6-service {
+    border: 1px solid #ECECEC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-bottom: 33px;
+
+    padding: 20px 30px 30px;
+    display: flex;
+}
+
+.modal4_6-service .icon svg {
+    height: 35px;
+    width: 30px;
+    margin: 10px 20px 0 0;
+}
+
+.modal4_6-service .desc {
+    max-width: 415px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    color: #333333;
+    margin-top: 3px;
+    margin-right: 5px;
+}
+
+.modal4_6-service .wrap {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.modal4_6-service .prices {
+    line-height: 30px;
+    display: flex;
+}
+
+.modal4_6-service .cur-price {
+    font-weight: bold;
+    font-size: 18px;
+    margin-right: 7px;
+}
+
+.modal4_6-service .old-price {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: #999999;
+}
+
+.modal4_6-service .wrap > .order-button {
+    margin-top: 7px;
+    padding: 0;
+}
+
+.modal4_6-preview-text {
+    margin-bottom: 27px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #333333;
+}
+
+.modal4_6-detail-text {
+    margin-bottom: 23px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    color: #666666;
+}
+
+.modal4_6-chars {
+    margin-bottom: 10px;
+}
+
+.modal4_6-chars .title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 28px;
+    color: #333333;
+    margin-bottom: 23px;
+}
+
+.modal4_6-chars .char {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 22px;
+    color: #555555;
+    padding: 13px 17px;
+}
+
+.modal4_6-chars .char:nth-child(2n) {
+    background: #F7F7F7;
+}
+
+.modal4_6-chars .char:nth-child(2n+1) {
+    background: #FFFFFF;
+}
+
+@media (max-width: 765px) {
+    .modal4_6-service {
+        flex-wrap: wrap;
+    }
+
+    .modal4_6-service .wrap {
+        flex-shrink: 1;
+    }
+
+    .modal4_6-service .prices {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 575px) {
+    .modal4_6 {
+        margin: -10px 0 0;
+    }
+
+    .modal4_6-title {
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+
+    .modal4_6-picture {
+        margin-bottom: 20px;
+    }
+
+    .modal4_6-service {
+        margin-bottom: 20px;
+    }
+
+    .modal4_6-preview-text {
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 20px;
+    }
+
+    .modal4_6-detail-text {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 20px;
+    }
+
+    .modal4_6-chars .title {
+        margin-bottom: 14px;
+    }
+}

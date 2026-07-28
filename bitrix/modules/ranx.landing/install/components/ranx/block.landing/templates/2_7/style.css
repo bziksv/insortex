@@ -1,0 +1,40 @@
+.block2-7 .tizer {
+    display: flex;
+    margin-bottom: 60px;
+}
+.block2-7 .tizer:last-child {
+    margin-bottom: 0;
+}
+.block2-7 .svg-icon,
+.block2-7 .tizer-icon,
+.block2-7 .tizer-img {
+    float: left;
+    margin-right: 30px;
+}
+.block2-7 .tizer-name {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.block2-7 .tizer-text {
+    margin-bottom: 0;
+}
+.block2-7.text-light .tizer-name,
+.block2-7.text-light .tizer-text,
+.block2-7.text-light .svg-icon {
+    color: #ffffff;
+}
+.block2-7 .svg-icon svg,
+.block2-7 .tizer-icon svg {
+    width: 60px;
+}
+.block2-7 .tizer-icon svg {
+    height: unset;
+}
+@media (max-width: 991px) {
+    .block2-7 .tizer {
+        margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,57 @@
+/* panel select */
+.panel-select-options {
+    display: flex;
+    flex-wrap: wrap;
+}
+.panel-select-options.row {
+    margin-left: -7px !important;
+    margin-right: -7px !important;
+}
+.panel-select-options.row > div {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+}
+.panel-select-option {
+    text-align: center;
+    padding: 20px 0;
+    border: 1px solid #DDDDDD;
+    box-sizing: border-box;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-transition: box-shadow .2s ease-in;
+    -moz-transition: box-shadow .2s ease-in;
+    transition: box-shadow .2s ease-in;
+    margin-bottom: 15px;
+}
+.panel-select-option.active {
+    border-width: 2px;
+    border-style: solid;
+}
+.panel-select-option:hover {
+    border-color: transparent;
+    -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.15);
+    -webkit-transition: box-shadow .2s ease-out;
+    -moz-transition: box-shadow .2s ease-out;
+    transition: box-shadow .2s ease-out;
+}
+.panel-select-options--wide .panel-select-option {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 14px;
+}
+.panel-select-options--wide .panel-select-option-title {
+    text-align: left;
+    margin-left: 24px;
+}
+.panel-select-option-icon {
+    margin-bottom: 20px;
+}
+.panel-select-option-title {
+    font-size: 13px;
+    line-height: 17px;
+    color: #333333;
+}

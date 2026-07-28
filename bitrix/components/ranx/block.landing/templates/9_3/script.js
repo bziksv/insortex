@@ -1,0 +1,81 @@
+if (typeof Block9_3Slider === 'undefined') {
+    function Block9_3Slider(blockId, cols) {
+        this.$block = $('#block_' + blockId);
+        this.$slider = this.$block.find('.employees');
+        this.$counter = this.$block.find('.slider-counter');
+        this.cols = cols || 4;
+
+        this.subscribeOnEvents();
+        this.initSlider();
+    }
+
+    Block9_3Slider.prototype.initSlider = function () {
+        this.$slider.slick({
+            infinite: true,
+            dots: true,
+            slidesToShow: this.cols,
+            slidesToScroll: 1,
+            //adaptiveHeight: true,
+            prevArrow: this.$slider.siblings('.arrow-prev'),
+            nextArrow: this.$slider.siblings('.arrow-next'),
+            responsive: this.getBreakpoints(),
+        });
+    };
+
+    Block9_3Slider.prototype.getBreakpoints = function () {
+        let result = [
+            { breakpoint: 992, settings: { slidesToShow: 2 }},
+            { breakpoint: 768, settings: { slidesToShow: 1 }}
+        ];
+
+        if (this.cols === 4) {
+            result.unshift({ breakpoint: 1200, settings: { slidesToShow: 3 }});
+        }
+
+        return result;
+    };
+
+    Block9_3Slider.prototype.getDisplaySlideCount = function () {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+            return 1;
+        }
+        if (window.matchMedia('(max-width: 991px)').matches) {
+            return 2;
+        }
+        if (window.matchMedia('(max-width: 1199px)').matches) {
+            return 3;
+        }
+        return this.cols;
+    };
+
+    Block9_3Slider.prototype.dotsHandler = function (e, slick) {
+        slick.$slider.find('.slick-dots li').each(function () {
+            $(this).addClass('theme-bg');
+        });
+    };
+
+    Block9_3Slider.prototype.lazyLoadHandler = function () {
+        if (typeof lazyLoadInstance !== 'undefined') {
+            lazyLoadInstance.update();
+        }
+    };
+
+    Block9_3Slider.prototype.paginationHandler = function (e, slick, currentSlide) {
+        const slideCount = slick.slideCount;
+        const displaySlideCount = this.getDisplaySlideCount();
+
+        if (slideCount > 9) {
+            this.$counter.find('.current-slide').text((currentSlide ? currentSlide : 0) + 1);
+            this.$counter.find('.total-slide').text(slideCount);
+        }
+
+        this.$block.find('.employees-wrapper').toggleClass('slider--hide-counter', slideCount <= 12)
+        slick.$slider.parent().toggleClass('slider--hide-dots', slideCount <= displaySlideCount || slideCount > 12);
+    };
+
+    Block9_3Slider.prototype.subscribeOnEvents = function () {
+        this.$slider.on('init reInit afterChange', this.dotsHandler.bind(this));
+        this.$slider.on('init reInit afterChange', this.paginationHandler.bind(this));
+        this.$slider.on('init reInit afterChange', this.lazyLoadHandler.bind(this));
+    };
+}

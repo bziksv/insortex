@@ -1,0 +1,18 @@
+.block20-8 .detail-text {
+    margin: 0 auto;
+    text-align: left;
+}
+.block20-8.content-align-center .detail-text {
+    text-align: center;
+}
+.block20-8.content-align-wide .detail-text {
+    text-align: justify;
+}
+@media (min-width: 992px) {
+    .block20-8 .detail-text {
+        width: calc(100% * 2 / 3);
+    }
+    .block20-8.wide-block .detail-text {
+        width: 100%;
+    }
+}

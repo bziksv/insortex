@@ -1,0 +1,5 @@
+<?php
+$MESS['RX_BLOCK_LANDING_18_2_PHONE'] = 'Телефон';
+$MESS['RX_BLOCK_LANDING_18_2_EMAIL'] = 'E-mail';
+$MESS['RX_BLOCK_LANDING_18_2_ADDRESS'] = 'Адрес';
+$MESS['RX_BLOCK_LANDING_18_2_SCHEDULE'] = 'Режим работы';

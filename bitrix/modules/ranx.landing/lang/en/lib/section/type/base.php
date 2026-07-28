@@ -1,0 +1,21 @@
+<?php
+$MESS['RX_LANDING_SECTION_SITE_ID_INCORRECT'] = 'Site id is invalid';
+$MESS['RX_LANDING_SECTION_TITLE_IS_EMPTY'] = 'Title cannot be empty';
+$MESS['RX_LANDING_SECTION_EMPTY_SITE_DATA'] = 'Empty site data';
+$MESS['RX_LANDING_SECTION_PATH_WRONG'] = 'Path is invalid';
+$MESS['RX_LANDING_SECTION_PATH_ALREADY_EXISTS_IN_TABLE'] = 'Path is already exists: #NAME#';
+$MESS['RX_LANDING_SECTION_PATH_ALREADY_EXISTS'] = 'Path is already exists';
+$MESS['RX_LANDING_SECTION_PATH_MAIN_ONLY_MAIN'] = 'Main can be only Main type';
+$MESS['RX_LANDING_SECTION_WRONG_MAIN_PATH'] = 'Invalid path for Main type';
+$MESS['RX_LANDING_SECTION_DOESNT_SET_DOMAIN'] = 'Cannot use domain for this type';
+$MESS['RX_LANDING_SECTION_DOMAIN_CORRECTNESS_ERROR'] = 'Domain is invalid';
+$MESS['RX_LANDING_SECTION_DOMAIN_UNIQUENESS_ERROR'] = 'Domain is already used';
+$MESS['RX_LANDING_SECTION_DOESNT_SET_OWN_SETTINGS'] = 'Cannot use own settings in this type';
+$MESS['RX_LANDING_SECTION_NOT_ALLOWED_ROOT_MODE'] = 'Cannot use mode in this type';
+$MESS['RX_LANDING_SECTION_PATH_CANNOT_UPDATE_SITE_TEMPLATE'] = 'Cannot update site template';
+$MESS['RX_LANDING_SECTION_PATH_MKDIR_ERROR'] = 'Cannot create directory';
+$MESS['RX_LANDING_SECTION_MISSING_REQUIRED_FIELDS'] = 'Missing required fields';
+$MESS['RX_LANDING_SECTION_MISSING_CREATE'] = 'Error is ocurred while adding section to the table';
+$MESS['RX_LANDING_SECTION_PATH_COPYFILES_ERROR'] = 'Cannot create files';
+$MESS['RX_LANDING_SECTION_DEMO_DIR_EXISTS_ERROR'] = 'Directory with demo data does not exist';
+$MESS['RX_LANDING_SECTION_CLEANING_DIR_EXISTS_ERROR'] = 'There is no such directory';

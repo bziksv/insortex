@@ -1,0 +1,73 @@
+.block2-1 .tizers {
+    margin-bottom: -60px;
+    justify-content: center;
+}
+.block2-1 .tizer {
+    display: flex;
+    margin-bottom: 60px;
+}
+.block2-1 .tizer svg {
+    float: left;
+    margin-right: 30px;
+}
+.block2-1.text-light .svg-icon {
+    color: #fff!important;
+}
+.block2-1 .svg-icon svg,
+.block2-1 .tizer-icon svg {
+    width: 60px;
+}
+.block2-1 .tizer-icon {
+    font-size: 60px;
+    float: left;
+    display: flex;
+}
+.block2-1 .tizer-name {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.block2-1.text-light .tizer-name {
+    color: #ffffff;
+}
+.block2-1 .image {
+    margin-right: 30px;
+}
+
+.block2-1 .tizer.slick-slide {
+    display: flex;
+}
+.block2-1 .tizer.slick-slide .tizer-text {
+    margin-bottom: 0;
+}
+.block2-1 .slider--one-slide .slick-dots {
+    display: none !important;
+}
+.block2-1 .slick-dots {
+    list-style: none;
+    margin-bottom: 60px;
+    margin-top: -30px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.block2-1 .slick-dots li {
+    width: 20px;
+    height: 4px;
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.block2-1 .slick-dots li:not(.slick-active) {
+    background-color: #cccccc;
+}
+.block2-1 .slick-dots li > button {
+    display: none;
+}
+@media (max-width: 767px) {
+    .block2-1 .tizers.tizers--mobile-slider:not(.slick-initialized) .tizer:not(:first-child) {
+        display: none;
+    }
+}

@@ -1,0 +1,49 @@
+.block2-6 .tizer {
+    margin-bottom: 60px;
+}
+.block2-6 .block-title {
+    box-sizing: border-box;
+    padding-right: 100px;
+}
+.block2-6 .tizer:last-child {
+    margin-bottom: 0;
+}
+.block2-6 .tizer-number {
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 39px;
+    margin-bottom: 17px;
+}
+.block2-6 .img-round {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.block2-6 .tizer-name {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 23px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.block2-6 .tizer-text {
+    margin-bottom: 0;
+}
+.block2-6.text-light .tizer-name,
+.block2-6.text-light .tizer-text,
+.block2-6.text-light .svg-icon {
+    color: #ffffff !important;
+}
+@media (max-width: 991px) {
+    .block2-6 .block-title {
+        padding-right: 0;
+    }
+    .block2-6 .tizer {
+        margin-bottom: 30px;
+    }
+}

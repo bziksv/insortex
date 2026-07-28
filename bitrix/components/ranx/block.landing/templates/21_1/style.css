@@ -1,0 +1,113 @@
+.block21-1 .video-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 888px;
+}
+
+.block21-1 .video,
+.block21-1 .video-preview {
+    position: relative;
+    padding-top: 60%;
+}
+
+.block21-1 .video-preview {
+    display: block;
+}
+
+.block21-1 .video-preview:hover {
+    cursor: pointer;
+}
+
+.block21-1 .video-preview::after,
+.block21-1 .video-preview::before {
+    content: "";
+    position: absolute;
+    transition: transform ease .3s;
+}
+
+.block21-1 .video-preview::before {
+    width: 100px;
+    height: 100px;
+    z-index: 1;
+    top: calc((100% - 100px) / 2);
+    left: calc((100% - 100px) / 2);
+    border-radius: 100%;
+}
+
+.block21-1 .video-preview::after {
+    top: calc(50% - 16px);
+    left: calc(50% - 9px);
+    border: 16px solid transparent;
+    border-left: 28px solid #fff;
+    z-index: 2;
+}
+
+.block21-1 .video-preview:hover::before,
+.block21-1 .video-preview:hover::after {
+    transform: scale(1.2);
+}
+
+.block21-1 .video iframe,
+.block21-1 .video-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.block21-1 .video-preview img {
+    object-fit: cover;
+}
+
+.block21-1 .video-note {
+    margin-top: 11px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 27px;
+    color: #666666;
+}
+
+.block21-1.text-light .video-note {
+    color: #ffffff;
+}
+
+.block21-1 .hidden {
+    display: none;
+}
+
+@media (max-width: 425px) {
+    .block21-1 .video-preview::before {
+        width: 50px;
+        height: 50px;
+        top: calc((100% - 50px) / 2);
+        left: calc((100% - 50px) / 2);
+    }
+
+    .block21-1 .video-preview::after {
+        top: calc(50% - 8px);
+        left: calc(50% - 5px);
+        border: 8px solid transparent;
+        border-left: 14px solid #fff;
+    }
+}
+
+/* modal style */
+.modal21-1 {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1118px;
+}
+
+.modal21-1-video {
+    position: relative;
+    padding-top: 56%;
+}
+
+.modal21-1-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

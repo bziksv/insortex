@@ -1,0 +1,153 @@
+.rx-block-filter {
+    padding: 25px 0;
+    border-top: 1px solid #ECECEC;
+}
+.rx-block-filter .filter__toggle {
+    padding-left: 44px;
+    position: relative;
+    display: inline-block;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 700;
+}
+.rx-block-filter .filter__toggle:hover {
+    cursor: pointer;
+}
+.rx-block-filter .filter__toggle::before,
+.rx-block-filter .filter__toggle::after {
+    content: "";
+    display: block;
+    position: absolute;
+}
+.rx-block-filter .filter__toggle::before {
+    width: 34px;
+    height: 20px;
+    left: 0;
+    border-radius: 10px;
+    transition: background-color .15s ease-in-out,
+                border-color .15s ease-in-out,
+                box-shadow .15s ease-in-out;
+    pointer-events: none;
+}
+.rx-block-filter .filter__toggle.collapsed::before {
+    background: #DDDDDD;
+}
+.rx-block-filter .filter__toggle::after {
+    left: 17px;
+    bottom: 3px;
+    border-radius: 100%;
+    background: #fff;
+    width: 14px;
+    height: 14px;
+    box-shadow: 0 1px 3px rgba(128, 139, 172, 0.5);
+    transition: left .1s ease-in;
+}
+.rx-block-filter .filter__toggle.collapsed::after {
+    left: 3px;
+}
+.rx-block-filter .filter__controls {
+    margin-top: 20px;
+    border-bottom: 1px solid #ECECEC;
+}
+.rx-block-filter .filter__control {
+    margin-bottom: 25px;
+}
+.rx-block-filter .filter__control label {
+    margin-bottom: 5px;
+    font-size: 13px;
+    line-height: 20px;
+}
+.block:not(.text-light) .rx-block-filter .filter__control label {
+    color: #999;
+}
+.rx-block-filter .control--time input,
+.rx-block-filter .control--number input {
+    height: 48px;
+    padding: 13px 15px;
+    font-size: 15px;
+    line-height: 20px;
+}
+.rx-block-filter .control--list .selectric-items li.disabled {
+    display: none;
+}
+.rx-block-filter .control--button .btn-filter {
+    width: 100%;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 13px;
+    line-height: 20px;
+}
+.rx-block-filter .control--button .btn-reset {
+    background: #F6F6F6;
+    border-color: #F6F6F6;
+    color: #333333;
+}
+.rx-block-filter .control--button .btn-reset:hover {
+    background: #e8e8e8;
+    border-color: #e8e8e8;
+}
+.rx-block-filter .filter__controls:not(.set) .button--reset {
+    display: none;
+}
+.rx-block-filter .selectric {
+    background: #FCFCFC;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+}
+.rx-block-filter .selectric-hover .selectric {
+    border-color: #999999;
+}
+.rx-block-filter .selectric .label {
+    font-size: 15px;
+    line-height: 46px;
+    color: #333333;
+    height: 46px;
+    margin-left: 15px;
+}
+.rx-block-filter .selectric .button {
+    color: #333333;
+    width: 37px;
+    height: 48px;
+    background-color: transparent;
+}
+.rx-block-filter .selectric .button::after {
+    border: none !important;
+    width: 5px;
+    height: 3px;
+    background-image: url('./img/arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.rx-block-filter .selectric .button::after {
+    border-top-color: #333333;
+}
+.rx-block-filter .selectric-hover .selectric .button::after {
+    border-top-color: #333333;
+}
+.rx-block-filter .selectric-items {
+    top: calc(100% + 4px);
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+    border: none;
+    overflow: hidden;
+}
+.rx-block-filter .selectric-items ul {
+    padding-left: 0;
+}
+.rx-block-filter .selectric-items li {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ececec;
+    font-size: 15px;
+    line-height: 20px;
+    color: #333333;
+    padding: 13px 15px;
+}
+.rx-block-filter .selectric-items li.last {
+    border-bottom: none;
+}
+.rx-block-filter .selectric-items li.selected,
+.rx-block-filter .selectric-items li:hover,
+.rx-block-filter .selectric-items li.highlighted {
+    background-color: #f8f8f8;
+}

@@ -1,0 +1,80 @@
+
+/* top line */
+.header-top {
+    height: 42px;
+    border-bottom: 1px solid rgba(0, 0, 0, .07);
+    width: 100%;
+}
+body.header-is-transparent .header-top { border-color: rgba(40, 40, 40, .1); }
+.header-top .header-city-wrap {
+    margin-top: 11px;
+    margin-right: 20px;
+}
+.header-top .header-city-wrap > span {
+    display: none;
+}
+.header-top .header-city {
+    display: block;
+}
+.header-top .header-address {
+    margin-top: 11px;
+    margin-right: 46px;
+}
+.header-top .header-phone {
+    margin-top: 12px;
+}
+.header-top .header-phone-callback {
+    line-height: 17px;
+}
+.header-order-btn {
+    margin-top: 5px;
+    margin-left: 40px;
+}
+.header-top .header-basket {
+    margin-top: 11px;
+    margin-left: 20px;
+}
+.header-top .header-search {
+    margin-top: 13px;
+    margin-left: 20px;
+    opacity: .35;
+}
+.header-top .header-search:hover,
+header.header-light .header-search {
+    opacity: 1;
+}
+.header-top .header-search-icon,
+.header-top .header-search-icon svg {
+    width: 15px;
+    height: 15px;
+}
+.header-phone-number {
+    font-size: 13px;
+    line-height: 17px;
+}
+header .header-phone-number span {
+    font-size: 11px;
+}
+.header-phone-wrap {
+    margin-right: 19px;
+    display: flex;
+}
+header .header-phone-dropdown {
+    top: -10px;
+}
+
+/* main */
+.header-main {
+    border-bottom: 1px solid #ececec;
+}
+body.header-is-transparent .header-main { border-color: rgba(40, 40, 40, .1); }
+.header-main .header-logo {
+    height: 86px;
+    line-height: 86px;
+}
+.header-main .header-description {
+    height: 86px;
+}
+.header-nav {
+    height: 86px;
+}

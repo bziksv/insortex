@@ -1,0 +1,37 @@
+.block20-6 .row {
+    margin-bottom: -30px;
+}
+.block20-6 .section-item {
+    margin-bottom: 30px;
+}
+.block20-6 .section-container {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    border: 1px solid #ECECEC;
+    background: #fff;
+    border-radius: 4px;
+    transition: box-shadow .2s ease-out;
+}
+.block20-6 .section-container:hover {
+    border-color: transparent;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow .2s ease-in;
+}
+.block20-6 .section-img {
+    max-height: 40px;
+    max-width: 40px;
+    object-fit: contain;
+    margin-right: 25px;
+}
+.block20-6 .section-title {
+    color: #333;
+}
+@media (max-width: 575px) {
+    .block20-6 .row {
+        margin-bottom: -15px;
+    }
+    .block20-6 .section-item {
+        margin-bottom: 15px;
+    }
+}

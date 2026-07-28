@@ -1,0 +1,5 @@
+<?php
+$MESS['RX_LANDING_LIB_REPORT_MAKER_DUPLICATE'] = 'Cannot read file #FILE#';
+$MESS['RX_LANDING_LIB_REPORT_MAKER_IRRELEVANT_PROP'] = 'Property is invalid';
+$MESS['RX_LANDING_LIB_REPORT_MAKER_MISSING_PROP'] = 'Missing property';
+$MESS['RX_LANDING_LIB_REPORT_MAKER_DIFFERENCES_PROP'] = 'Property fields differences';

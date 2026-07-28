@@ -1,0 +1,20 @@
+<?php
+$MESS['RXLANDING_MODULE_NAME'] = 'RANX: Creator';
+$MESS['RXLANDING_MODULE_DESC'] = 'Конструктор лендингов с возможностью создания разделов';
+$MESS['RXLANDING_PARTNER'] = 'RANX';
+$MESS['RXLANDING_PARTNER_URI'] = 'https://ranx.ru';
+$MESS['RXLANDING_MOD_INST_OK'] = 'Установка модуля успешно завершена';
+$MESS['RXLANDING_MOD_INST_NOTE'] = 'Поздравляем, модуль <b>«RANX: Creator</b> успешно установлен!<br />Для установки готового сайта, пожалуйста перейдите <a href="/bitrix/admin/wizard_list.php?lang=ru">в список мастеров</a> <br />и выберите пункт <b>«Установить»</b> в меню мастера ranx:landing';
+$MESS['RXLANDING_MOD_UNINST_OK'] = 'Удаление модуля успешно завершено';
+$MESS['RXLANDING_MOD_BACK'] = 'Вернуться в список';
+$MESS['RXLANDING_OPEN_WIZARDS_LIST'] = 'Открыть список мастеров';
+$MESS['RXLANDING_INSTALL_SITE'] = 'Установить готовый сайт';
+$MESS['RXLANDING_INSTALL_TITLE'] = 'Установка модуля';
+$MESS['RXLANDING_UNINSTALL_TITLE'] = 'Удаление модуля';
+$MESS['RXLANDING_INSTALL_PHP_VERSION_ERORR'] = 'Требуется версия PHP >=#VERSION#';
+$MESS['RXLANDING_INSTALL_BX_VERSION_ERORR'] = 'Требуется версия 1С-Битрикс >=#VERSION#';
+$MESS['RXLANDING_INSTALL_SITE'] = 'Перейти к установке';
+$MESS['RXLANDING_RIGHT_D'] = 'Доступ запрещен';
+$MESS['RXLANDING_RIGHT_X'] = 'Полный доступ';
+$MESS['RXLANDING_INSTALL_EDITOR_GROUP_NAME'] = 'Редакторы Landing';
+$MESS['RXLANDING_INSTALL_EDITOR_GROUP_DESC'] = 'Группа для редакторов модуля RANX: Creator';

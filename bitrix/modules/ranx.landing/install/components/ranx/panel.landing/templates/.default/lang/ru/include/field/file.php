@@ -1,0 +1,3 @@
+<?php
+$MESS['RX_PANEL_LANDING_INCLUDE_FIELD_FILE_UPLOAD'] = 'Загрузить файл';
+$MESS['RX_PANEL_LANDING_INCLUDE_FIELD_FILE_DOWNLOAD'] = 'Скачать оригинал';

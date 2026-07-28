@@ -1,0 +1,72 @@
+.up-button-wrap {
+    position: relative;
+    max-height: 0;
+}
+.up-button {
+    position: fixed;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    z-index: 500;
+    opacity: 1;
+    transform: rotate(0);
+    transform-origin: center;
+    transition: color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out,
+        transform 0.5s ease-out,
+        opacity 0.5s ease-out,
+        right 0.5s step-start;
+}
+.up-button.left {
+    right: unset !important;
+}
+.up-button.right {
+    left: unset !important;
+}
+.up-button.left.hide {
+    opacity: 0;
+    left: -100px !important;
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-out,
+    opacity 0.5s ease-out,
+    left 0.5s step-end;
+}
+.up-button.right.hide {
+    opacity: 0;
+    right: -100px !important;
+    transform: rotate(180deg);
+    transition: transform 0.5s ease-out,
+        opacity 0.5s ease-out,
+        right 0.5s step-end;
+}
+.up-button.sticky {
+    position: absolute;
+}
+.up-button.sticky.hide {
+    position: relative;
+}
+.up-button svg {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 14px; left: 14px;
+}
+.up-button.btn-primary  {
+    color: #fff;
+}
+body.modal-open .up-button {
+    margin-right: 15px;
+}
+
+@media (max-width: 767px) {
+    .up-button {
+        left: 35px !important;
+        right: 35px !important;
+        bottom: 35px !important;
+    }
+    .up-button.hide-in-mobile {
+        display: none;
+    }
+}

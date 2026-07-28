@@ -1,0 +1,62 @@
+/* selectric restyling */
+.panel .selectric {
+    background: #FCFCFC;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+}
+.panel .selectric-hover .selectric {
+    border-color: #999999;
+}
+.panel .selectric .label {
+    font-size: 15px;
+    line-height: 37px;
+    color: #333333;
+    height: 37px;
+    margin-left: 13px;
+}
+.panel .selectric .button {
+    color: #333333;
+    width: 37px;
+    height: 37px;
+    background-color: transparent;
+}
+.panel .selectric .button::after {
+    border: none !important;
+    width: 5px;
+    height: 3px;
+    background-image: url('../img/arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.panel .selectric .button::after {
+    border-top-color: #333333;
+}
+.panel .selectric-hover .selectric .button::after {
+    border-top-color: #333333;
+}
+.panel .selectric-items {
+    top: calc(100% + 4px);
+    background-color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+    border: none;
+    overflow: hidden;
+}
+.panel .selectric-items li {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ececec;
+    font-size: 15px;
+    line-height: 19px;
+    color: #333333;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 8px;
+}
+.panel .selectric-items li.last {
+    border-bottom: none;
+}
+.panel .selectric-items li.selected,
+.panel .selectric-items li:hover,
+.panel .selectric-items li.highlighted {
+    background-color: #f8f8f8;
+}

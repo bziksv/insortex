@@ -1,0 +1,121 @@
+/*
+* COLOR: #43b4e5
+* COLOR_HOVER: #2cabe2
+*/
+.theme-color {
+    color: #43b4e5;
+}
+.theme-color:hover,
+.theme-color-hover:hover,
+.theme-color-hover-parent:hover .theme-color-hover {
+    color: #2cabe2 !important;
+}
+.theme-bg,
+.theme-bg-active.active,
+.active .theme-bg-active,
+.theme-before-bg::before,
+.theme-after-bg::after {
+    background-color: #43b4e5;
+}
+a.theme-bg:hover,
+a:hover .theme-bg,
+.theme-before-bg::before:hover,
+.theme-after-bg::after:hover {
+    background-color: #2cabe2;
+}
+.theme-bg-hover:hover,
+.theme-bg-hover-parent:hover .theme-bg-hover {
+    background-color: #2cabe2;
+}
+.theme-border,
+.theme-border-class-active.active,
+.theme-border-class-active .active,
+.theme-border-hover:hover {
+    border-color: #43b4e5;
+}
+.theme-border-hover:hover,
+.theme-border-hover-parent:hover .theme-border-hover {
+    border-color: #2cabe2;
+}
+.theme-fill {
+    fill: #43b4e5;
+}
+.theme-fill-hover:hover,
+.theme-fill-hover:hover svg {
+    fill: #2cabe2;
+}
+.theme-stroke {
+    stroke: #43b4e5;
+}
+.theme-stroke-hover:hover,
+.theme-stroke-hover:hover svg {
+    stroke: #2cabe2 !important;
+}
+
+.btn-primary,
+.btn-primary:disabled {
+    background-color: #43b4e5;
+    border-color: #43b4e5;
+}
+.btn-primary:disabled { opacity: .5; }
+
+.btn-primary:hover, .btn-transparent:hover,
+.btn-primary:active, .btn-transparent:active,
+.btn-primary:not(:disabled):not(:disabled):active, .btn-transparent:not(:disabled):not(:disabled):active,
+.btn-primary:focus, .btn-transparent:focus,
+.custom-file-input:focus ~ .custom-file-label {
+    background-color: #2cabe2;
+    border-color: #2cabe2;
+}
+.btn-transparent {
+    border-color: rgba(67, 180, 229, 0.35);
+    color: #43b4e5;
+}
+.btn-transparent:hover,
+.btn-transparent:active,
+.btn-transparent:focus,
+.custom-file-input:focus ~ .custom-file-label {
+    color: #ffffff;
+    border-color: #43b4e5 !important;
+}
+.btn-white {
+    color: #43b4e5;
+}
+.btn-white:hover {
+    background-color: #2cabe2;
+    border-color: #2cabe2;
+}
+a {
+    color: #43b4e5;
+}
+a:hover:not(.btn):not(.theme-exclude-hover) {
+    color: #2cabe2 !important;
+    text-decoration: none;
+}
+a.active:not(.btn):not(.theme-exclude-hover) {
+    color: #2cabe2;
+    text-decoration: none;
+}
+
+/* custom checkbox */
+.custom-checkbox input:checked ~ label::before,
+.custom-checkbox input:hover ~ label::before,
+.custom-checkbox label:hover::before,
+.custom-checkbox:not(:disabled):active ~ label::before {
+    border-color: #43b4e5 !important;
+    background-color: #43b4e5 !important;
+}
+.custom-checkbox input:focus:not(:checked) ~ label::before {
+    border-color: #43b4e5 !important;
+}
+
+/* custom radio */
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #43b4e5 !important;
+    background-color: #43b4e5 !important;
+}
+
+/* lists */
+.theme-ul ul li::before {
+    color: #43b4e5;
+}

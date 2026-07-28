@@ -1,0 +1,20 @@
+<?php
+$MESS['RX_PANEL_LANDING_SUPPORT_TAB_TITLE'] = 'Support';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS'] = 'Docs';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_DESC'] = 'Have a question? Look for it in <b>docs</b>. Most likely there is an answer yet. FAQ:';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_FAQ_1'] = 'How to create main page?';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_FAQ_2'] = 'How to set up Yandex.Metrika?';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_FAQ_3'] = 'How to set up regionality?';
+$MESS['RX_PANEL_LANDING_SUPPORT_TAB_TEXT'] = 'Do not have time to create perfect landing? We can make it for you based on your businness specifics. And you\'ll have awesome examples.';
+$MESS['RX_PANEL_LANDING_SUPPORT_PARTNER_TITLE'] = 'Become a partner';
+$MESS['RX_PANEL_LANDING_SUPPORT_PARTNER_BTN'] = 'Leave a request';
+$MESS['RX_PANEL_LANDING_SUPPORT_IDEA_TITLE'] = 'Have an idea?';
+$MESS['RX_PANEL_LANDING_SUPPORT_ERROR_TITLE'] = 'I have an error';
+$MESS['RX_PANEL_LANDING_SUPPORT_BTN_MESSAGE'] = 'Contact support';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICES_TITLE'] = 'Order services';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_1'] = 'Landing creation';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_2'] = 'Advertising';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_3'] = 'Banners design';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_ORDER'] = 'Order';
+$MESS['RX_PANEL_LANDING_SUPPORT_CUSTOMIZE_TEXT'] = 'Partner?&nbsp;';
+$MESS['RX_PANEL_LANDING_SUPPORT_CUSTOMIZE_LINK'] = 'Use this page';

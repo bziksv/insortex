@@ -1,0 +1,115 @@
+.block2-3 .tizers {
+    justify-content: center;
+}
+.block2-3 .tizer {
+    padding: 0 20px;
+    position: relative;
+}
+.block2-3 .tizer-wrap {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    background: #ffffff;
+
+    position: relative;
+    top: 0;
+    transition: top 0.3s;
+}
+.block2-3.hover-effect .tizer:hover {
+    cursor: pointer;
+    background: transparent !important;
+}
+.block2-3.hover-effect .tizer:hover .tizer-wrap {
+    top: -20px;
+    transition: top 0.3s;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.15));
+}
+.block2-3.content-align-left .tizer-wrap {
+    align-items: flex-start;
+}
+.block2-3.content-align-left .tizer {
+    text-align: left;
+}
+.block2-3.content-align-center .tizer-wrap {
+    align-items: center;
+}
+.block2-3.content-align-center .tizer {
+    text-align: center;
+}
+.block2-3.content-align-wide .tizer {
+    text-align: justify;
+}
+.block2-3 .tizer.bg-color {
+    background-clip: content-box;
+}
+.block2-3 .tizer.bg-color .tizer-wrap,
+.block2-3.hover-effect .tizer .tizer-wrap{
+    padding: 30px 30px 0;
+}
+.block2-3 .img-round {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.block2-3.content-picture-center .img-round {
+    align-self: center;
+}
+.block2-3.content-picture-left .img-round {
+    align-self: flex-start;
+}
+.block2-3.content-picture-right .img-round {
+    align-self: flex-end;
+}
+.block2-3 .tizer-name {
+    font-size: 18px;
+    line-height: 23px;
+    color: inherit;
+    margin-bottom: 10px;
+}
+.block2-3.text-light .tizer-name {
+    color: #ffffff;
+}
+
+.block2-3.hover-effect .tizer.slick-slide:hover .tizer-wrap {
+    transition: unset;
+    top: 0;
+}
+.block2-3 .tizer.slick-slide .tizer-text {
+    margin-bottom: 0;
+}
+.block2-3 .slider--one-slide .slick-dots {
+    display: none !important;
+}
+.block2-3 .slick-dots {
+    list-style: none;
+    margin-bottom: 0;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.block2-3 .slick-dots li {
+    width: 20px;
+    height: 4px;
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.block2-3 .slick-dots li:not(.slick-active) {
+    background-color: #cccccc;
+}
+.block2-3 .slick-dots li > button {
+    display: none;
+}
+@media (max-width: 767px) {
+    .block2-3 .tizers.tizers--mobile-slider:not(.slick-initialized) .tizer:not(:first-child) {
+        display: none;
+    }
+}

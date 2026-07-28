@@ -1,0 +1,148 @@
+.block20-10 .article {
+    margin: 0 auto;
+    text-align: left;
+}
+.block20-10.content-align-center .article {
+    text-align: center;
+}
+.block20-10.content-align-wide .article {
+    text-align: justify;
+}
+.block20-10 .article-breadcrumb {
+    display: flex;
+    flex-direction: column;
+}
+.block20-10 .breadcrumb {
+    padding-left: 0;
+}
+.block20-10.text-light .breadcrumb a,
+.block20-10.text-light .breadcrumb > li:after {
+    color: #f8f9fa;
+}
+.block20-10.content-align-center .breadcrumb {
+    align-self: center;
+}
+.block20-10 .article-title {
+    font-size: 40px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+.block20-10 .article-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+}
+.block20-10 .article-date {
+    color: #333;
+    font-size: 13px;
+    margin-right: 22px;
+}
+.block20-10.text-light .article-date {
+    color: #f8f9fa;
+}
+.block20-10 .article-category {
+    color: #777;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+.block20-10.text-light .article-category {
+    color: #f8f9fa;
+}
+.block20-10 .rss {
+    display: block;
+    position: relative;
+    width: 14px;
+    height: 14px;
+    margin-left: auto;
+    color: rgba(51, 51, 51, 0.35);
+    user-select: none;
+}
+.block20-10.text-light .rss {
+    color: #f8f9fa;
+}
+.block20-10 .rss svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+}
+.block20-10 .article-ing-wrap {
+    width: 100%;
+}
+.block20-10 .article-img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto 30px;
+    height: auto;
+}
+.block20-10:not(.text-light) .article-text {
+    color: #666;
+}
+.block20-10:not(.text-light) .article-text h1,
+.block20-10:not(.text-light) .article-text h2,
+.block20-10:not(.text-light) .article-text h3,
+.block20-10:not(.text-light) .article-text h4,
+.block20-10:not(.text-light) .article-text h5,
+.block20-10:not(.text-light) .article-text h6,
+.block20-10:not(.text-light) .article-text b {
+    color: #333;
+}
+.block20-10 .article-text div {
+    margin-bottom: 30px;
+}
+.block20-10 .article-text blockquote {
+    color: #333;
+    margin-bottom: 30px;
+    padding: 2px 20px 2px 37px;
+    position: relative;
+    vertical-align: middle;
+    border: none;
+    font-weight: 700;
+    border-left-style: solid;
+    border-left-width: 2px;
+    border-left-color: inherit;
+}
+.block20-10.text-light .article-text blockquote {
+    color: #f8f9fa;
+}
+.block20-10 .article-text img {
+    max-width: 100% !important;
+    height: auto;
+}
+
+.block20-10 .back {
+    display: flex;
+    align-items: center;
+    margin: 58px auto 0;
+    color: rgba(51, 51, 51, 0.35);
+}
+.block20-10 .back svg {
+    width: 12px;
+    height: 10px;
+}
+.block20-10 .back span {
+    margin-left: 20px;
+    color: #999;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+.block20-10.text-light .back,
+.block20-10.text-light .back span {
+    color: #f8f9fa;
+}
+
+@media (min-width: 992px) {
+    .block20-10 .article,
+    .block20-10 .back {
+        width: calc(100% * 2 / 3);
+    }
+    .block20-10.wide-block .article,
+    .block20-10.wide-block .back {
+        width: 100%;
+    }
+}

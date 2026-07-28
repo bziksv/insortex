@@ -1,0 +1,551 @@
+.bx_filter.rx_compact {
+    color: #333;
+    font-size: 13px;
+    line-height: 17px;
+}
+.bx_filter.rx_compact input {
+    color: #666;
+}
+.bx_filter.rx_compact input::placeholder {
+    color: #999;
+}
+.bx_filter.rx_compact input:focus {
+    outline: none;
+}
+.bx_filter.rx_compact .box-shadow-sm {
+    transition: box-shadow .2s ease-out;
+    cursor: pointer;
+}
+.bx_filter.rx_compact .box-shadow-sm:hover {
+    border-color: transparent !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow .2s ease-in;
+    z-index: 10;
+}
+.bx_filter.rx_compact .popup-window[id^=smartFilterDropDown] {
+    padding: 0;
+    max-height: 194px;
+    overflow-y: auto;
+}
+.bx_filter.rx_compact .bx_filter_param_label {
+    margin-bottom: 0;
+}
+.bx_filter.rx_compact .bx_filter_param_label.disabled {
+    cursor: default;
+    opacity: 0.4;
+}
+
+
+.bx_filter.rx_compact .bx_filter_parameters {
+    display: flex;
+    flex-wrap: wrap;
+}
+.bx_filter.rx_compact .bx_filter_icon {
+    align-self: center;
+    position: relative;
+    width: 15px;
+    height: 12px;
+    margin-bottom: 8px;
+    margin-right: 20px;
+}
+.bx_filter.rx_compact .bx_filter_icon .svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 12px;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box {
+    position: relative;
+    user-select: none;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box_container.js-simplebar {
+    max-height: 239px;
+    overflow-y: auto;
+    padding-right: 3px;
+    padding-bottom: 1px;
+}
+.bx_filter.rx_compact .bx_filter_block {
+    position: absolute;
+    padding: 19px 19px 16px;
+    display: none;
+    min-width: 232px;
+    z-index: 3;
+    border-radius: 3px;
+    background: #FFF;
+    box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.1);
+}
+.bx_filter.rx_compact .bx_filter_parameters_box.active .bx_filter_block {
+    z-index: 390;
+}
+.bx_filter.rx_compact .bx_filter_block.right {
+    left: auto;
+    right: 8px;
+}
+
+/* label */
+.bx_filter.rx_compact .bx_filter_parameters_box_title {
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 7px 10px;
+    margin: 0 8px 8px 0;
+    transition: box-shadow .2s ease-out;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box:not(.set) .bx_filter_parameters_box_title {
+    background-color: #fff;
+    border-color: #ececec;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box.set .bx_filter_parameters_box_title {
+    color: #fff;
+    position: relative;
+    padding-right: 42px;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box.set .bx_filter_parameters_box_title:hover {
+    box-shadow: unset;
+}
+.bx_filter.rx_compact .arrow_down {
+    position: relative;
+    width: 5px;
+    height: 3px;
+    margin-left: 8px;
+    transition: transform 0.2s ease;
+}
+.bx_filter.rx_compact .arrow_down .svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 3px;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box.set .arrow_down {
+    display: none;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box.active .arrow_down {
+    transform: rotate(180deg);
+}
+.bx_filter.rx_compact .delete_filter {
+    position: relative;
+    width: 8px;
+    height: 8px;
+}
+.bx_filter.rx_compact .delete_filter .svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box:not(.set) .delete_filter {
+    display: none;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box.set .delete_filter {
+    position: absolute;
+    height: calc(100% + 2px);
+    top: -1px;
+    bottom: -1px;
+    right: -1px;
+    width: 31px;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box.set .delete_filter .svg {
+    top: calc(50% - 4px);
+    left: calc(50% - 4px);
+}
+
+/* TYPE B - numbers */
+.bx_filter.rx_compact .wrapp_change_inputs {
+    display: flex;
+    border: 1px solid #ececec;
+    border-radius: 3px;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box_container_block {
+    width: 50%;
+}
+.bx_filter.rx_compact .bx_filter_input_container input {
+    padding: 9px 8px 9px 15px;
+    background: #fafafa;
+    border: none;
+    border-radius: 0;
+    width: 100%;
+}
+.bx_filter.rx_compact .bx_filter_parameters_box_container_block:first-of-type input {
+    border-right: 1px solid #ececec;
+}
+
+/* TYPE A - slider for number */
+.bx_filter.rx_compact .bx_ui_slider_track {
+    background: #f2f2f2;
+    margin: 23px 12px 29px;
+    height: 2px;
+    position: relative;
+    zoom: 1;
+}
+.bx_filter.rx_compact .bx_ui_slider_pricebar_VD,
+.bx_filter.rx_compact .bx_ui_slider_pricebar_VN,
+.bx_filter.rx_compact .bx_ui_slider_pricebar_V {
+    position: absolute;
+    height: 40px;
+    top: -20px;
+    background-color: transparent;
+}
+.bx_filter.rx_compact .bx_ui_slider_pricebar_VD {
+    z-index:60;
+}
+.bx_filter.rx_compact .bx_ui_slider_pricebar_VN {
+    z-index:70;
+}
+.bx_filter.rx_compact .bx_ui_slider_pricebar_V{
+    z-index:80;
+}
+.bx_filter.rx_compact .bx_ui_slider_pricebar_VD:after,
+.bx_filter.rx_compact .bx_ui_slider_pricebar_VN:after,
+.bx_filter.rx_compact .bx_ui_slider_pricebar_V:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    top: 50%;
+}
+.bx_filter.rx_compact .bx_ui_slider_pricebar_VN:after {
+    background: #f2f2f2;
+}
+.bx_filter.rx_compact .bx_ui_slider_track .bx_ui_slider_handle {
+    top: -11px;
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: #fff;
+    border-radius: 100%;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,.2);
+}
+.bx_filter.rx_compact .bx_ui_slider_range {
+    height: 2px;
+    position: relative;
+}
+.bx_filter.rx_compact .bx_ui_slider_handle:after {
+    font-size: 0;
+    content: ".";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    left: 50%;
+    top: 50%;
+    margin: -3px 0 0 -3px;
+    position: absolute;
+    border-radius: 100%;
+}
+.bx_filter.rx_compact .bx_ui_slider_handle.left {
+    left:0;
+    margin-left: -11px;
+}
+.bx_filter.rx_compact .bx_ui_slider_handle.right {
+    right:0;
+    margin-right: -11px;
+}
+.bx_filter.rx_compact .bx_ui_slider_label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #999;
+    margin-top: -12px;
+}
+
+/* TYPE G - checkbox with pictures */
+.bx_filter.rx_compact .wrapp_all_pictures {
+    display: flex;
+    flex-wrap: wrap;
+}
+.bx_filter.rx_compact .pict {
+    width: 20%;
+}
+.bx_filter.rx_compact .bx_filter_pict_label {
+    display: block;
+    padding: 5px;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.bx_filter.rx_compact .bx_filter_btn_color_icon {
+    display: block;
+    box-shadow: 0 0 1px #999;
+    border: 3px solid #fff;
+    width: 100%;
+    padding-top: calc(100% - 6px);
+}
+.bx_filter.rx_compact .bx_filter_pict_label.active .bx_filter_btn_color_icon {
+    box-shadow: unset;
+}
+.bx_filter.rx_compact .bx_filter_pict_border {
+    display: none;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: calc(100% - 6px);
+    height: calc(100% - 6px);
+    border-width: 2px;
+    border-style: solid;
+}
+.bx_filter.rx_compact .bx_filter_pict_label.active .bx_filter_pict_border {
+    display: block;
+}
+
+/* TYPE H - checkbox with pictures and text */
+.bx_filter.rx_compact .wrapp_all_pic_with_labels {
+    display: flex;
+    flex-direction: column;
+}
+.bx_filter.rx_compact .bx_filter_pict_label.with_text {
+    display: flex;
+    align-items: center;
+}
+.bx_filter.rx_compact label.with_text .bx_filter_btn_color_icon {
+    width: 31px;
+    padding-top: calc(31px - 6px);
+    margin-right: 9px;
+    flex-shrink: 0;
+}
+.bx_filter.rx_compact label.with_text .bx_filter_pict_border {
+    width: calc(31px + 4px);
+    height: calc(31px + 4px);
+    top: calc(50% - 35px / 2);
+}
+.bx_filter.rx_compact label.with_text .bx_filter_param_text {
+    display: block;
+}
+
+/* TYPE P - dropdown */
+.bx_filter.rx_compact .bx_filter_select_wrap {
+    background: #FCFCFC;
+    border: 1px solid #DDDDDD;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+}
+.bx_filter.rx_compact .bx_filter_select_text {
+    line-height: 38px;
+    height: 38px;
+    margin-left: 13px;
+    margin-right: 38px;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+.bx_filter.rx_compact .bx_filter_select_arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 37px;
+    height: 37px;
+}
+.bx_filter.rx_compact .bx_filter_select_arrow .svg {
+    position: absolute;
+    top: calc(50% - 3px / 2);
+    right: calc(50% - 5px / 2);
+    height: 3px;
+    width: 5px;
+}
+.bx_filter.rx_compact .bx_filter_select_popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.bx_filter.rx_compact .bx_filter_select_label {
+    width: 100%;
+    padding: 10px 13px;
+    cursor: pointer;
+    border-bottom: 1px solid #ececec;
+    font-size: 13px;
+    line-height: 17px;
+    color: #fff;
+}
+.bx_filter.rx_compact .bx_filter_select_label:not(.selected) {
+    background-color: #fff;
+    color: #333;
+}
+.bx_filter.rx_compact .bx_filter_select_label:not(.selected):hover {
+    background-color: #f8f8f8;
+}
+
+/* TYPE R - dropdown with pictures and labels */
+.bx_filter.rx_compact .bx_filter_select_pict {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+.bx_filter.rx_compact .bx_filter_select_wrap .bx_filter_select_pict {
+    padding: 0 0 0 1px;
+    width: unset;
+}
+.bx_filter.rx_compact .bx_filter_select_popup .bx_filter_select_pict {
+    padding: 10px 13px;
+}
+.bx_filter.rx_compact .bx_filter_select_label.bx_filter_select_pict:hover {
+    background-color: #f8f8f8;
+}
+.bx_filter.rx_compact .bx_filter_select_pict .bx_filter_btn_color_icon {
+    width: 31px;
+    padding-top: calc(31px - 6px);
+    margin-right: 9px;
+    flex-shrink: 0;
+}
+.bx_filter.rx_compact .bx_filter_select_pict.selected .bx_filter_btn_color_icon {
+    box-shadow: unset;
+}
+.bx_filter.rx_compact .bx_filter_select_pict .bx_filter_pict_border {
+    width: calc(31px + 4px);
+    height: calc(31px + 4px);
+    top: calc(50% - 35px / 2);
+    left: 11px;
+}
+.bx_filter.rx_compact .bx_filter_select_pict.selected .bx_filter_pict_border {
+    display: block;
+}
+.bx_filter.rx_compact .bx_filter_select_pict .bx_filter_param_text {
+    display: block;
+}
+.bx_filter.rx_compact .bx_filter_select_pict.selected .bx_filter_param_text {
+    color: #333;
+}
+
+/* TYPE K - radio */
+.bx_filter.rx_compact .bx_filter_radio_wrap {
+    margin: 0 0 10px;
+    position: relative;
+}
+.bx_filter.rx_compact .bx_filter_radio_wrap:last-of-type {
+    margin-bottom: 0;
+}
+.bx_filter.rx_compact .bx_filter_radio_wrap input {
+    display: none;
+}
+.bx_filter.rx_compact .bx_filter_radio_label {
+    padding-left: 31px;
+    min-height: 17px;
+    cursor: pointer;
+    width: 100%;
+}
+.bx_filter.rx_compact .bx_filter_radio_label::after,
+.bx_filter.rx_compact .bx_filter_radio_label::before {
+    font-size: 0;
+    content: '.';
+    display: block;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    left: 1px;
+    top: 0;
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px #cccccc inset;
+}
+.bx_filter.rx_compact .bx_filter_radio_label.disabled::after {
+    background: #cccccc;
+}
+.bx_filter.rx_compact input:not(:checked) + .bx_filter_radio_label::before {
+    content: unset;
+}
+.bx_filter.rx_compact input:checked + .bx_filter_radio_label::before {
+    box-shadow: unset;
+}
+.bx_filter.rx_compact input:checked + .bx_filter_radio_label::after {
+    box-shadow: none;
+    width: 7px;
+    height: 7px;
+    top: 5px;
+    left: 6px;
+    background: #fff;
+}
+.bx_filter.rx_compact .bx_filter_param_text.radio {
+    margin-top: -1px;
+    display: block;
+}
+
+/* TYPE U - calendar */
+.bx_filter.rx_compact .bx_filter_parameters_box_container_block.calendar {
+    width: 110px;
+}
+.bx_filter.rx_compact .bx_filter_calendar_container {
+    position: relative;
+}
+.bx_filter.rx_compact .bx_filter_calendar_container input {
+    padding: 9px 30px 9px 8px;
+}
+.bx_filter.rx_compact .bx_filter_calendar_container .calendar-icon {
+    margin: 0;
+    position: absolute;
+    top: 7px;
+    right: 8px;
+}
+
+/* default type (F) - checkboxes */
+.bx_filter.rx_compact .bx_filter_checkbox_wrap {
+    margin-bottom: 10px;
+    max-height: unset;
+}
+.bx_filter.rx_compact .bx_filter_checkbox_wrap:last-of-type {
+    margin-bottom: 0;
+}
+.bx_filter.rx_compact .bx_filter_checkbox_label {
+    color: #333;
+    width: 100%;
+}
+.bx_filter.rx_compact .bx_filter_checkbox_label::before {
+    top: 0;
+    left: -24px;
+    border-radius: 4px;
+}
+.bx_filter.rx_compact .bx_filter_checkbox_label::after {
+    top: 0;
+    left: -24px;
+    border-radius: 4px;
+    width: 18px;
+    height: 18px;
+}
+.bx_filter.rx_compact .bx_filter_checkbox_label.disabled:hover::before {
+    background-color: #e9ecef !important;
+    border-color: #dddddd !important;
+}
+.bx_filter.rx_compact .bx_filter_checkbox_label span {
+    display: block;
+}
+
+
+.bx_filter.rx_compact .bx_filter_button_box {
+    display: none;
+    margin: 16px -19px -16px;
+    text-align: left;
+    border-top: 1px solid #eee;
+    background: #fafafa;
+}
+.bx_filter.rx_compact .bx_filter_container_modef {
+    padding: 12px 18px 14px;
+    display: block;
+    font-size: 13px;
+    color: #666666;
+}
+
+
+.bx_filter.rx_compact .bx_filter_search_reset {
+    padding: 7px 10px;
+    margin: 0 8px 8px 0;
+    background: none;
+    border: none;
+}
+.bx_filter.rx_compact .bx_filter_search_reset.hidden {
+    display: none;
+}
+.bx_filter.rx_compact .bx_filter_search_reset:focus {
+    outline: none;
+}
+.bx_filter.rx_compact .bx_filter_search_reset span {
+    border-bottom: 1px dotted;
+
+}

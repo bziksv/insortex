@@ -1,0 +1,8 @@
+<?php
+$MESS['RX_BLOCK_LANDING_NOT_FOUND'] = 'Элемент не найден';
+$MESS['RX_BLOCK_LANDING_EDIT_BTN'] = 'Редактировать';
+
+$MESS['RX_BLOCK_LANDING_DATE_FROM'] = 'С ';
+$MESS['RX_BLOCK_LANDING_DATE_BETWEEN'] = ' по ';
+$MESS['RX_BLOCK_LANDING_DATE_TO'] = 'До ';
+$MESS['RX_BLOCK_LANDING_DEFAULT_BTN_TEXT'] = 'Купить';

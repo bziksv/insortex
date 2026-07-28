@@ -1,0 +1,4 @@
+<?php
+$MESS['RX_REGION_POPUP_LANDING_TITLE'] = 'Select city';
+$MESS['RX_REGION_POPUP_LANDING_PLACEHOLDER'] = 'Type city name';
+$MESS['RX_REGION_POPUP_LANDING_HINT'] = 'For exmaple: ';

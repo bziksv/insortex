@@ -1,0 +1,5 @@
+<?php
+$MESS['RX_PANEL_LANDING_VARIANT_REGION_INCLUDE'] = 'Включить регионы';
+$MESS['RX_PANEL_LANDING_VARIANT_REGION_EXCLUDE'] = 'Исключить регионы';
+$MESS['RX_PANEL_LANDING_VARIANT_BRANCH_INCLUDE'] = 'Включить филиалы';
+$MESS['RX_PANEL_LANDING_VARIANT_BRANCH_EXCLUDE'] = 'Исключить филиалы';

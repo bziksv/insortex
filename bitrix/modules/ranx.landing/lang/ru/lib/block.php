@@ -1,0 +1,6 @@
+<?php
+$MESS['RX_LANDING_LIB_BLOCK_FIELD_NAME_DEFAULT'] = 'Заголовок';
+$MESS['RX_LANDING_LIB_BLOCK_CARDS_SORTS_SORT_ASC'] = 'Вручную';
+$MESS['RX_LANDING_LIB_BLOCK_CARDS_SORTS_NAME_ASC'] = 'По названию';
+$MESS['RX_LANDING_LIB_BLOCK_CARDS_SORTS_DATE_CREATE_ASC'] = 'По дате создания по возрастанию';
+$MESS['RX_LANDING_LIB_BLOCK_CARDS_SORTS_DATE_CREATE_DESC'] = 'По дате создания по убыванию';

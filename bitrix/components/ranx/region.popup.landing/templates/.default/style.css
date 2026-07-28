@@ -1,0 +1,50 @@
+#regionsModal .modal-dialog {
+    max-width: 800px;
+    width: 100%;
+}
+#regionsModal.modal-right .modal-dialog {
+    max-width: 580px;
+}
+#regionsModal .modal-body {
+    padding: 0 50px 50px 50px;
+}
+#regionsModal .modal-region {
+    margin-bottom: 10px;
+}
+.modal-regions-block {
+    max-height: 270px;
+    margin-top: 25px;
+    overflow-x: hidden;
+}
+.modal-regions-item {
+    font-size: 15px;
+    line-height: 20px;
+    color: #333333;
+}
+.modal-regions-item.active {
+    color: #333333 !important;
+    font-weight: bold;
+}
+.modal-regions-item > span {
+    display: block;
+    font-size: 13px;
+    line-height: 17px;
+    color: #999999;
+    font-weight: normal;
+}
+.modal-regions-search {
+    width: 100%;
+}
+.modal-regions-hints {
+    font-size: 13px;
+    line-height: 20px;
+    color: #999999;
+    margin-top: 10px;
+}
+.modal-regions-hints a {
+    font-size: 13px;
+    line-height: 20px;
+    margin-left: 10px;
+    border-bottom-width: 1px;
+    border-bottom-style: dashed;
+}

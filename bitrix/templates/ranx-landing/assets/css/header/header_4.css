@@ -1,0 +1,36 @@
+/* main */
+.header-main {
+    min-height: 86px;
+    display: flex;
+    align-items: center;
+}
+.header-description {
+    height: 86px;
+}
+.header-basket {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 44px;
+}
+.header-order-btn {
+    margin-left: 50px;
+}
+.header-city-wrap {
+    margin-left: 3px;
+}
+.header-phone-number {
+    font-size: 16px;
+    line-height: 22px;
+}
+.header-phone-wrap {
+    margin-right: 19px;
+}
+.header-phone-wrap > span {
+    display: block;
+    font-size: 13px;
+    line-height: 17px;
+    color: #999999;
+    margin-top: 1px;
+    font-weight: normal;
+    margin-left: 20px;
+}

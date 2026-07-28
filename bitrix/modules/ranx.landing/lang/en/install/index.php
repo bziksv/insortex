@@ -1,0 +1,20 @@
+<?php
+$MESS['RXLANDING_MODULE_NAME'] = 'RANX: Creator';
+$MESS['RXLANDING_MODULE_DESC'] = 'Landing constructor with page creation feature';
+$MESS['RXLANDING_PARTNER'] = 'RANX';
+$MESS['RXLANDING_PARTNER_URI'] = 'https://ranx.ru';
+$MESS['RXLANDING_MOD_INST_OK'] = 'Module has been installed successfully';
+$MESS['RXLANDING_MOD_INST_NOTE'] = 'Congratulations, <b>«RANX: Creator</b> module has been successfully installed!<br />To setup website, please go to <a href="/bitrix/admin/wizard_list.php?lang=ru">wizard list</a> <br />and choose <b>Install</b> from menu of ranx:landing wizard';
+$MESS['RXLANDING_MOD_UNINST_OK'] = 'Module is uninstalled successfully';
+$MESS['RXLANDING_MOD_BACK'] = 'Return back';
+$MESS['RXLANDING_OPEN_WIZARDS_LIST'] = 'Open wizard list';
+$MESS['RXLANDING_INSTALL_SITE'] = 'Setup a website';
+$MESS['RXLANDING_INSTALL_TITLE'] = 'Module install';
+$MESS['RXLANDING_UNINSTALL_TITLE'] = 'Module uninstall';
+$MESS['RXLANDING_INSTALL_PHP_VERSION_ERORR'] = 'Required PHP version >=#VERSION#';
+$MESS['RXLANDING_INSTALL_BX_VERSION_ERORR'] = 'Required Bitrix version >=#VERSION#';
+$MESS['RXLANDING_INSTALL_SITE'] = 'Go to installation';
+$MESS['RXLANDING_RIGHT_D'] = 'Access denied';
+$MESS['RXLANDING_RIGHT_X'] = 'Full access';
+$MESS['RXLANDING_INSTALL_EDITOR_GROUP_NAME'] = 'Landing editors';
+$MESS['RXLANDING_INSTALL_EDITOR_GROUP_DESC'] = 'Group for RANX: Creator module editors';

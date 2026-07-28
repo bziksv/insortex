@@ -1,0 +1,4 @@
+<?php
+$MESS['RX_ONE_LANDING_TEMPLATE_PANEL_LIB'] = 'Blocks library';
+$MESS['RX_ONE_LANDING_TEMPLATE_PANEL_PRESETS'] = 'Presets';
+$MESS['RX_ONE_LANDING_TEMPLATE_ADD_FIRST_BLOCK'] = 'Add your first block';

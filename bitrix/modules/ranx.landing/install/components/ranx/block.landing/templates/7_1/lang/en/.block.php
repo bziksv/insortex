@@ -1,0 +1,6 @@
+<?php
+$MESS['RX_BLOCK_7_1_NAME'] = 'With paddings';
+$MESS['RX_BLOCK_7_1_DEMO_BLOCK_NAME'] = 'Marketing is our everything!';
+$MESS['RX_BLOCK_7_1_DEMO_ELEMENT_1_NAME'] = 'Woman dress';
+$MESS['RX_BLOCK_7_1_DEMO_ELEMENT_2_NAME'] = 'Smartphones';
+$MESS['RX_BLOCK_7_1_DEMO_ELEMENT_PREVIEW_TEXT'] = 'There are <b>500</b> positions in our online shop';

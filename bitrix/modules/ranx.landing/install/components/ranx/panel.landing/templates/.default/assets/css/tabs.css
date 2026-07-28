@@ -1,0 +1,57 @@
+#panelTabs {
+    width: 630px;
+    right: -800px;
+}
+#panelTabs .panel-body {
+    padding: 30px;
+}
+#panelTabs .panel-cards {
+    margin-top: 10px;
+}
+#panelTabs .template {
+    display: none;
+}
+#panelTabs .panel-card-header {
+    justify-content: normal;
+}
+#panelTabs .panel-card-body {
+    display: none;
+    border-top: 1px solid #EBEBEB;
+    padding-top: 30px;
+    margin-top: 30px;
+}
+#panelTabs .form-group {
+    margin-bottom: 0;
+}
+#panelTabs .panel-card-actions {
+    margin-left: 45px;
+}
+#panelTabs .panel-card-menuwide {
+    margin-bottom: 0;
+    margin-left: auto;
+}
+#panelTabs .panel-card-menuwide .custom-control-label {
+    padding-left: 0;
+}
+#panelTabs .panel-card-title {
+    position: relative;
+    margin-right: auto;
+}
+#panelTabs .panel-card-title::after {
+    position: absolute;
+    right: -10px;
+    top: calc(50% - 2px);
+    width: 5px;
+    height: 3px;
+    content: '';
+    background-image: url('../img/arrow_down.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#panelTabs .panel-card.open .panel-card-title::after {
+    background-image: url('../img/arrow_up.svg');
+}
+
+#panelContent .panel-card.not-in-tab {
+    display: none;
+}

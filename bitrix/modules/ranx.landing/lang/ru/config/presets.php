@@ -1,0 +1,8 @@
+<?php
+$MESS['RX_LANDING_PRESETS_GROUPS_MAIN_TITLE'] = 'Отраслевые';
+$MESS['RX_LANDING_PRESETS_GROUPS_COMPANY_TITLE'] = 'Компания';
+$MESS['RX_LANDING_PRESETS_GROUPS_CUSTOM_TITLE'] = 'Мои шаблоны';
+
+$MESS['RX_LANDING_PRESETS_LIST_COMPANY_TITLE'] = 'О компании';
+$MESS['RX_LANDING_PRESETS_LIST_LANDING_TITLE'] = 'Самый быстрый способ начать продавать онлайн';
+$MESS['RX_LANDING_PRESETS_LIST_FITNESS_TITLE'] = 'Фитнес-клуб';

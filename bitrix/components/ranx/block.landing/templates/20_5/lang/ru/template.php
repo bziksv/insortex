@@ -1,0 +1,4 @@
+<?php
+$MESS['RX_BLOCK_LANDING_20_5_AVAILABLE'] = 'В наличии';
+$MESS['RX_BLOCK_LANDING_20_5_UNAVAILABLE'] = 'Нет в наличии';
+$MESS['RX_BLOCK_LANDING_20_5_ECONOMY'] = 'Экономия';

@@ -1,0 +1,36 @@
+.panel-ac-items {
+    display: flex;
+    flex-wrap: wrap;
+}
+.panel-ac-item {
+    border: 1px solid #ECECEC;
+    background-color: #f8f8f8;
+    padding: 5px 10px;
+    padding-right: 25px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #333333;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.panel-ac-item--example {
+    display: none;
+}
+.panel-ac-item-remove {
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    right: 7px;
+    top: calc(50% - 5px);
+    color: #999999;
+    cursor: pointer;
+}
+.panel-ac-item-remove:hover { color: #333333; }
+.panel-ac-item-remove svg {
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

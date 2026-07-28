@@ -1,0 +1,23 @@
+/* tooltip restyling */
+.tooltip {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+    padding: 0 !important;
+    margin-bottom: 10px !important;
+    z-index: 996 !important;
+}
+.tooltip.show {
+    opacity: 1 !important;
+}
+.tooltip-inner {
+    background-color: #ffffff !important;
+    color: #666666 !important;
+    font-size: 12px !important;
+    line-height: 14px !important;
+    padding: 7px 10px 9px !important;
+}
+.bs-tooltip-top .arrow {
+    bottom: -6px !important;
+}
+.bs-tooltip-top .arrow::before {
+    border-top-color: #ffffff !important;
+}

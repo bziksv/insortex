@@ -1,0 +1,4 @@
+<?
+$MESS['RX_SMART_FILTER_COMPACT_SELECTED'] = 'Выбрано: ';
+$MESS['RX_SMART_FILTER_COMPACT_ALL'] = 'Все';
+$MESS['RX_SMART_FILTER_COMPACT_DEL'] = 'Очистить фильтр';

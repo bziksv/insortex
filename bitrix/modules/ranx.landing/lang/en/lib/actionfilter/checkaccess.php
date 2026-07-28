@@ -1,0 +1,2 @@
+<?php
+$MESS['RX_LANDING_LIB_ACTIONFILTER_CHECKACCESS_ERROR'] = 'Access denied';

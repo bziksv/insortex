@@ -1,0 +1,94 @@
+.block7-2 .row.no-gutters > div {
+    margin: 0;
+}
+.block7-2 .market-item {
+    display: block;
+    height: 640px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.block7-2 .market-item-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .4);
+    opacity: 0;
+    -webkit-transition: opacity .2s;
+    -moz-transition: opacity .2s;
+    transition: opacity .2s;
+}
+.block7-2 .market-item:hover .market-item-cover { opacity: 1; }
+.block7-2 .market-item-shadow {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    opacity: 1;
+    -webkit-transition: opacity .2s;
+    -moz-transition: opacity .2s;
+    transition: opacity .2s;
+}
+.block7-2 .market-item:hover .market-item-shadow { opacity: 0; }
+.block7-2 .market-item-body {
+    text-align: center;
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    padding: 0 20px;
+}
+.block7-2.content-align-left .market-item-body {
+    text-align: left;
+}
+.block7-2.content-align-wide .market-item-body {
+    text-align: justify;
+}
+.block7-2.content-align-left .market-item-desc,
+.block7-2.content-align-wide .market-item-desc {
+    margin: 0;
+}
+.block7-2 .market-item-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 31px;
+    color: #ffffff;
+}
+.block7-2 .market-item-desc {
+    font-size: 13px;
+    line-height: 20px;
+    color: #ffffff;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.3s ease-out;
+    -moz-transition: max-height 0.3s ease-out;
+    transition: max-height 0.3s ease-out;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 12px;
+}
+.block7-2 .market-item:hover .market-item-desc {
+    max-height: 300px;
+    -webkit-transition: max-height 0.3s ease-in;
+    -moz-transition: max-height 0.3s ease-in;
+    transition: max-height 0.3s ease-in;
+}
+.block7-2 .market-item-border {
+    height: 2px;
+    width: 50px;
+    margin: 0 auto;
+    margin-bottom: 13px;
+}
+.block7-2.content-align-left .market-item-border,
+.block7-2.content-align-wide .market-item-border {
+    margin-left: 0;
+}
+.block7-2-btn {
+    margin-top: 40px;
+}

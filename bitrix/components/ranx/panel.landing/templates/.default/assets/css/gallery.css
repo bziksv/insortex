@@ -1,0 +1,325 @@
+.panel-gallery-acc-body {
+    padding: 0 8px 9px 30px;
+}
+
+.panel-gallery-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+}
+
+.panel-gallery-card {
+    width: 127px;
+    position: relative;
+    margin: 0 21px 21px 0;
+    border-radius: 3px;
+    transition: box-shadow .3s;
+}
+
+.panel-gallery-card.template {
+    display: none;
+}
+
+.panel-gallery-card:not(.active) {
+    opacity: 0.5;
+}
+
+.panel-gallery-card:hover,
+.panel-gallery-card.selected {
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+}
+
+.panel-gallery-card:not(:hover) .panel-gallery-card-action {
+    opacity: 0;
+}
+
+.panel-gallery-card-action {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    transition: opacity .3s;
+    font-size: 13px;
+    line-height: 17px;
+    border-radius: 3px 3px 0 0;
+}
+
+.panel-gallery-card.selected::before,
+.panel-gallery-card.selected::after {
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 4px);
+    display: block;
+    content: "";
+    border-style: solid;
+    border-color: transparent;
+    border-width: 5px 4px;
+}
+
+.panel-gallery-card.selected::before {
+    border-top-color: #DDDDDD;
+}
+
+.panel-gallery-card.selected::after {
+    bottom: -9px;
+    border-top-color: #FFFFFF;
+}
+
+.panel-gallery-card.active .panel-gallery-card-action-act,
+.panel-gallery-card:not(.active) .panel-gallery-card-action-deact {
+    display: none;
+}
+
+.panel-gallery-card-action a:not(:hover) {
+    color: #ffffff;
+}
+
+.panel-gallery-card-action a {
+    transition: .2s;
+    margin-bottom: 13px;
+}
+
+.panel-gallery-card-action a:first-child {
+    margin-right: 13px;
+}
+
+.panel-gallery-card-action a:last-child {
+    margin-bottom: 0;
+}
+
+.panel-gallery-card-action-remove svg {
+    width: 18px;
+    height: 18px;
+}
+
+.panel-gallery-card-action-deact svg,
+.panel-gallery-card-action-act svg {
+    width: 18px;
+    height: 14px;
+}
+
+.panel-gallery-card-action-edit {
+    border-bottom: 1px dotted #FFFFFF;
+}
+
+.panel-gallery-card-img {
+    height: 84px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 3px 3px 0 0;
+    border: 1px solid #DDDDDD;
+    border-bottom: none;
+}
+
+.panel-gallery-card-info {
+    border: 1px solid #DDDDDD;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    padding: 15px 13px 13px;
+    text-align: center;
+}
+
+.panel-gallery-card-name {
+    font-size: 13px;
+    line-height: 17px;
+    color: #333333;
+    margin-bottom: 4px;
+    height: 17px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.panel-gallery-card-size {
+    font-size: 12px;
+    line-height: 16px;
+    color: #999999;
+    text-transform: uppercase;
+    margin-bottom: auto;
+}
+
+
+.panel-gallery-card-edit {
+    position: relative;
+    width: calc(100% + 30px * 2);
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    margin: 0 -8px 21px -30px;
+    padding: 30px 30px 35px;
+    background-color: #F8F8F8;
+}
+
+.panel-gallery-card-edit.hidden {
+    display: none;
+}
+
+.panel-gallery-card-edit:last-child {
+    margin-bottom: -10px;
+}
+
+.panel-gallery-card-edit .form-group:last-child {
+    margin-bottom: 0;
+}
+
+.panel-gallery-card-edit .form-group .panel-gallery-card-edit-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #666666;
+}
+
+.panel-gallery-card-edit .form-control {
+    background-color: #FFFFFF;
+}
+
+.panel-gallery-card-edit .form-group-pics {
+    margin: 0;
+    align-items: center;
+}
+
+.panel-gallery-card-edit .form-group-pics a {
+    font-size: 13px;
+    line-height: 17px;
+    color: #666666;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    margin-right: 20px;
+    transition: .2s;
+}
+
+.panel-gallery-card-edit .form-group-pics a:hover {
+    cursor: pointer;
+}
+
+.panel-gallery-card-edit .form-group-pics a:not(:hover) {
+    border-bottom-color: #666666;
+}
+
+.panel-gallery-card-edit .form-group-pics img {
+    height: 53px;
+    width: 80px;
+    object-fit: cover;
+}
+
+.panel-gallery-card-edit .form-group-pics-info {
+    margin: 0 20px;
+    flex-grow: 1;
+    max-width: 280px;
+    display: block;
+}
+
+.panel-gallery-card-edit .form-group div.form-group-pics-info-ext {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 2px;
+    word-wrap: break-word;
+}
+
+.panel-gallery-card-edit .form-group div.form-group-pics-info-size {
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.panel-gallery-card-edit .custom-file-label {
+    margin-bottom: 0;
+}
+
+.panel-gallery-card-edit .form-group-pics.hidden,
+.panel-gallery-card-edit .form-group-pics:not(.hidden) + .custom-file {
+    display: none;
+}
+
+.panel-gallery-edit-file-input {
+    z-index: 2;
+    opacity: 0;
+}
+
+.panel-gallery-card-edit-close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    height: 11px;
+    width: 11px;
+}
+
+.panel-gallery-card-edit-close {
+    color: #999999;
+}
+
+.panel-gallery-card-edit-close svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 11px;
+    width: 11px;
+}
+
+.panel-gallery-upload {
+    background-color: #F8F8F8;
+    border-width: 2px;
+    border-style: dashed;
+    padding: 23px 25px 26px;
+    margin: 0 22px 35px 0;
+    display: flex;
+    transition: .2s;
+}
+
+.panel-gallery-upload:hover {
+    cursor: pointer;
+}
+
+.panel-gallery-upload:not(.drop) {
+    border-color: #C4C4C4;
+}
+
+/* Solving the problem with child elements for dragenter */
+.panel-gallery-upload * {
+    pointer-events: none;
+}
+
+.panel-gallery-upload-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.panel-gallery-upload-svg {
+    width: 44px;
+    height: 32px;
+    position: relative;
+    margin-right: 25px;
+}
+
+.panel-gallery-upload-svg svg {
+    position: absolute;
+    width: 44px;
+    height: 32px;
+}
+
+.panel-gallery-upload-note span {
+    display: block;
+    font-size: 13px;
+    line-height: 17px;
+    transition: color .2s;
+}
+
+.panel-gallery-upload-note span:not(.bold) {
+    color: #777777;
+}
+
+.panel-gallery-upload-note span.bold {
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 5px;
+}
+
+.panel-gallery-upload:not(.drop) span.bold {
+    color: #333333;
+}

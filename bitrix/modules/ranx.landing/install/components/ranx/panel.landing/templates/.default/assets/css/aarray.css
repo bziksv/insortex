@@ -1,0 +1,47 @@
+/* aarray */
+.aarray-fields {
+    width: 100%;
+}
+.aarray-field {
+    display: flex;
+    margin-bottom: -1px;
+}
+.aarray-field .form-control {
+    border-radius: 0;
+}
+.aarray-field .form-control:first-child {
+    margin-right: -1px;
+}
+.aarray-fields:not(.aarray-expanded) > div:first-of-type .form-control:first-child {
+    border-top-left-radius: .25rem;
+}
+.aarray-fields:not(.aarray-expanded) > div:first-of-type .form-control:last-child {
+    border-top-right-radius: .25rem;
+}
+.aarray-fields:not(.aarray-expanded) > div:last-of-type .form-control:first-child {
+    border-bottom-left-radius: .25rem;
+}
+.aarray-fields:not(.aarray-expanded) > div:last-of-type .form-control:last-child {
+    border-bottom-right-radius: .25rem;
+}
+.panel .aarray-field input[type="text"].form-control + input[type="text"].form-control {
+    margin-top: 0 !important;
+}
+.aarray-add {
+    font-size: 13px;
+    line-height: 17px;
+    border-bottom-width: 1px;
+    border-bottom-style: dotted;
+    margin-top: 6px;
+}
+
+/* expanded */
+.aarray-fields.aarray-expanded .aarray-field {
+    flex-direction: column;
+    border-bottom: 1px solid #ececec;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+.aarray-fields.aarray-expanded .aarray-field > * {
+    margin-bottom: 10px;
+}

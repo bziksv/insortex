@@ -1,0 +1,121 @@
+/*
+* COLOR: #087ACC
+* COLOR_HOVER: #076cb5
+*/
+.theme-color {
+    color: #087ACC;
+}
+.theme-color:hover,
+.theme-color-hover:hover,
+.theme-color-hover-parent:hover .theme-color-hover {
+    color: #076cb5 !important;
+}
+.theme-bg,
+.theme-bg-active.active,
+.active .theme-bg-active,
+.theme-before-bg::before,
+.theme-after-bg::after {
+    background-color: #087ACC;
+}
+a.theme-bg:hover,
+a:hover .theme-bg,
+.theme-before-bg::before:hover,
+.theme-after-bg::after:hover {
+    background-color: #076cb5;
+}
+.theme-bg-hover:hover,
+.theme-bg-hover-parent:hover .theme-bg-hover {
+    background-color: #076cb5;
+}
+.theme-border,
+.theme-border-class-active.active,
+.theme-border-class-active .active,
+.theme-border-hover:hover {
+    border-color: #087ACC;
+}
+.theme-border-hover:hover,
+.theme-border-hover-parent:hover .theme-border-hover {
+    border-color: #076cb5;
+}
+.theme-fill {
+    fill: #087ACC;
+}
+.theme-fill-hover:hover,
+.theme-fill-hover:hover svg {
+    fill: #076cb5;
+}
+.theme-stroke {
+    stroke: #087ACC;
+}
+.theme-stroke-hover:hover,
+.theme-stroke-hover:hover svg {
+    stroke: #076cb5 !important;
+}
+
+.btn-primary,
+.btn-primary:disabled {
+    background-color: #087ACC;
+    border-color: #087ACC;
+}
+.btn-primary:disabled { opacity: .5; }
+
+.btn-primary:hover, .btn-transparent:hover,
+.btn-primary:active, .btn-transparent:active,
+.btn-primary:not(:disabled):not(:disabled):active, .btn-transparent:not(:disabled):not(:disabled):active,
+.btn-primary:focus, .btn-transparent:focus,
+.custom-file-input:focus ~ .custom-file-label {
+    background-color: #076cb5;
+    border-color: #076cb5;
+}
+.btn-transparent {
+    border-color: rgba(8, 122, 204, 0.35);
+    color: #087ACC;
+}
+.btn-transparent:hover,
+.btn-transparent:active,
+.btn-transparent:focus,
+.custom-file-input:focus ~ .custom-file-label {
+    color: #ffffff;
+    border-color: #087ACC !important;
+}
+.btn-white {
+    color: #087ACC;
+}
+.btn-white:hover {
+    background-color: #076cb5;
+    border-color: #076cb5;
+}
+a {
+    color: #087ACC;
+}
+a:hover:not(.btn):not(.theme-exclude-hover) {
+    color: #076cb5 !important;
+    text-decoration: none;
+}
+a.active:not(.btn):not(.theme-exclude-hover) {
+    color: #076cb5;
+    text-decoration: none;
+}
+
+/* custom checkbox */
+.custom-checkbox input:checked ~ label::before,
+.custom-checkbox input:hover ~ label::before,
+.custom-checkbox label:hover::before,
+.custom-checkbox:not(:disabled):active ~ label::before {
+    border-color: #087ACC !important;
+    background-color: #087ACC !important;
+}
+.custom-checkbox input:focus:not(:checked) ~ label::before {
+    border-color: #087ACC !important;
+}
+
+/* custom radio */
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #087ACC !important;
+    background-color: #087ACC !important;
+}
+
+/* lists */
+.theme-ul ul li::before {
+    color: #087ACC;
+}

@@ -1,0 +1,195 @@
+.block6-3 .articles {
+    margin-bottom: -40px;
+}
+.block6-3 .article {
+    height: 286px;
+    margin-bottom: 40px;
+}
+.block6-3 .big.article {
+    height: 437px;
+}
+.block6-3 .big.article {
+    height: 437px;
+}
+.block6-3 .article-wrap {
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    display: block;
+    border-radius: 5px;
+    transition: 0.1s;
+}
+.block6-3 .big.article .article-wrap {
+    background-size: 207%;
+    background-position: center;
+}
+.block6-3 .article-wrap:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+.block6-3 .article .title-group {
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    padding: 27px 25px 18px;
+    color: #fff!important;
+    background: linear-gradient(rgba(0,0,0,0.0), rgba(0,0,0,0.5));
+    z-index: 11;
+}
+.block6-3 .article .tags {
+    position: absolute;
+    text-align: left;
+    left: 45px;
+    top: 30px;
+    right: 0;
+    z-index: 11;
+}
+.block6-3 .article .tag {
+    display: inline-block;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 24px;
+    padding: 0 7px;
+}
+.block6-3 .article .tag.sale {
+    background: #FFD600;
+    color: #333;
+}
+.block6-3 .article .article-img {
+    border-radius: 5px;
+    width: 100%;
+}
+.block6-3 .article .cover {
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    bottom: 0;
+    left: 15px;
+    opacity: 0;
+    background: rgba(0,0,0,0.4);
+    transition: 0.4s;
+    z-index: 10;
+}
+.block6-3 .article:hover .cover {
+    opacity: 1;
+}
+.block6-3 .article .article-name {
+    text-align: left;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.block6-3 .article .article-name.theme-color-hover:hover {
+    color: #fff!important;
+}
+.block6-3 .article .article-over-title-text .theme-color {
+    color: rgba(255, 255, 255, 0.7);
+}
+.block6-3 .article .article-over-title-text {
+    text-align: left;
+    font-size: 13px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 7px;
+}
+
+/* modal style */
+.modal6_3 {
+    margin: -10px 10px 0;
+}
+
+.modal6_3-title {
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 48px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.modal6_3-sale-info {
+    margin-bottom: 40px;
+    height: 25px;
+    vertical-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.modal6_3-sale-tag {
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 25px;
+    padding: 0 7px;
+    background: #FFD600;
+    color: #333;
+}
+
+.modal6_3-sale-date {
+    margin-left: 20px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #777777;
+}
+
+.modal6_3-picture {
+    margin-bottom: 43px;
+}
+
+.modal6_3-picture img {
+    width: 100%;
+    height: auto;
+}
+
+.modal6_3-preview-text {
+    margin-bottom: 27px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #333333;
+}
+
+.modal6_3-detail-text {
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 24px;
+    color: #666666;
+}
+
+@media (max-width: 575px) {
+    .modal6_3 {
+        margin: -10px 0 0;
+    }
+
+    .modal6_3-title {
+        font-size: 25px;
+        line-height: 30px;
+        margin-bottom: 10px;
+    }
+
+    .modal6_3-sale-info {
+        margin-bottom: 20px;
+    }
+
+    .modal6_3-picture {
+        margin-bottom: 20px;
+    }
+
+    .modal6_3-preview-text {
+        font-size: 16px;
+        line-height: 26px;
+        margin-bottom: 20px;
+    }
+
+    .modal6_3-detail-text {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 0;
+    }
+}

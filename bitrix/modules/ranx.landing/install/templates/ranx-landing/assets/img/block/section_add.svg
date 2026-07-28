@@ -1,0 +1,9 @@
+<svg id="main" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path d="M6 27C3.23858 27 1 24.7614 1 22L1 6C1 3.23858 3.23858 1 6 1L34 1C36.7614 1 39 3.23858 39 6L39 22C39 24.7614 36.7614 27 34 27L29.4853 27C27.6288 27 25.8483 27.7375 24.5355 29.0503L23.5355 30.0503C21.5829 32.0029 18.4171 32.0029 16.4645 30.0503L15.4645 29.0503C14.1517 27.7375 12.3712 27 10.5147 27L6 27Z" stroke="currentColor" stroke-width="2"/>
+	<path d="M8 40C8.55228 40 9 39.5523 9 39C9 38.4477 8.55228 38 8 38L5 38C4.44772 38 4 38.4477 4 39C4 39.5523 4.44772 40 5 40L8 40Z" fill="currentColor"/>
+	<rect width="2" height="5" rx="1" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 18 40)" fill="currentColor"/>
+	<path d="M26 40C26.5523 40 27 39.5523 27 39C27 38.4477 26.5523 38 26 38L23 38C22.4477 38 22 38.4477 22 39C22 39.5523 22.4477 40 23 40L26 40Z" fill="currentColor"/>
+	<rect width="2" height="5" rx="1" transform="matrix(4.37114e-08 -1 -1 -4.37114e-08 36 40)" fill="currentColor"/>
+	<path d="M20 10L20 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+	<path d="M15 15L25.0001 15.0001" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>

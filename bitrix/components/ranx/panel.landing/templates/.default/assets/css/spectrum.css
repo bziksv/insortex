@@ -1,0 +1,72 @@
+/* spectrum restyling */
+.sp-replacer {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+}
+.sp-dd {
+    display: none !important;
+}
+.sp-preview {
+    width: 17px !important;
+    height: 17px !important;
+    background-image: none !important;
+    border: none !important;
+    margin-right: 0 !important;
+}
+.sp-preview-inner {
+    border-radius: 50% !important;
+}
+
+.sp-container {
+    background-color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1) !important;
+    border-radius: 3px !important;
+}
+.sp-top {
+    margin-bottom: 3px !important;
+}
+.sp-color, .sp-sat, .sp-val {
+    border-radius: 3px !important;
+}
+.sp-color {
+    border: none !important;
+}
+.sp-hue {
+    border: none !important;
+    border-radius: 3px !important;
+    overflow: hidden !important;
+}
+.sp-input {
+    background-color: #ffffff !important;
+    border: 1px solid #ddd !important;
+    border-radius: 3px !important;
+    box-sizing: border-box !important;
+    padding: 7px 9px !important;
+    font-size: 13px !important;
+    line-height: 17px !important;
+    color: #333333 !important;
+}
+.sp-input:focus {
+    border-color: #999999 !important;
+    outline: none !important;
+}
+.sp-input-container {
+    float: none !important;
+    margin-bottom: 8px !important;
+}
+.sp-button-container {
+    float: none !important;
+    display: flex;
+}
+.sp-choose {
+    margin-top: 0 !important;
+    margin-left: 4px !important;
+}
+.sp-cancel {
+    margin-right: 4px !important;
+}
+.sp-display-important { /* custom class */
+    display: block !important;
+}

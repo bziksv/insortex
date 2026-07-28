@@ -1,0 +1,21 @@
+<?php
+$MESS['RX_LANDING_SECTION_SITE_ID_INCORRECT'] = 'Некорректный ID сайта';
+$MESS['RX_LANDING_SECTION_TITLE_IS_EMPTY'] = 'Заголовок не может быть пустым';
+$MESS['RX_LANDING_SECTION_EMPTY_SITE_DATA'] = 'Не удалось получить данные сайта';
+$MESS['RX_LANDING_SECTION_PATH_WRONG'] = 'Некорректный путь';
+$MESS['RX_LANDING_SECTION_PATH_ALREADY_EXISTS_IN_TABLE'] = 'Такой раздел уже существует: #NAME#';
+$MESS['RX_LANDING_SECTION_PATH_ALREADY_EXISTS'] = 'Такая папка уже существует';
+$MESS['RX_LANDING_SECTION_PATH_MAIN_ONLY_MAIN'] = 'Главная может быть только типа Главная';
+$MESS['RX_LANDING_SECTION_WRONG_MAIN_PATH'] = 'Неправильный путь у типа Главная';
+$MESS['RX_LANDING_SECTION_DOESNT_SET_DOMAIN'] = 'Нельзя установить домен на этот тип';
+$MESS['RX_LANDING_SECTION_DOMAIN_CORRECTNESS_ERROR'] = 'Введен некорректный домен';
+$MESS['RX_LANDING_SECTION_DOMAIN_UNIQUENESS_ERROR'] = 'Домен уже установлен на другой лендинг';
+$MESS['RX_LANDING_SECTION_DOESNT_SET_OWN_SETTINGS'] = 'Нельзя установить свои настройки для этого типа';
+$MESS['RX_LANDING_SECTION_NOT_ALLOWED_ROOT_MODE'] = 'Нельзя установить данный режим для заданного типа';
+$MESS['RX_LANDING_SECTION_PATH_CANNOT_UPDATE_SITE_TEMPLATE'] = 'Не удалось обновить шаблоны сайта';
+$MESS['RX_LANDING_SECTION_PATH_MKDIR_ERROR'] = 'Не удалось создать папку';
+$MESS['RX_LANDING_SECTION_MISSING_REQUIRED_FIELDS'] = 'Не все обязательные поля заполнены';
+$MESS['RX_LANDING_SECTION_MISSING_CREATE'] = 'Произошла ошибка при добавлении раздела в таблицу';
+$MESS['RX_LANDING_SECTION_PATH_COPYFILES_ERROR'] = 'Не удалось создать файлы';
+$MESS['RX_LANDING_SECTION_DEMO_DIR_EXISTS_ERROR'] = 'Директории с демо файлами данного раздела не существует';
+$MESS['RX_LANDING_SECTION_CLEANING_DIR_EXISTS_ERROR'] = 'Удаляемая директория не существует в файловой системе';

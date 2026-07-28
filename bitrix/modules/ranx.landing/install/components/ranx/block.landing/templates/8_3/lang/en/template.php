@@ -1,0 +1,9 @@
+<?php
+$MESS['RX_BLOCK_8_3_TEMPLATE_DEFAULT_BTN_TEXT'] = 'Sign up';
+$MESS['RX_BLOCK_8_3_TEMPLATE_DAY_monday_NAME'] = 'Mon';
+$MESS['RX_BLOCK_8_3_TEMPLATE_DAY_tuesday_NAME'] = 'Tue';
+$MESS['RX_BLOCK_8_3_TEMPLATE_DAY_wednesday_NAME'] = 'Wed';
+$MESS['RX_BLOCK_8_3_TEMPLATE_DAY_thursday_NAME'] = 'Thu';
+$MESS['RX_BLOCK_8_3_TEMPLATE_DAY_friday_NAME'] = 'Fri';
+$MESS['RX_BLOCK_8_3_TEMPLATE_DAY_saturday_NAME'] = 'Sat';
+$MESS['RX_BLOCK_8_3_TEMPLATE_DAY_sunday_NAME'] = 'Sun';

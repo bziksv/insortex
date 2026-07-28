@@ -1,0 +1,2 @@
+<?php
+$MESS['RX_LANDING_LIB_FIELDS_YEARS_NAME'] = '#INTERVAL# years';

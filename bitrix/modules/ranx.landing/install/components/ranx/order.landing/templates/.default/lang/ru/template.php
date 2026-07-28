@@ -1,0 +1,31 @@
+<?php
+$MESS['RX_ORDER_LANDING_FREE'] = 'Цена по запросу';
+$MESS['RX_ORDER_LANDING_CONTACT_TITLE'] = 'Контактные данные';
+$MESS['RX_ORDER_LANDING_CONTACT_NAME'] = 'Ваше имя';
+$MESS['RX_ORDER_LANDING_CONTACT_PHONE'] = 'Телефон';
+$MESS['RX_ORDER_LANDING_CONTACT_EMAIL'] = 'E-mail';
+$MESS['RX_ORDER_LANDING_CONTACT_EMAIL_INVALID'] = 'Введите корректную почту';
+$MESS['RX_ORDER_LANDING_CONTACT_COMPANY'] = 'Название компании';
+$MESS['RX_ORDER_LANDING_CONTACT_COMMENT'] = 'Комментарий к заказу';
+$MESS['RX_ORDER_LANDING_DELIVERY_TITLE'] = 'Способ доставки';
+$MESS['RX_ORDER_LANDING_DELIVERY_ADDRESS'] = 'Адрес доставки';
+$MESS['RX_ORDER_LANDING_FROM'] = 'от';
+$MESS['RX_ORDER_LANDING_ORDER_BTN'] = 'Заказать';
+$MESS['RX_ORDER_LANDING_PAY_BTN'] = 'Оплатить';
+$MESS['RX_ORDER_LANDING_AGREEMENT_FIELD_LABEL'] = 'Согласен на обработку <a href="#LINK#" target="_blank">персональных данных</a>';
+$MESS['RX_ORDER_LANDING_AGREEMENT_ID_FIELD_LABEL'] = 'Согласен на обработку <a href="#" class="js-order-agreement">персональных данных</a>';
+$MESS['RX_ORDER_LANDING_AGREEMENT_FIELD_INVALID'] = 'Согласитесь с условиями';
+$MESS['RX_ORDER_LANDING_ORDER_COMPLETE_SUCCESS'] = 'Ваш заказ успешно оформлен';
+$MESS['RX_ORDER_LANDING_ORDER_COMPLETE_ERROR'] = 'Произошла ошибка при оформлении заказа';
+$MESS['RX_ORDER_LANDING_TO_MAINPAGE'] = 'На главную';
+$MESS['RX_ORDER_LANDING_BASKET_EMPTY'] = 'Корзина пуста';
+
+$MESS['RX_ORDER_LANDING_ORDER_TITLE'] = 'Ваш заказ';
+$MESS['RX_ORDER_LANDING_ORDER_PRODUCTS'] = 'Позиции';
+$MESS['RX_ORDER_LANDING_ORDER_DELIVERY'] = 'Доставка';
+$MESS['RX_ORDER_LANDING_ORDER_ECONOMY'] = 'Экономия';
+$MESS['RX_ORDER_LANDING_ORDER_TOTAL'] = 'Итого';
+
+$MESS['RX_ORDER_LANDING_PAYMENT_TITLE'] = 'Способ оплаты';
+$MESS['RX_ORDER_LANDING_PAYMENT_SBERBANK'] = 'Сбербанк';
+$MESS['RX_ORDER_LANDING_PAYMENT_TINKOFF'] = 'Тинькофф';

@@ -1,0 +1,192 @@
+/* modal */
+.modal .modal-content {
+    border: none;
+    border-radius: 4px;
+}
+#formModal .modal-body {
+    padding: 50px;
+    padding-top: 0;
+}
+.modal.modal-right {
+    padding-right: 0 !important;
+}
+#formModal .modal-dialog {
+    max-width: 580px;
+}
+.modal.modal-right .modal-dialog {
+    margin: 0;
+    float: right;
+    width: 100%;
+}
+.modal.modal-right .modal-content {
+    min-height: 100vh;
+    border-radius: 0;
+}
+.modal.modal-right .modal-body {
+    padding: 0 60px 60px 60px;
+}
+.modal .close {
+    opacity: 1;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 13px;
+    height: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal .close svg {
+    height: 13px;
+    width: 13px;
+    stroke: #bbbbbb;
+    text-shadow: none !important;
+}
+
+.modal .modal-title {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 31px;
+    color: #333333;
+    margin: 0;
+}
+.modal .modal-header {
+    border-bottom: none;
+    padding: 43px 50px 30px 50px;
+}
+.modal ul,
+.modal ol,
+.modal dl {
+    color: #666666;
+    font-size: 15px;
+    line-height: 24px;
+    padding-left: 1.3em;
+}
+
+#agreementModal .modal-dialog {
+    width: 100%;
+    max-width: 800px;
+}
+#agreementModal .modal-header {
+    border-bottom: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+#agreementModal .modal-content {
+    padding: 50px;
+}
+#agreementModal .modal-body {
+    padding: 0;
+}
+
+/* b24 modal */
+.modal-form-b24 .modal-header {
+    padding: 40px 0 0 0 !important;
+}
+.modal-form-b24 .modal-body {
+    padding: 0 !important;
+}
+.modal-form-b24 .modal-title {
+    display: none !important;
+}
+.b24-form-shadow {
+    box-shadow: none !important;
+}
+
+/* card modal */
+#cardModal .modal-dialog {
+    width: 860px;
+    max-width: 860px;
+}
+#cardModal .modal-header {
+    padding: 0;
+}
+#cardModal .modal-body {
+    padding: 0;
+}
+#cardModal .modal-content {
+    padding: 70px 60px;
+    overflow: hidden;
+}
+#cardModal .modal-footer {
+    border-top: none;
+    padding: 0;
+    margin-top: 45px;
+    justify-content: flex-start;
+}
+@media (max-width: 991px) {
+    #cardModal .modal-dialog {
+        width: auto;
+    }
+    #cardModal .modal-content {
+        padding: 35px 30px;
+    }
+}
+@media (max-width: 575px) {
+    #cardModal .modal-content {
+        padding: 35px 15px;
+    }
+}
+
+
+/* video modal */
+#videoModal .modal-dialog {
+    margin: 0;
+    max-width: unset;
+    height: 100%;
+}
+
+#videoModal .modal-content {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#videoModal .close {
+    z-index: 1;
+}
+
+#videoModal .modal-body {
+    display: flex;
+    align-items: center;
+}
+
+.modal-card-back {
+    position: relative;
+    font-size: 15px;
+    line-height: 24px;
+    color: #333333;
+    padding-left: 22px;
+    display: block;
+}
+.modal-card-back-icon {
+    position: absolute;
+    left: 0;
+    top: calc(50% - 6px);
+    color: #333333;
+    width: 7px;
+    height: 12px;
+}
+.modal-card-back-icon svg {
+    width: 7px;
+    height: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* mobile */
+@media (max-width: 575px) {
+    .modal-dialog {
+        margin: 0;
+    }
+
+    .modal .modal-content {
+        border-radius: 0;
+        min-height: 100vh;
+        min-width: 100vw;
+    }
+}

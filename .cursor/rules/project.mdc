@@ -1,0 +1,44 @@
+---
+description: Контекст проекта insortex.ru
+alwaysApply: true
+---
+
+# insortex.ru
+
+Сайт на 1С-Битрикс (шаблон `ranx-landing` / модуль `ranx.landing`).
+
+## Правило работы
+
+- **Разработка:** только локально (`http://localhost:8087/`)
+- **Prod** (`insortex.ru`) — только по явной отдельной просьбе
+- Не трогать боевой сервер без явной команды
+
+## Сервер (155.212.171.103)
+
+- **Prod:** insortex.ru → `/var/www/insortex_ru_usr/data/www/insortex.ru`
+- Владелец файлов: `insortex_ru_usr:insortex_ru_usr` (не `root:root`)
+- См. правило `server-permissions.mdc`
+
+## Git
+
+Репозиторий: https://github.com/bziksv/insortex  
+Корень репозитория = содержимое `insortex.ru/`
+
+Не коммитить: `.settings.php`, `dbconn.php`, `license_key.php`, `.local/`, `upload/`, дампы/архивы
+
+## Где искать код
+
+- Шаблон: `bitrix/templates/ranx-landing/`
+- Модуль: `bitrix/modules/ranx.landing/`
+- Инициализация: `bitrix/php_interface/`
+- Страницы: `catalog/`, `about/`, `services/`, `news/`, `contacts/`
+
+## Не трогать без необходимости
+
+- `bitrix/modules/` (кроме `ranx.landing`) — ядро Битрикс
+- `upload/` — медиа
+- `bitrix/cache/`, `managed_cache/`, `stack_cache/` — кеш
+
+## Документация
+
+`docs/PROJECT.md`

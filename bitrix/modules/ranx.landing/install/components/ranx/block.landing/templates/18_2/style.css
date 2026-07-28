@@ -1,0 +1,50 @@
+.block18-2 .block-title {
+    margin-bottom: 30px !important;
+}
+
+.block18-2.text-light .contact-info a {
+    color: #f8f9fa;
+}
+
+.block18-2 .contact-items {
+    /*max-width: 460px;*/
+}
+.block18-2 .contact-item {
+    /*width: 50%;*/
+    margin-bottom: 17px;
+}
+
+.block18-2 .contact-item-name {
+    font-size: 13px;
+    line-height: 23px;
+}
+.block18-2:not(.text-light) .contact-item-name {
+    color: #999999;
+}
+
+.block18-2 .contact-item-value {
+    font-size: 16px;
+    line-height: 23px;
+}
+.block18-2 .contact-item-value a {
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.block18-2:not(.text-light) .contact-item-value a {
+    color: #333333;
+}
+
+.block-18-2-socials {
+    margin-top: 23px;
+}
+.block-18-2-socials .block-social {
+    margin-right: 25px;
+    color: #888888;
+}
+
+@media (max-width: 991px) {
+    .block18-2 .form-wrap {
+        margin-top: 40px;
+    }
+}

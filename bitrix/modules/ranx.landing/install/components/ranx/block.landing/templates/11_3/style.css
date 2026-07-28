@@ -1,0 +1,260 @@
+.block11-3 .map-block {
+    border: 1px solid #ECECEC;
+    border-radius: 4px;
+}
+
+.block11-3 .contact {
+    padding: 65px 70px;
+}
+
+.block11-3 .contact-top-text {
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 20px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #999999;
+    margin-bottom: 6px;
+}
+
+.block11-3 .contact-title {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 36px;
+    color: #333333;
+    margin-bottom: 26px;
+}
+
+.block11-3 .contact-properties {
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 24px;
+    margin-bottom: 23px;
+}
+
+.block11-3 .contact-properties .property {
+    margin-bottom: 16px;
+}
+
+.block11-3 .contact-properties .name {
+    color: #999999;
+}
+
+.block11-3 .contact-properties .value {
+    font-size: 16px;
+    color: #333333;
+}
+
+.block11-3 .contact-properties a {
+    color: inherit;
+}
+
+.block11-3 .contact-social {
+    display: flex;
+    margin-bottom: 45px;
+}
+.block11-3 .contact-social a {
+    width: 19px;
+    height: 19px;
+    position: relative;
+    color: #B8B8B8;
+    opacity: .5;
+    margin-right: 25px;
+}
+
+.block11-3 .contact-social a:hover {
+    opacity: 1;
+}
+
+.block11-3 .contact-social a > svg {
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.block11-3 .map-wrapper {
+    border-left: 1px solid #ECECEC;
+    background-image: url('image/empty.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+}
+
+.block11-3 .map-wrapper.empty {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+}
+
+.block11-3 .map-empty {
+    display: none;
+}
+
+.block11-3 .map-wrapper.empty .map {
+    display: none;
+}
+
+.block11-3 .map-wrapper.empty .map-empty {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.block11-3 .map-empty .map-empty-icon {
+    width: 46px;
+    height: 58px;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.block11-3 .map-empty .map-empty-icon svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 46px;
+    height: 58px;
+}
+
+.block11-3 .map-empty .map-empty-title {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 33px;
+    color: #333333;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+.block11-3 .map-empty .map-empty-desc {
+    font-size: 13px;
+    line-height: 24px;
+    color: #666666;
+    text-align: center;
+    width: 100%;
+}
+
+.block11-3 .balloon_item {
+    display: none;
+}
+.block11-3 [class*="balloon_layout_normal"] {
+    box-shadow: 0 10px 25px 0 rgba(0,0,0,.07);
+}
+.block11-3 [class*="balloon__content"] {
+    font: unset;
+}
+.block11-3 [class*="balloon__close-button"] {
+    width: 10px;
+    height: 10px;
+    margin: 7px;
+}
+.block11-3 .balloon-wrap {
+    padding: 5px 10px 10px 8px;
+}
+.block11-3 .balloon-name {
+    color: #333;
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: bold;
+}
+.block11-3 .balloon-img {
+    max-width: 375px;
+    margin-top: 16px;
+}
+.block11-3 .balloon-preview img {
+    max-width: 100%;
+}
+.block11-3 .balloon-preview {
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 16px;
+}
+.block11-3 .balloon-preview > * {
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 20px;
+}
+.block11-3 .balloon-preview :last-child {
+    margin-bottom: 0;
+}
+.block11-3 .balloon-btn {
+    margin: 16px 5px 0;
+}
+.block11-3 .balloon-btn .block-el-btns > div {
+    padding: 0;
+}
+
+@media (max-width: 991px) {
+    .block11-3 .contact {
+        padding: 43px 25px 40px;
+    }
+
+    .block11-3 .contact-properties {
+        margin-bottom: 11px;
+    }
+
+    .block11-3 .contact-social {
+        margin-bottom: 40px;
+    }
+}
+@media (max-width: 575px) {
+    .block11-3 .balloon-img {
+        max-width: 215px;
+    }
+}
+
+/* slider style */
+.block11-3 .slider {
+    position: relative;
+    margin: 0;
+    width: 100%;
+}
+
+.block11-3 .slick-dots {
+    list-style: none;
+    margin-top: 30px;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.block11-3 .slick-dots li {
+    width: 20px;
+    height: 4px;
+    margin: 0 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.block11-3 .slick-dots li:not(.slick-active) {
+    background-color: #cccccc;
+}
+.block11-3 .slick-dots li > button {
+    display: none;
+}
+
+.block11-3 .slick-arrow {
+    position: absolute;
+    top: calc((100% - 40px) / 2);
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 1;
+}
+.block11-3 .slick-arrow svg {
+    position: absolute;
+    top: calc(50% - 6px);
+    left: calc(50% - 4px);
+}
+.block11-3 .slick-arrow.arrow-prev {
+    left: -20px;
+}
+.block11-3 .slick-arrow.arrow-next {
+    right: -20px;
+}

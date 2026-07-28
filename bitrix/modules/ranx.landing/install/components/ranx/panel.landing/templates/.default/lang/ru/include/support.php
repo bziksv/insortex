@@ -1,0 +1,20 @@
+<?php
+$MESS['RX_PANEL_LANDING_SUPPORT_TAB_TITLE'] = 'Поддержка';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS'] = 'Документация';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_DESC'] = 'Возник вопрос? Поищите свой вопрос в <b>документации</b>. Скорее всего на него уже есть ответ. Ответы на частые вопросы:';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_FAQ_1'] = 'Как создать главную страницу?';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_FAQ_2'] = 'Как настроить цели Яндекс.Метрики?';
+$MESS['RX_PANEL_LANDING_SUPPORT_DOCS_FAQ_3'] = 'Как настроить Региональность?';
+$MESS['RX_PANEL_LANDING_SUPPORT_TAB_TEXT'] = 'Не хотите тратить время на создание страниц или не знаете, как правильно ее оформить? Разработаем первую посадочную страницу с учетом специфики вашего бизнеса. Все остальные вы можете сделать по примеру.';
+$MESS['RX_PANEL_LANDING_SUPPORT_PARTNER_TITLE'] = 'Стать партнером';
+$MESS['RX_PANEL_LANDING_SUPPORT_PARTNER_BTN'] = 'Оставить заявку';
+$MESS['RX_PANEL_LANDING_SUPPORT_IDEA_TITLE'] = 'Есть идея?';
+$MESS['RX_PANEL_LANDING_SUPPORT_ERROR_TITLE'] = 'У меня ошибка';
+$MESS['RX_PANEL_LANDING_SUPPORT_BTN_MESSAGE'] = 'Написать в поддержку';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICES_TITLE'] = 'Заказать услуги';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_1'] = 'Создание посадки';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_2'] = 'Настройка рекламы';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_3'] = 'Дизайн баннеров';
+$MESS['RX_PANEL_LANDING_SUPPORT_SERVICE_ORDER'] = 'Заказать';
+$MESS['RX_PANEL_LANDING_SUPPORT_CUSTOMIZE_TEXT'] = 'Партнёр?&nbsp;';
+$MESS['RX_PANEL_LANDING_SUPPORT_CUSTOMIZE_LINK'] = 'Разместите тут свою информацию';

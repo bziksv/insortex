@@ -1,0 +1,15 @@
+<?php
+$MESS['DEFAULT_FORM_TITLE'] = 'Order';
+$MESS['FORM_IS_NOT_FOUND'] = 'Form is not found';
+$MESS['DEFAULT_FORM_BTN_TEXT'] = 'Send';
+
+$MESS['RX_LANDING_FORM_ONECLICK_TITLE'] = 'One-click buy';
+
+$MESS['RX_LANDING_FORM_REPLACE'] = 'Form:';
+$MESS['RX_FORM_LANDING_AGREEMENT_NOT_FOUND'] = 'Agreement is not found';
+$MESS['RX_FORM_LANDING_POLITICS_NOT_FOUND'] = 'Agreement is not found';
+$MESS['RX_FORM_LANDING_AGREEMENT_REQUIRED'] = 'You are not accepted the agreement';
+
+$MESS['RX_FORM_LANDING_FULL_NAME_FIELD_TITLE'] = 'Name';
+$MESS['RX_FORM_LANDING_PHONE_FIELD_TITLE'] = 'Phone';
+$MESS['RX_FORM_LANDING_EMAIL_FIELD_TITLE'] = 'E-mail';

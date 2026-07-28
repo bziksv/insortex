@@ -1,0 +1,6 @@
+<svg id="main" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect y="2" width="15" height="2" rx="1" fill="currentColor"/>
+    <rect width="15" height="2" rx="1" transform="matrix(-1 0 0 1 15 8)" fill="currentColor"/>
+    <circle cx="5" cy="3" r="2" fill="white" stroke="currentColor" stroke-width="2"/>
+    <circle r="2" transform="matrix(-1 0 0 1 10 9)" fill="white" stroke="currentColor" stroke-width="2"/>
+</svg>

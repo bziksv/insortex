@@ -1,0 +1,38 @@
+.block15-1 .block-title {
+    margin-bottom: 0 !important;
+}
+/* center */
+.block15-1.block.content-align-center .block-title,
+.block15-1.block.content-align-center .block-btns {
+    justify-content: center;
+    text-align: center;
+}
+
+/* left */
+.block15-1.block.content-align-left .block-title,
+.block15-1.block.content-align-left .block-btns{
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* wide */
+.block15-1.block.content-align-wide .block-title,
+.block15-1.block.content-align-wide .block-btns{
+    justify-content: flex-start;
+    text-align: justify;
+}
+
+.block15-1 .block-title-col.col-lg-10 {
+    flex-basis: calc(2/3 * 100%);
+    max-width: calc(2/3 * 100%);
+}
+
+/* wide block */
+.block15-1.wide-block .block-title-col.col-lg-10 {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+.block15-1.wide-block .block-desc-col.col-lg-8 {
+    flex-basis: 100%;
+    max-width: 100%;
+}

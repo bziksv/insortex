@@ -1,0 +1,168 @@
+/* hidden */
+.block > .block-hidden-msg {
+    display: none;
+}
+.block.hidden > *:not(.block_edit):not(.block-loading) {
+    opacity: .3;
+}
+
+/* loading */
+.block > .block-loading {
+    display: none;
+}
+.block.loading > *:not(.block_edit):not(.block-loading) {
+    opacity: .3;
+}
+.block.loading > .block-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 12;
+}
+.block.loading > .block-loading .spinner-grow {
+    width: 300px;
+    height: 300px;
+}
+
+/* block edit elements */
+.block:hover .block_edit,
+body.header-is-transparent header:hover ~ #blocks_wrapper .block-wrap:first-child .block_edit {
+    visibility: visible;
+}
+.block_edit {
+    z-index: 124;
+    opacity: 1;
+    position: absolute;
+    visibility: hidden;
+}
+.block_edit_top {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-width: 1px;
+    border-style: solid;
+}
+.block_edit_bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-width: 1px;
+    border-style: solid;
+}
+.block_edit_left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-width: 1px;
+    border-style: solid;
+}
+.block_edit_right {
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-width: 1px;
+    border-style: solid;
+}
+.block_edit_plus_top {
+    top: -13px;
+    left: calc(50% - 13px);
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #ffffff;
+}
+.block_edit_plus_bottom {
+    bottom: -13px;
+    left: calc(50% - 13px);
+    width: 26px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #ffffff;
+}
+.block_edit_plus_top .svg,
+.block_edit_plus_bottom .svg {
+    width: 10px;
+    height: 10px;
+}
+.block_edit_label {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 13px;
+    line-height: 17px;
+    color: #333333;
+    padding: 11px 15px 12px;
+    background-color: #ffffff;
+    border: 1px solid #ececec;
+    box-sizing: border-box;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.block_edit_label:hover {
+    color: #ffffff;
+}
+.block_edit_btns {
+    top: 20px;
+    right: 20px;
+    display: flex;
+}
+.block_edit_btns > span {
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #ffffff;
+}
+.block_edit_btns span svg { width: 18px; height: 18px; }
+.block_edit_btns span.block_edit_edit svg, .block_edit_btns span.block_edit_design svg { width: 16px; }
+.block_edit_btns span.block_edit_hide svg, .block_edit_btns span.block_edit_show svg { height: 14px; }
+.block_edit_btns span.block_edit_move_up svg, .block_edit_btns span.block_edit_move_down svg { height: 14px; width: 10px; }
+.block_edit_btns span.block_edit_txtbtn { width: auto; padding: 0 16px; }
+.block_edit_btns span.block_edit_txtbtn svg { margin-right: 10px; }
+.block_edit_btns span.block_edit_txtbtn span {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 17px;
+    color: #ffffff;
+}
+.block_edit_btns > span.block_edit_move_up {
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+.block_edit_btns > span.block_edit_move_down {
+    margin-left: 1px;
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+.block_edit_btns > span.block_edit_show { display: none; }
+.block.hidden span.block_edit_show  { display: flex; }
+.block.hidden span.block_edit_hide  { display: none; }
+#blocks_wrapper .block-wrap.block-wrap-first .block_edit_move_up { display: none; }
+#blocks_wrapper .block-wrap.block-wrap-first .block_edit_move_down { border-radius: 3px; margin-left: 5px; }
+#blocks_wrapper .block-wrap.block-wrap-last .block_edit_move_down { display: none; }
+#blocks_wrapper .block-wrap.block-wrap-last .block_edit_move_up { border-radius: 3px; }

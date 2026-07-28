@@ -1,0 +1,8 @@
+.headermobile-logo-center {
+    display: block;
+    width: 100%;
+}
+#headermobile .header-search {
+    margin-left: 0;
+    color: #999;
+}

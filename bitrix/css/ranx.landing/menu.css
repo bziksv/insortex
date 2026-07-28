@@ -1,0 +1,10 @@
+/* ADMIN MENU */
+#global_menu_global_menu_ranx .adm-main-menu-item-icon{height:48px;background:rgba(0, 0, 0, 0) url("../../images/ranx.landing/global.png") no-repeat scroll 21px 12px;opacity:1;}
+#global_menu_global_menu_ranx.adm-main-menu-item-active .adm-main-menu-item-icon, #global_menu_global_menu_ranx:hover .adm-main-menu-item-icon{background:rgba(0, 0, 0, 0) url("../../images/ranx.landing/global_active.png") no-repeat scroll 21px 12px;}
+#global_menu_global_menu_ranx .adm-main-menu-item-text{line-height: 11px;}
+
+#global_submenu_global_menu_ranx .rx_landing {background:rgba(0, 0, 0, 0) url("../../images/ranx.landing/menu.png") no-repeat scroll -120px 5px;}
+#global_submenu_global_menu_ranx .rx_landing_settings {background:rgba(0, 0, 0, 0) url("../../images/ranx.landing/menu.png") no-repeat scroll 7px 5px;}
+#global_submenu_global_menu_ranx .rx_landing_sections {background:rgba(0, 0, 0, 0) url("../../images/ranx.landing/menu.png") no-repeat scroll -56px 5px;}
+#global_submenu_global_menu_ranx .rx_landing_section {background:rgba(0, 0, 0, 0) url("../../images/ranx.landing/menu.png") no-repeat scroll -24px 5px;}
+#global_submenu_global_menu_ranx .rx_landing_section_add {background:rgba(0, 0, 0, 0) url("../../images/ranx.landing/menu.png") no-repeat scroll -88px 5px;}

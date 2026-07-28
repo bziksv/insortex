@@ -1,0 +1,1 @@
+<? namespace Bitrix\Main\Security\W\Rules; abstract class PregRule extends Rule{ protected $_1500899780; public function __construct($_1982195230, $_1296940578, $_1563910204, $_1715724306, $_455047473, $_1500899780){ parent::__construct($_1982195230, $_1296940578, $_1563910204, $_1715724306, $_455047473); $this->_1500899780= $_1500899780;}}?>

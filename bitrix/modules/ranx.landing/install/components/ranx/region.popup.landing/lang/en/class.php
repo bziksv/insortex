@@ -1,0 +1,2 @@
+<?php
+$MESS['RX_REGION_POPUP_LANDING_SEARCH_NOTHING'] = 'Nothing found';
