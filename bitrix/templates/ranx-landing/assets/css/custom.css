@@ -82,9 +82,17 @@ body {
   .block.indent-bot-150 { padding-bottom: 32px !important; }
 }
 
-.block img {
+/* Keep product/content images fluid; do NOT apply to full-bleed bg layers */
+.block img:not(.block-bg-picture):not(.parallax-picture) {
   max-width: 100%;
   height: auto;
+}
+
+.block img.block-bg-picture,
+.block img.parallax-picture {
+  max-width: none;
+  width: 100%;
+  height: 100%;
 }
 
 /* Wide comparison tables scroll inside the block, not the page */
