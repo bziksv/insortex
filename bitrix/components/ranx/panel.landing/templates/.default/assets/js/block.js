@@ -160,36 +160,52 @@ $(document).ready(function(){
 
         RxLandingBlock.hide($block.data('id'), $block.data('group-id'));
     });
-    // Landing blocks by unique data-id. Broken HTML inside a block (unclosed tags)
-    // can nest the next .block-wrap inside the previous one in the browser DOM —
-    // then "top-level only" logic thinks the current block is last and ↓ no-ops.
+    // Landing blocks by unique data-id. Broken HTML inside a block (extra </div>)
+    // can CLOSE #blocks_wrapper early — following .block-wrap nodes escape outside
+    // the wrapper. Then ↓ thinks the last in-wrapper block is the page last.
+    function collectLandingBlockWrapElements()
+    {
+        let seen = {};
+        let list = [];
+
+        // Entire document: includes wraps that escaped #blocks_wrapper due to broken HTML
+        document.querySelectorAll('.block-wrap[data-id][id^="block_"]').forEach(function (el) {
+            let id = String(el.getAttribute('data-id') || '');
+            if (!id || seen[id]) {
+                return;
+            }
+            seen[id] = true;
+            list.push(el);
+        });
+
+        list.sort(function (a, b) {
+            return (parseInt(a.getAttribute('data-order'), 10) || 0) - (parseInt(b.getAttribute('data-order'), 10) || 0);
+        });
+
+        return list;
+    }
+
     function getEditorBlockWraps()
     {
-        // Prefer flat direct children after flattenEditorBlockWraps()
         let $direct = $('#blocks_wrapper').children('.block-wrap[data-id]');
         if ($direct.length >= 2) {
             return $direct;
         }
-
-        let seen = {};
-        return $('#blocks_wrapper').find('.block-wrap[data-id]').filter(function () {
-            let id = String($(this).attr('data-id') || '');
-            if (!id || seen[id]) {
-                return false;
-            }
-            seen[id] = true;
-            return true;
-        });
+        return $(collectLandingBlockWrapElements());
     }
 
     function getSortedEditorBlockWraps()
     {
-        // After flatten, DOM order is the source of truth (not stale data-order)
-        return getEditorBlockWraps().get();
+        // After flatten, DOM order of wrapper children is the source of truth
+        let $direct = $('#blocks_wrapper').children('.block-wrap[data-id]');
+        if ($direct.length) {
+            return $direct.get();
+        }
+        return collectLandingBlockWrapElements();
     }
 
     // Re-parent every landing block as a direct child of #blocks_wrapper in order.
-    // Fixes nesting caused by invalid markup inside block content.
+    // Pulls back wraps that escaped the wrapper because of invalid block HTML.
     function flattenEditorBlockWraps(orderedEls)
     {
         let $wrapper = $('#blocks_wrapper');
@@ -197,22 +213,9 @@ $(document).ready(function(){
             return;
         }
 
-        let list;
-        if (orderedEls && orderedEls.length) {
-            list = orderedEls;
-        } else {
-            let seen = {};
-            list = $wrapper.find('.block-wrap[data-id]').filter(function () {
-                let id = String($(this).attr('data-id') || '');
-                if (!id || seen[id]) {
-                    return false;
-                }
-                seen[id] = true;
-                return true;
-            }).get().sort(function (a, b) {
-                return (parseInt($(a).attr('data-order'), 10) || 0) - (parseInt($(b).attr('data-order'), 10) || 0);
-            });
-        }
+        let list = orderedEls && orderedEls.length
+            ? orderedEls
+            : collectLandingBlockWrapElements();
 
         for (let i = 0; i < list.length; i++) {
             $wrapper.append(list[i]);
@@ -288,7 +291,7 @@ $(document).ready(function(){
         renumberEditorBlockWraps();
     }
 
-    // Un-nest + align order on load (and again shortly — composite/late HTML)
+    // Un-nest + pull escaped wraps back (and again shortly — composite/late HTML)
     bootEditorBlockOrder();
     setTimeout(bootEditorBlockOrder, 0);
     setTimeout(bootEditorBlockOrder, 500);
@@ -311,6 +314,7 @@ $(document).ready(function(){
         let $nextBlockWrap = findAdjacentBlockWrap($blockWrap, 1);
 
         if (!$nextBlockWrap.length || !$nextBlockWrap.attr('data-id')) {
+            console.warn('[rx-move] down: no next neighbor for', blockId, 'wraps=', $('#blocks_wrapper').children('.block-wrap[data-id]').length);
             return;
         }
 
@@ -324,6 +328,7 @@ $(document).ready(function(){
             $nextBlock = $nextBlockWrap.find('.block').first();
         }
 
+        console.log('[rx-move] down', blockId, '-> after', nextId);
         applyBlockWrapMove($blockWrap, $nextBlockWrap, 1);
         RxLandingBlock.down(blockId, nextId, $block.data('group-id'), $nextBlock.data('group-id'));
         scrollToBlockWrap(blockId);
@@ -341,6 +346,7 @@ $(document).ready(function(){
         let $prevBlockWrap = findAdjacentBlockWrap($blockWrap, -1);
 
         if (!$prevBlockWrap.length || !$prevBlockWrap.attr('data-id')) {
+            console.warn('[rx-move] up: no prev neighbor for', blockId);
             return;
         }
 
@@ -354,6 +360,7 @@ $(document).ready(function(){
             $prevBlock = $prevBlockWrap.find('.block').first();
         }
 
+        console.log('[rx-move] up', blockId, '-> before', prevId);
         applyBlockWrapMove($blockWrap, $prevBlockWrap, -1);
         RxLandingBlock.up(blockId, prevId, $block.data('group-id'), $prevBlock.data('group-id'));
         scrollToBlockWrap(blockId);
