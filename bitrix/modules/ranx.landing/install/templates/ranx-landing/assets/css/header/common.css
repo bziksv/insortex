@@ -222,7 +222,14 @@ body.header-is-transparent--bg header .header-menu td > a:last-child {
 }
 .header-phone-callback {
     font-size: 13px;
-    line-height: 24px;
+    line-height: 16px;
+    white-space: nowrap;
+    margin-left: 16px;
+    flex-shrink: 0;
+}
+.header-phone {
+    align-items: center;
+    flex-wrap: nowrap;
 }
 .header-phone-dropdown {
     display: none;
@@ -786,4 +793,19 @@ body.headermobile-is-sticky #headermobile {
     position: sticky;
     top: 0;
     z-index: 100;
+}
+
+@media (max-width: 991px) {
+    body.headermobile-is-sticky #headermobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 200;
+    }
+
+    body.headermobile-is-sticky {
+        padding-top: 62px;
+    }
 }

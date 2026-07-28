@@ -794,3 +794,18 @@ body.headermobile-is-sticky #headermobile {
     top: 0;
     z-index: 100;
 }
+
+@media (max-width: 991px) {
+    body.headermobile-is-sticky #headermobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 200;
+    }
+
+    body.headermobile-is-sticky {
+        padding-top: 62px;
+    }
+}

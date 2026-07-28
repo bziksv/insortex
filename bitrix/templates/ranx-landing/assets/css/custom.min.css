@@ -4,11 +4,31 @@ h1 {
 font-size: 45px; !important
 }
 
-/* Kill page-level horizontal scroll on mobile */
-html,
-body {
-  overflow-x: hidden;
+/* Kill page-level horizontal scroll on mobile.
+   Use clip (not hidden) so sticky/fixed headers keep working. */
+html {
+  overflow-x: clip;
   max-width: 100%;
+}
+
+body {
+  max-width: 100%;
+}
+
+/* Mobile floating header — fixed so it stays visible while scrolling */
+@media (max-width: 991px) {
+  body.headermobile-is-sticky #headermobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 200;
+  }
+
+  body.headermobile-is-sticky {
+    padding-top: 62px;
+  }
 }
 
 #blocks_wrapper,
