@@ -42,9 +42,36 @@ body {
   max-width: 100%;
 }
 
+/* Allow shrink for wide tables, but keep title/desc columns full-width */
 .block .row > [class*="col-"] {
   min-width: 0;
   max-width: 100%;
+}
+
+.block .block-title-col,
+.block .block-desc-col {
+  min-width: 100%;
+  max-width: 100%;
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .block .block-title.row {
+    flex-direction: column;
+  }
+
+  .block .block-title-col + .block-desc-col {
+    margin-top: 16px;
+  }
+
+  /* Stack picture+text halves of 14_2 below Bootstrap sm */
+  .block14-2 > .maxwidth-theme > .row > [class*="col-"] {
+    flex: 0 0 100%;
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+  }
 }
 
 .block img {
@@ -69,6 +96,8 @@ body {
 /* Headings: no syllable hyphens; readable size on narrow phones */
 h1, h2, h3, h4, h5, h6,
 .block-title-text,
+.block-subtitle,
+.block-desc,
 #pagetitle {
   hyphens: none !important;
   -webkit-hyphens: none !important;

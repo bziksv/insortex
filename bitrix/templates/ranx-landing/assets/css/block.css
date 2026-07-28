@@ -270,7 +270,21 @@ body.title-is-center .block .block-title {
     max-width: 100%;
     min-width: 100%;
     width: 100%;
-    flex: 1;
+    flex: 0 0 100%;
+}
+
+@media (max-width: 767px) {
+    .block .block-title.row {
+        flex-direction: column;
+    }
+
+    .block .block-title-col,
+    .block .block-desc-col {
+        max-width: 100% !important;
+        min-width: 100% !important;
+        width: 100% !important;
+        flex: 0 0 100% !important;
+    }
 }
 .block.block-title-sticky .block-title {
     margin-bottom: 0;
