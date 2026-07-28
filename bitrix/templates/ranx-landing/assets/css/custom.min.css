@@ -122,6 +122,19 @@ body {
     width: 100%;
     max-width: 100%;
   }
+
+  /* News / cards that only have col-md-*: full width below md */
+  .block6-1 .row > [class*="col-"],
+  .block .row > .news-block {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  .block6-1 .news-block-img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 374px) {

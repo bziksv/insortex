@@ -15,7 +15,7 @@ $useLazyLoad = Config::isLazyLoadEnabled();
 
     <div class="row news">
         <?foreach($arResult['ITEMS'] as $arItem):?>
-            <div class="col-md-<?= $arResult['COLS'] ? 12 / $arResult['COLS']  : '3' ?> news-block text-center">
+            <div class="col-12 col-md-<?= $arResult['COLS'] ? 12 / $arResult['COLS']  : '3' ?> news-block text-center">
 
                 <?if(!empty($arItem['PROPS']['POPUP_SHOW'])):?>
                     <a class="js-card-modal" href="#" data-code="<?=$arResult['CODE']?>" data-id="<?=$arItem['ID']?>">
