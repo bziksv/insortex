@@ -41,9 +41,23 @@ function rxRunComponentAction(component, action, config = { data: {} })
 	return BX.ajax.runComponentAction(component, action, config);
 }
 
-function initSimplebar()
+function initSimplebar(context)
 {
-	$('.js-simplebar').each(function(){new SimpleBar(this)});
+	let $scope = context ? $(context) : $(document);
+	$scope.find('.js-simplebar').each(function () {
+		// Filter dropdowns start as display:none — SimpleBar measures them as ~0px.
+		// Init/recalc only when the panel is (or becomes) visible.
+		if ($(this).closest('.bx_filter_block').length && !$(this).closest('.bx_filter_block').is(':visible')) {
+			return;
+		}
+
+		if (this.SimpleBar) {
+			this.SimpleBar.recalculate();
+			return;
+		}
+
+		new SimpleBar(this);
+	});
 }
 
 function initTooltip()

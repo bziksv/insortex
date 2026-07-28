@@ -54,7 +54,31 @@ if(!window.JCSmartFilterBinds){
 						}
 					}, 0);
 
-					_this.next('.bx_filter_block:not(.limited_block)').stop().delay(250).fadeIn(300);
+					_this.next('.bx_filter_block:not(.limited_block)').stop().delay(250).fadeIn(300, function () {
+						// SimpleBar was skipped while panel was hidden — init/recalc now
+						if (typeof initSimplebar === 'function') {
+							initSimplebar(this);
+						} else {
+							$(this).find('.js-simplebar').each(function () {
+								if (this.SimpleBar) {
+									this.SimpleBar.recalculate();
+								} else {
+									new SimpleBar(this);
+								}
+							});
+						}
+						// Fallback if SimpleBar still collapsed after a bad first init
+						$(this).find('.js-simplebar').each(function () {
+							if (this.offsetHeight < 20) {
+								$(this).css({ height: 'auto', maxHeight: '239px', overflowY: 'auto' });
+								$(this).find('.simplebar-content-wrapper').css({
+									height: 'auto',
+									maxHeight: '239px',
+									overflow: 'auto'
+								});
+							}
+						});
+					});
 				}
 				$box.toggleClass('active');
 				_this.next('.bx_filter_block.limited_block').find('label:not(.disabled)').click();

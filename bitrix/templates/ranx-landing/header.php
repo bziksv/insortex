@@ -43,7 +43,9 @@ Config::defineSettingId();
 		}
 		body.headermobile-is-sticky{padding-top:62px!important;}
 		#blocks_wrapper,.block-wrap,.block,.maxwidth-theme{max-width:100%;min-width:0;box-sizing:border-box;}
-		#blocks_wrapper{overflow-x:hidden;}
+		/* overflow must stay visible — hidden/clip clips .bx_filter dropdowns */
+		#blocks_wrapper{overflow:visible;}
+		.block20-5,.block20-5 .filter-wrap{overflow:visible!important;}
 		.block1-1 .col-flex-rw,.block1-3 .col-flex-rw,.block16-1 .col-flex-rw,.block16-2 .col-flex-rw{
 			width:100%!important;max-width:100%!important;
 		}

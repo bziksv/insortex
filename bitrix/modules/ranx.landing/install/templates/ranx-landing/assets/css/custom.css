@@ -48,7 +48,9 @@ body {
   }
 
   #blocks_wrapper {
-    overflow-x: hidden;
+    /* Do NOT set overflow-x here: non-visible overflow-x forces overflow-y to
+       auto and clips absolute catalog filter dropdowns (.bx_filter_block). */
+    overflow: visible;
   }
 }
 
