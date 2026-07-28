@@ -1,8 +1,6 @@
 # === Cursor (локально, не в репозиторий) ===
 .cursorignore
-.cursor/*
-!.cursor/rules/
-!.cursor/rules/**
+.cursor/
 
 # === Секреты и конфиги окружения (НЕ коммитить) ===
 bitrix/.settings.php
