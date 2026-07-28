@@ -160,80 +160,74 @@ $(document).ready(function(){
 
         RxLandingBlock.hide($block.data('id'), $block.data('group-id'));
     });
-    // Neighbor by data-order (not indexOf / not order±1) — self-contained, no functions.js dependency
-    function findAdjacentBlockWrap($blockWrap, direction)
+    // Top-level block wraps in #blocks_wrapper (direct children preferred)
+    function getEditorBlockWraps()
     {
-        let currentOrder = parseInt($blockWrap.attr('data-order'), 10);
-        if (isNaN(currentOrder)) {
-            currentOrder = 0;
-        }
-
-        let $best = $();
-        let bestOrder = direction > 0 ? Infinity : -Infinity;
-
-        $('#blocks_wrapper').find('.block-wrap').each(function () {
-            if ($(this).parents('.block-wrap').length) {
-                return;
-            }
-            if (this === $blockWrap[0]) {
-                return;
-            }
-
-            let order = parseInt($(this).attr('data-order'), 10);
-            if (isNaN(order)) {
-                return;
-            }
-
-            if (direction > 0) {
-                if (order > currentOrder && order < bestOrder) {
-                    bestOrder = order;
-                    $best = $(this);
-                }
-            } else if (order < currentOrder && order > bestOrder) {
-                bestOrder = order;
-                $best = $(this);
-            }
-        });
-
-        // Fallback: DOM neighbor when data-order is broken/duplicate
-        if (!$best.length) {
-            let $dom = $('#blocks_wrapper').find('.block-wrap').filter(function () {
+        let $wraps = $('#blocks_wrapper').children('.block-wrap');
+        if ($wraps.length < 2) {
+            $wraps = $('#blocks_wrapper').find('.block-wrap').filter(function () {
                 return $(this).parents('.block-wrap').length === 0;
             });
-            let idx = $dom.index($blockWrap);
-            if (direction > 0 && idx >= 0 && idx < $dom.length - 1) {
-                $best = $dom.eq(idx + 1);
-            } else if (direction < 0 && idx > 0) {
-                $best = $dom.eq(idx - 1);
-            }
         }
-
-        return $best;
+        return $wraps;
     }
 
-    function applyBlockWrapSwap($a, $b)
+    function getSortedEditorBlockWraps()
     {
-        let orderA = parseInt($a.attr('data-order'), 10) || 0;
-        let orderB = parseInt($b.attr('data-order'), 10) || 0;
+        return getEditorBlockWraps().get().sort(function (a, b) {
+            return (parseInt($(a).attr('data-order'), 10) || 0) - (parseInt($(b).attr('data-order'), 10) || 0);
+        });
+    }
 
-        $a.attr('data-order', orderB);
-        $b.attr('data-order', orderA);
-        if ($a[0]) {
-            $a[0].style.order = String(orderB);
-        }
-        if ($b[0]) {
-            $b[0].style.order = String(orderA);
-        }
-
-        if (orderA < orderB) {
-            $a.insertAfter($b);
-        } else {
-            $a.insertBefore($b);
-        }
-
+    function renumberEditorBlockWraps()
+    {
+        getEditorBlockWraps().each(function (i) {
+            let order = i + 1;
+            $(this).attr('data-order', order);
+            this.style.order = String(order);
+        });
         if (typeof updateBlockUpAndDown === 'function') {
             updateBlockUpAndDown();
         }
+    }
+
+    function findAdjacentBlockWrap($blockWrap, direction)
+    {
+        let sorted = getSortedEditorBlockWraps();
+        let id = String($blockWrap.attr('data-id') || '');
+        let idx = -1;
+
+        for (let i = 0; i < sorted.length; i++) {
+            if (String($(sorted[i]).attr('data-id') || '') === id) {
+                idx = i;
+                break;
+            }
+        }
+
+        let next = idx + direction;
+        if (idx < 0 || next < 0 || next >= sorted.length) {
+            // DOM fallback (ignores corrupted data-order)
+            let $dom = getEditorBlockWraps();
+            let domIdx = $dom.index($blockWrap);
+            next = domIdx + direction;
+            if (domIdx < 0 || next < 0 || next >= $dom.length) {
+                return $();
+            }
+            return $dom.eq(next);
+        }
+
+        return $(sorted[next]);
+    }
+
+    function applyBlockWrapMove($blockWrap, $other, direction)
+    {
+        // Physical DOM move first — visual source of truth in the editor
+        if (direction > 0) {
+            $blockWrap.insertAfter($other);
+        } else {
+            $blockWrap.insertBefore($other);
+        }
+        renumberEditorBlockWraps();
     }
 
     function scrollToBlockWrap(blockId)
@@ -244,14 +238,16 @@ $(document).ready(function(){
             return;
         }
         let headerHeight = $('#headerfixed').height() || 62;
-        $('html, body').animate({ scrollTop: offset.top - headerHeight }, 1000);
+        $('html, body').stop(true).animate({ scrollTop: offset.top - headerHeight }, 400);
     }
+
+    // Keep data-order aligned with DOM on editor load
+    renumberEditorBlockWraps();
 
     $(document).on('click', '.js-block-down', function(e){
         e.preventDefault();
         e.stopPropagation();
 
-        let scrollTop = $(document).scrollTop();
         let $blockWrap = $(this).closest('.block-wrap');
         let $nextBlockWrap = findAdjacentBlockWrap($blockWrap, 1);
 
@@ -264,17 +260,14 @@ $(document).ready(function(){
         let $block = $blockWrap.find('.block').first();
         let $nextBlock = $nextBlockWrap.find('.block').first();
 
-        applyBlockWrapSwap($blockWrap, $nextBlockWrap);
+        applyBlockWrapMove($blockWrap, $nextBlockWrap, 1);
         RxLandingBlock.down(blockId, nextId, $block.data('group-id'), $nextBlock.data('group-id'));
-
-        $(document).scrollTop(scrollTop);
         scrollToBlockWrap(blockId);
     });
     $(document).on('click', '.js-block-up', function(e){
         e.preventDefault();
         e.stopPropagation();
 
-        let scrollTop = $(document).scrollTop();
         let $blockWrap = $(this).closest('.block-wrap');
         let $prevBlockWrap = findAdjacentBlockWrap($blockWrap, -1);
 
@@ -287,10 +280,8 @@ $(document).ready(function(){
         let $block = $blockWrap.find('.block').first();
         let $prevBlock = $prevBlockWrap.find('.block').first();
 
-        applyBlockWrapSwap($blockWrap, $prevBlockWrap);
+        applyBlockWrapMove($blockWrap, $prevBlockWrap, -1);
         RxLandingBlock.up(blockId, prevId, $block.data('group-id'), $prevBlock.data('group-id'));
-
-        $(document).scrollTop(scrollTop);
         scrollToBlockWrap(blockId);
     });
 
