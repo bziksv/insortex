@@ -1,4 +1,8 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+/** @var array $templateData */
+
+CJSCore::Init(array('fx', 'popup'));
+
 if(\Bitrix\Main\Application::getInstance()->getContext()->getRequest()->isAjaxRequest()) {
     $templatePath = $this->__template->__folder;
 
