@@ -111,8 +111,9 @@ body {
     width: calc(100% - 44px);
   }
 
+  /* Edge accent pill (left:-4px) becomes stray blue dots once mobile gutters are tight */
   .block5-indicator {
-    left: 0;
+    display: none !important;
   }
 
   /* Callback form: BS4 has no col-xs-*; force full-width column on phones */
