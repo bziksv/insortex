@@ -20,9 +20,7 @@ use Ranx\Landing\Config;
             const goal = $(this).data('metrics-click');
             submitJsGoal(goal);
         });
-        $(document).on('rxFormSubmitted', function (e, data) {
-            submitJsGoal(data.formCode);
-        });
+        // Формы: цель Forma отправляется из footer.php (счётчик 110110560)
         $(document).on('click', 'a[href^="mailto:"]', function () {
             submitJsGoal('ranx_landing_email');
         });

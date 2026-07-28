@@ -84,5 +84,26 @@ Loc::loadMessages(__FILE__);
 
     <? Page::postActions(); ?>
 
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110110560', 'ym');
+
+    window.RX_YAMETRIKA_ID = 110110560;
+    ym(110110560, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+
+    // Цель Forma — успешная отправка любой формы
+    if (window.jQuery) {
+        jQuery(document).on('rxFormSubmitted', function () {
+            try { ym(110110560, 'reachGoal', 'Forma'); } catch (e) {}
+        });
+    }
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110110560" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </body>
 </html>

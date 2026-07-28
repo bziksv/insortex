@@ -28,6 +28,8 @@ $(document).ready(function(){
                     $form.siblings('.order-payment').html(result.data.payment);
                     $form.parent().find('.order-payment form').submit();
                 }
+
+                $form.trigger('rxFormSubmitted', { formCode: 'ranx_landing_sale_order' });
             }, (result) => {
                 $form.closest('.order-form').addClass('order-complete order-complete-error')
             });
