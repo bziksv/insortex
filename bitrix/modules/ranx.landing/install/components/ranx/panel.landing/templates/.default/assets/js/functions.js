@@ -191,7 +191,19 @@ function updateBlockUpAndDown()
         return;
     }
 
-    // First/last by sort position (works with gaps/duplicates in data-order)
+    // Prefer DOM order of #blocks_wrapper children when building first/last —
+    // flex/data-order alone was marking mid-page blocks as "last" in edit mode.
+    let $domWraps = $('#blocks_wrapper').children('.block-wrap');
+    if ($domWraps.length < 2) {
+        $domWraps = getTopLevelBlockWraps();
+    }
+
+    if ($domWraps.length) {
+        $domWraps.first().addClass('block-wrap-first');
+        $domWraps.last().addClass('block-wrap-last');
+        return;
+    }
+
     $(wraps[0]).addClass('block-wrap-first');
     $(wraps[wraps.length - 1]).addClass('block-wrap-last');
 }
