@@ -166,16 +166,11 @@ body.header-is-transparent header:hover ~ #blocks_wrapper .block-wrap:first-chil
 .block_edit_btns > span.block_edit_show { display: none; }
 .block.hidden span.block_edit_show  { display: flex; }
 .block.hidden span.block_edit_hide  { display: none; }
-/* Always show both move arrows. Hiding by first/last was wrong when the
-   sorted-wrap list was incomplete in edit mode (middle blocks looked "last").
-   Boundary clicks are no-ops in JS. */
-#blocks_wrapper .block-wrap.block-wrap-first .block_edit_move_up,
-#blocks_wrapper .block-wrap.block-wrap-last .block_edit_move_down {
+/* Never hide/disable move arrows via first/last — edit-mode wrap detection
+   was wrong and removed Down on mid-page blocks. JS no-ops at real ends. */
+#blocks_wrapper .block-wrap .block_edit_move_up,
+#blocks_wrapper .block-wrap .block_edit_move_down {
     display: flex !important;
-    opacity: 0.35;
-    pointer-events: none;
-}
-#blocks_wrapper .block-wrap.block-wrap-first .block_edit_move_down,
-#blocks_wrapper .block-wrap.block-wrap-last .block_edit_move_up {
-    border-radius: 3px;
+    opacity: 1 !important;
+    pointer-events: auto !important;
 }
