@@ -9,7 +9,8 @@ $docRoot = rtrim($_SERVER['DOCUMENT_ROOT'] ?? '', '/');
 $assetVer = static function ($relPath) use ($docRoot) {
     $full = $docRoot . $relPath;
     $mtime = is_file($full) ? filemtime($full) : time();
-    return $relPath . '?v=' . $mtime;
+    // Extra hard bust when move handlers change (nginx expires 3d)
+    return $relPath . '?v=' . $mtime . '-move3';
 };
 
 $asset->addCss($templatePath . '/assets/css/main.css');

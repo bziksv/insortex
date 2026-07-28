@@ -159,6 +159,10 @@ body.header-is-transparent header:hover ~ #blocks_wrapper .block-wrap:first-chil
     -moz-border-radius: 0 3px 3px 0;
     border-radius: 0 3px 3px 0;
 }
+.block_edit_btns > span.block_edit_move_up svg,
+.block_edit_btns > span.block_edit_move_down svg {
+    pointer-events: none;
+}
 .block_edit_btns > span.block_edit_show { display: none; }
 .block.hidden span.block_edit_show  { display: flex; }
 .block.hidden span.block_edit_hide  { display: none; }
