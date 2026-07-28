@@ -173,17 +173,12 @@ $(document).ready(function(){
             return;
         }
 
-        let blockOrder = parseInt($blockWrap.attr('data-order'), 10) || 0;
-        let nextBlockOrder = parseInt($nextBlockWrap.attr('data-order'), 10) || 0;
-
-        setBlockWrapOrder($blockWrap, nextBlockOrder);
-        setBlockWrapOrder($nextBlockWrap, blockOrder);
-
-        let $block = $blockWrap.find('.block');
-        let $nextBlock = $nextBlockWrap.find('.block');
+        let $block = $blockWrap.find('.block').first();
+        let $nextBlock = $nextBlockWrap.find('.block').first();
         let blockId = $block.data('id');
         let headerHeight = $('#headerfixed').height() || 62;
 
+        swapBlockWrapPositions($blockWrap, $nextBlockWrap);
         RxLandingBlock.down(blockId, $nextBlock.data('id'), $block.data('group-id'), $nextBlock.data('group-id'));
 
         $(document).scrollTop(scrollTop);
@@ -202,17 +197,12 @@ $(document).ready(function(){
             return;
         }
 
-        let blockOrder = parseInt($blockWrap.attr('data-order'), 10) || 0;
-        let prevBlockOrder = parseInt($prevBlockWrap.attr('data-order'), 10) || 0;
-
-        setBlockWrapOrder($blockWrap, prevBlockOrder);
-        setBlockWrapOrder($prevBlockWrap, blockOrder);
-
-        let $block = $blockWrap.find('.block');
-        let $prevBlock = $prevBlockWrap.find('.block');
+        let $block = $blockWrap.find('.block').first();
+        let $prevBlock = $prevBlockWrap.find('.block').first();
         let blockId = $block.data('id');
         let headerHeight = $('#headerfixed').height() || 62;
 
+        swapBlockWrapPositions($blockWrap, $prevBlockWrap);
         RxLandingBlock.up(blockId, $prevBlock.data('id'), $block.data('group-id'), $prevBlock.data('group-id'));
 
         $(document).scrollTop(scrollTop);

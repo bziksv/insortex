@@ -144,9 +144,17 @@ function closePanel(id)
     $('.panel.open').last().addClass('active');
 }
 
+function getTopLevelBlockWraps()
+{
+    // find() — wraps may sit under composite/frame nodes; ignore nested .block-wrap
+    return $('#blocks_wrapper').find('.block-wrap').filter(function () {
+        return $(this).parents('.block-wrap').length === 0;
+    });
+}
+
 function getSortedBlockWraps()
 {
-    return $('#blocks_wrapper').children('.block-wrap').get().sort(function (a, b) {
+    return getTopLevelBlockWraps().get().sort(function (a, b) {
         return (parseInt($(a).attr('data-order'), 10) || 0) - (parseInt($(b).attr('data-order'), 10) || 0);
     });
 }
@@ -156,18 +164,34 @@ function setBlockWrapOrder($el, order)
     $el.attr('data-order', order).css('order', order);
 }
 
+function swapBlockWrapPositions($a, $b)
+{
+    let orderA = parseInt($a.attr('data-order'), 10) || 0;
+    let orderB = parseInt($b.attr('data-order'), 10) || 0;
+
+    setBlockWrapOrder($a, orderB);
+    setBlockWrapOrder($b, orderA);
+
+    // Physical DOM swap — visual move must not depend only on flex order CSS
+    let marker = document.createElement('div');
+    $a.before(marker);
+    $b.before($a);
+    $(marker).replaceWith($b);
+
+    updateBlockUpAndDown();
+}
+
 function updateBlockUpAndDown()
 {
-    let $wrapper = $('#blocks_wrapper');
     let wraps = getSortedBlockWraps();
 
-    $wrapper.children('.block-wrap').removeClass('block-wrap-first block-wrap-last');
+    getTopLevelBlockWraps().removeClass('block-wrap-first block-wrap-last');
 
     if (!wraps.length) {
         return;
     }
 
-    // First/last by visual sort position (works with gaps/duplicates in data-order)
+    // First/last by sort position (works with gaps/duplicates in data-order)
     $(wraps[0]).addClass('block-wrap-first');
     $(wraps[wraps.length - 1]).addClass('block-wrap-last');
 }

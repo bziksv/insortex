@@ -46,7 +46,13 @@ body {
   width: 100%;
   max-width: 100%;
   min-width: 0;
-  overflow-x: hidden;
+  /* overflow-x only on mobile — on desktop it clips landing editor arrows (absolute, right edge) */
+}
+
+@media (max-width: 991px) {
+  #blocks_wrapper {
+    overflow-x: hidden;
+  }
 }
 
 .block-wrap,
