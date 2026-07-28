@@ -12,7 +12,7 @@ $docRoot = rtrim($_SERVER['DOCUMENT_ROOT'] ?? '', '/');
 $assetVer = static function ($relPath) use ($docRoot) {
     $full = $docRoot . $relPath;
     $mtime = is_file($full) ? filemtime($full) : time();
-    return $relPath . '?v=' . $mtime . '-move8';
+    return $relPath . '?v=' . $mtime . '-move9';
 };
 
 $asset->addCss($templatePath . '/assets/css/main.css');

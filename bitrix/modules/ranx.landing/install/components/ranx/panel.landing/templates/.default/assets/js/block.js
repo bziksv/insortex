@@ -165,6 +165,12 @@ $(document).ready(function(){
     // then "top-level only" logic thinks the current block is last and ↓ no-ops.
     function getEditorBlockWraps()
     {
+        // Prefer flat direct children after flattenEditorBlockWraps()
+        let $direct = $('#blocks_wrapper').children('.block-wrap[data-id]');
+        if ($direct.length >= 2) {
+            return $direct;
+        }
+
         let seen = {};
         return $('#blocks_wrapper').find('.block-wrap[data-id]').filter(function () {
             let id = String($(this).attr('data-id') || '');
@@ -178,12 +184,11 @@ $(document).ready(function(){
 
     function getSortedEditorBlockWraps()
     {
-        return getEditorBlockWraps().get().sort(function (a, b) {
-            return (parseInt($(a).attr('data-order'), 10) || 0) - (parseInt($(b).attr('data-order'), 10) || 0);
-        });
+        // After flatten, DOM order is the source of truth (not stale data-order)
+        return getEditorBlockWraps().get();
     }
 
-    // Re-parent every landing block as a direct child of #blocks_wrapper in SORT order.
+    // Re-parent every landing block as a direct child of #blocks_wrapper in order.
     // Fixes nesting caused by invalid markup inside block content.
     function flattenEditorBlockWraps(orderedEls)
     {
@@ -192,9 +197,22 @@ $(document).ready(function(){
             return;
         }
 
-        let list = orderedEls && orderedEls.length
-            ? orderedEls
-            : getSortedEditorBlockWraps();
+        let list;
+        if (orderedEls && orderedEls.length) {
+            list = orderedEls;
+        } else {
+            let seen = {};
+            list = $wrapper.find('.block-wrap[data-id]').filter(function () {
+                let id = String($(this).attr('data-id') || '');
+                if (!id || seen[id]) {
+                    return false;
+                }
+                seen[id] = true;
+                return true;
+            }).get().sort(function (a, b) {
+                return (parseInt($(a).attr('data-order'), 10) || 0) - (parseInt($(b).attr('data-order'), 10) || 0);
+            });
+        }
 
         for (let i = 0; i < list.length; i++) {
             $wrapper.append(list[i]);
@@ -215,57 +233,41 @@ $(document).ready(function(){
 
     function findAdjacentBlockWrap($blockWrap, direction)
     {
-        let sorted = getSortedEditorBlockWraps();
+        flattenEditorBlockWraps();
+        let wraps = getSortedEditorBlockWraps();
         let id = String($blockWrap.attr('data-id') || '');
-        let idx = -1;
-
-        for (let i = 0; i < sorted.length; i++) {
-            if (String($(sorted[i]).attr('data-id') || '') === id) {
-                idx = i;
-                break;
-            }
-        }
+        // Re-resolve wrap after flatten (node may have been re-parented)
+        let el = document.getElementById('block_' + id) || $blockWrap[0];
+        let idx = wraps.indexOf(el);
 
         let next = idx + direction;
-        if (idx < 0 || next < 0 || next >= sorted.length) {
+        if (idx < 0 || next < 0 || next >= wraps.length) {
             return $();
         }
 
-        return $(sorted[next]);
+        return $(wraps[next]);
     }
 
     function applyBlockWrapMove($blockWrap, $other, direction)
     {
-        let sorted = getSortedEditorBlockWraps();
+        flattenEditorBlockWraps();
+
         let id = String($blockWrap.attr('data-id') || '');
         let otherId = String($other.attr('data-id') || '');
-        let from = -1;
-        let to = -1;
+        let $a = $('#block_' + id);
+        let $b = $('#block_' + otherId);
 
-        for (let i = 0; i < sorted.length; i++) {
-            let curId = String($(sorted[i]).attr('data-id') || '');
-            if (curId === id) {
-                from = i;
-            }
-            if (curId === otherId) {
-                to = i;
-            }
-        }
-
-        if (from < 0 || to < 0 || from === to) {
+        if (!$a.length || !$b.length || id === otherId) {
             return;
         }
 
-        let moved = sorted.splice(from, 1)[0];
-        // After removal, if moving down the target index shifts left by 1
-        let insertAt = to;
-        if (from < to) {
-            insertAt = to; // splice already shifted; insert at old `to` places after previous neighbor
+        // Physical sibling swap under #blocks_wrapper
+        if (direction > 0) {
+            $a.insertAfter($b);
+        } else {
+            $a.insertBefore($b);
         }
-        sorted.splice(insertAt, 0, moved);
 
-        // Always re-append in order under #blocks_wrapper (also un-nests broken DOM)
-        flattenEditorBlockWraps(sorted);
         renumberEditorBlockWraps();
     }
 
@@ -280,26 +282,47 @@ $(document).ready(function(){
         $('html, body').stop(true).animate({ scrollTop: offset.top - headerHeight }, 400);
     }
 
-    // Un-nest + align data-order with visual order on editor load
-    flattenEditorBlockWraps();
-    renumberEditorBlockWraps();
+    function bootEditorBlockOrder()
+    {
+        flattenEditorBlockWraps();
+        renumberEditorBlockWraps();
+    }
+
+    // Un-nest + align order on load (and again shortly — composite/late HTML)
+    bootEditorBlockOrder();
+    setTimeout(bootEditorBlockOrder, 0);
+    setTimeout(bootEditorBlockOrder, 500);
+    setTimeout(bootEditorBlockOrder, 1500);
+    if (window.BX && BX.addCustomEvent) {
+        BX.addCustomEvent('onFrameDataReceived', bootEditorBlockOrder);
+        BX.addCustomEvent('onAjaxSuccessFinish', bootEditorBlockOrder);
+    }
 
     $(document).on('click', '.js-block-down', function(e){
         e.preventDefault();
         e.stopPropagation();
         e.stopImmediatePropagation();
 
+        bootEditorBlockOrder();
+
         let $blockWrap = $(this).closest('.block-wrap[data-id]');
+        let blockId = parseInt($blockWrap.attr('data-id'), 10) || 0;
+        $blockWrap = $('#block_' + blockId);
         let $nextBlockWrap = findAdjacentBlockWrap($blockWrap, 1);
 
         if (!$nextBlockWrap.length || !$nextBlockWrap.attr('data-id')) {
             return;
         }
 
-        let blockId = parseInt($blockWrap.attr('data-id'), 10) || 0;
         let nextId = parseInt($nextBlockWrap.attr('data-id'), 10) || 0;
-        let $block = $blockWrap.find('.block').first();
-        let $nextBlock = $nextBlockWrap.find('.block').first();
+        let $block = $blockWrap.find('> .block').first();
+        if (!$block.length) {
+            $block = $blockWrap.find('.block').first();
+        }
+        let $nextBlock = $nextBlockWrap.find('> .block').first();
+        if (!$nextBlock.length) {
+            $nextBlock = $nextBlockWrap.find('.block').first();
+        }
 
         applyBlockWrapMove($blockWrap, $nextBlockWrap, 1);
         RxLandingBlock.down(blockId, nextId, $block.data('group-id'), $nextBlock.data('group-id'));
@@ -310,17 +333,26 @@ $(document).ready(function(){
         e.stopPropagation();
         e.stopImmediatePropagation();
 
+        bootEditorBlockOrder();
+
         let $blockWrap = $(this).closest('.block-wrap[data-id]');
+        let blockId = parseInt($blockWrap.attr('data-id'), 10) || 0;
+        $blockWrap = $('#block_' + blockId);
         let $prevBlockWrap = findAdjacentBlockWrap($blockWrap, -1);
 
         if (!$prevBlockWrap.length || !$prevBlockWrap.attr('data-id')) {
             return;
         }
 
-        let blockId = parseInt($blockWrap.attr('data-id'), 10) || 0;
         let prevId = parseInt($prevBlockWrap.attr('data-id'), 10) || 0;
-        let $block = $blockWrap.find('.block').first();
-        let $prevBlock = $prevBlockWrap.find('.block').first();
+        let $block = $blockWrap.find('> .block').first();
+        if (!$block.length) {
+            $block = $blockWrap.find('.block').first();
+        }
+        let $prevBlock = $prevBlockWrap.find('> .block').first();
+        if (!$prevBlock.length) {
+            $prevBlock = $prevBlockWrap.find('.block').first();
+        }
 
         applyBlockWrapMove($blockWrap, $prevBlockWrap, -1);
         RxLandingBlock.up(blockId, prevId, $block.data('group-id'), $prevBlock.data('group-id'));
