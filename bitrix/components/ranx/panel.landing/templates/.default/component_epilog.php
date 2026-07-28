@@ -1,16 +1,18 @@
 <?php
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 
+use Bitrix\Main\Page\AssetLocation;
+
 $asset = \Bitrix\Main\Page\Asset::getInstance();
 $templatePath = $this->__template->__folder;
 $docRoot = rtrim($_SERVER['DOCUMENT_ROOT'] ?? '', '/');
 
-// Bust nginx/browser 3-day static cache after editor JS/CSS fixes
+// Bust nginx/browser static cache; MUST load after jQuery (AssetLocation::AFTER_JS).
+// addString(..., true) defaults to AFTER_JS_KERNEL and runs before template jQuery → "$ is not defined".
 $assetVer = static function ($relPath) use ($docRoot) {
     $full = $docRoot . $relPath;
     $mtime = is_file($full) ? filemtime($full) : time();
-    // Extra hard bust when move handlers change (nginx expires 3d)
-    return $relPath . '?v=' . $mtime . '-move3';
+    return $relPath . '?v=' . $mtime . '-move4';
 };
 
 $asset->addCss($templatePath . '/assets/css/main.css');
@@ -27,20 +29,30 @@ $asset->addCss($templatePath . '/assets/css/menu.css');
 $asset->addCss($templatePath . '/assets/css/gallery.css');
 $asset->addCss($templatePath . '/assets/css/tabs.css');
 
-// Versioned via addString — Asset::addJs may ignore ?v= and nginx caches JS for 3 days
-$asset->addString('<script src="' . htmlspecialcharsbx($assetVer($templatePath . '/assets/js/functions.js')) . '"></script>', true);
-$asset->addString('<script src="' . htmlspecialcharsbx($assetVer($templatePath . '/assets/js/main.js')) . '"></script>', true);
-$asset->addString('<script src="' . htmlspecialcharsbx($assetVer($templatePath . '/assets/js/block.js')) . '"></script>', true);
-$asset->addJs($templatePath . '/assets/js/aarray.js');
-$asset->addJs($templatePath . '/assets/js/preset.js');
-$asset->addJs($templatePath . '/assets/js/radiocolor.js');
-$asset->addJs($templatePath . '/assets/js/section_element.js');
-$asset->addJs($templatePath . '/assets/js/select.js');
-$asset->addJs($templatePath . '/assets/js/updates.js');
-$asset->addJs($templatePath . '/assets/js/ac.js');
-$asset->addJs($templatePath . '/assets/js/group.js');
-$asset->addJs($templatePath . '/assets/js/menu.js');
-$asset->addJs($templatePath . '/assets/js/gallery.js');
-$asset->addJs($templatePath . '/assets/js/tabs.js');
+$panelJs = [
+    'functions.js',
+    'main.js',
+    'block.js',
+    'aarray.js',
+    'preset.js',
+    'radiocolor.js',
+    'section_element.js',
+    'select.js',
+    'updates.js',
+    'ac.js',
+    'group.js',
+    'menu.js',
+    'gallery.js',
+    'tabs.js',
+];
+
+foreach ($panelJs as $file) {
+    $src = htmlspecialcharsbx($assetVer($templatePath . '/assets/js/' . $file));
+    $asset->addString(
+        '<script src="' . $src . '"></script>',
+        false,
+        AssetLocation::AFTER_JS
+    );
+}
 
 $asset->addJs('/bitrix/js/ranx.landing/rx_show_if.js');
