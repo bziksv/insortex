@@ -58,6 +58,18 @@ Config::defineSettingId();
 		}
 		#mobilemenu-overlay{z-index:10040!important;height:100%!important;height:100dvh!important;}
 		body.mobilemenu-open #headermobile{visibility:hidden!important;}
+		/* Forms above sticky header (Bootstrap modal default is ~1050) */
+		.modal{z-index:10060!important;}
+		.modal-backdrop{z-index:10055!important;}
+		/* Wide HTML tables: scroll inside the block, not clipped by body */
+		.block15-2-content,.block .table-wrap{
+			overflow-x:auto!important;-webkit-overflow-scrolling:touch;
+			overscroll-behavior-x:contain;max-width:100%;
+		}
+		.block15-2-content>table,.block15-2-content table:not(.header-nav),
+		.table-wrap>table,.table-wrap .custom-table{
+			width:max-content;min-width:100%;max-width:none!important;
+		}
 	}
 	</style>
 </head>

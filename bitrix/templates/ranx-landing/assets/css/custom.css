@@ -47,6 +47,16 @@ body {
     padding-top: 62px !important;
   }
 
+  /* Forms/modals must sit above sticky #headermobile (z-index 10000).
+     Bootstrap defaults (.modal ~1050) leave title under the floating bar. */
+  .modal {
+    z-index: 10060 !important;
+  }
+
+  .modal-backdrop {
+    z-index: 10055 !important;
+  }
+
   #blocks_wrapper {
     /* Do NOT set overflow-x here: non-visible overflow-x forces overflow-y to
        auto and clips absolute catalog filter dropdowns (.bx_filter_block). */
@@ -264,7 +274,7 @@ body {
 
 /* Keep product/content images fluid; do NOT apply to full-bleed bg layers
    or before/after comparison images (they need height:100% inside the frame) */
-.block img:not(.block-bg-picture):not(.parallax-picture):not(.rx-ba__img) {
+.block img:not(.block-bg-picture):not(.parallax-picture):not(.rx-ba__img):not(.slider__img) {
   max-width: 100%;
   height: auto;
 }
@@ -398,8 +408,86 @@ body {
   outline-offset: -2px;
 }
 
+/* Legacy inline markup fallback (old dump HTML with .slider / .slider__range-js) */
+.block15-2-content .slider {
+  --value: 50%;
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 24px auto 0;
+  aspect-ratio: 1000 / 667 !important;
+  overflow: hidden;
+  border: none !important;
+  border-radius: 8px;
+  background: #e8e8e8 !important;
+  color: #1a1a1a;
+}
+
+.block15-2-content .slider .slider__img {
+  position: absolute !important;
+  top: 0 !important;
+  max-width: none !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.block15-2-content .slider .slider__img--before {
+  left: 0;
+  width: var(--value) !important;
+  border-right: 2px solid #fff;
+  object-position: left center;
+  z-index: 1;
+}
+
+.block15-2-content .slider .slider__img--after {
+  right: 0;
+  width: calc(100% - var(--value)) !important;
+  border-left: none;
+  object-position: right center;
+  z-index: 0;
+}
+
+.block15-2-content .slider .slider__range-js {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background: transparent;
+  outline: 0;
+  cursor: ew-resize;
+  -webkit-appearance: none;
+  appearance: none;
+  z-index: 3;
+}
+
+.block15-2-content .slider .slider__range-js::-webkit-slider-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1a1a1a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: none;
+  transform: none;
+}
+
+.block15-2-content .slider .slider__range-js::-moz-range-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #1a1a1a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  background-image: none;
+  transform: none;
+}
+
 @media (max-width: 767px) {
-  .rx-ba {
+  .rx-ba,
+  .block15-2-content .slider {
     margin-top: 16px;
     border-radius: 6px;
   }
@@ -425,10 +513,32 @@ body {
   max-width: 100% !important;
   overflow-x: auto !important;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
 
 .custom-table {
   max-width: none;
+}
+
+/* Bare <table> in HTML blocks (no .table-wrap) — still scroll on phones.
+   body { overflow-x: clip } would otherwise cut them with no way to pan. */
+@media (max-width: 991px) {
+  .block15-2-content,
+  .block .table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    max-width: 100%;
+  }
+
+  .block15-2-content > table,
+  .block15-2-content table:not(.header-nav),
+  .table-wrap > table,
+  .table-wrap .custom-table {
+    width: max-content;
+    min-width: 100%;
+    max-width: none !important;
+  }
 }
 
 /* Headings: no syllable hyphens; readable size on narrow phones */
